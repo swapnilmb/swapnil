@@ -180,6 +180,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\bidding.pubxml" />
     <None Include="Properties\PublishProfiles\final2.pubxml" />
     <None Include="Properties\PublishProfiles\finalwork.pubxml" />
     <None Include="Properties\PublishProfiles\IISHostDemo.pubxml" />

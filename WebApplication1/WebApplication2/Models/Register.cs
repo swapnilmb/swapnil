@@ -12,5 +12,6 @@ namespace WebApplication2.Models
         public string Password { get; set; }
         public string Emailid { get; set; }
 
+
     }
 }

@@ -7,12 +7,13 @@ using WebApplication2.Models;
 using System.Data.Entity;
 using System.Data;
 using WebApplication2.ViewModel;
+using System.Web.Security;
 namespace WebApplication2.Controllers
 {
     public class CheckController : Controller
     {
         Connections con=new Connections();
-    
+    [HttpGet]
         public ActionResult Index()
         {
            
@@ -27,6 +28,7 @@ namespace WebApplication2.Controllers
            
             if(auth!=null)
             {
+                FormsAuthentication.SetAuthCookie(auth.Name,true);
                 var vi = auth.RegisterId;
                 //ViewBag.runId = vi;
                 return RedirectToAction("Index","Itemmanager",new{id=vi});
@@ -56,6 +58,7 @@ namespace WebApplication2.Controllers
                 var t = rs;
                 con.SaveChanges();
                 var vi = t.RegisterId;
+                FormsAuthentication.SetAuthCookie(t.Name, true);
                 //con.SaveChanges();
                 return RedirectToAction("Index", "Itemmanager", new { id = vi });
             }
@@ -70,6 +73,14 @@ namespace WebApplication2.Controllers
         public ActionResult Startup()
         {
             return View();
+        }
+        public ActionResult Logout()
+        {
+
+            FormsAuthentication.SignOut();
+
+            return RedirectToAction("Index", "Check");
+
         }
     }
 }

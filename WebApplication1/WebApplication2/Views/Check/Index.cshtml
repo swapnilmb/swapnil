@@ -3,21 +3,25 @@
     ViewBag.Title = "Login";
 }
 
-<h2>Login</h2>
-@using (Html.BeginForm())
-{
-    Html.ValidationSummary(true);
-    
-    <div>@ViewBag.message</div>
-    <div>@Html.LabelFor(e=>e.Emailid)</div>
-    <div>@Html.EditorFor(e=>e.Emailid)
-    @Html.ValidationMessageFor(e => e.Emailid)
+    <h2>Login</h2>
+    @using (Html.BeginForm())
+    {
+        Html.ValidationSummary(true);
+
+        <div>@ViewBag.message</div>
+        <div>@Html.LabelFor(e => e.Emailid)</div>
+        <div>
+            @Html.EditorFor(e => e.Emailid)
+        @Html.ValidationMessageFor(e => e.Emailid)
     </div>
-    <div>@Html.LabelFor(p=>p.Password)</div>
-    <div>@Html.EditorFor(p=>p.Password)
-    @Html.ValidationMessageFor(e=>e.Password)
+        <div>@Html.LabelFor(p => p.Password)</div>
+        <div>
+            @Html.EditorFor(p => p.Password)
+        @Html.ValidationMessageFor(e => e.Password)
     </div>
-    <div><input type="submit"value="Login"/></div>
-}
-<div>@Html.ActionLink("Newuser", "Newuser","Check")</div>
+        <div>@Html.CheckBoxFor(m => m.RememberMe)</div>
+        <div>@Html.LabelFor(m => m.RememberMe)</div>
+        <div><input type="submit" value="Login" /></div>
+    }
+    <div>@Html.ActionLink("Newuser", "Newuser", "Check")</div>
 

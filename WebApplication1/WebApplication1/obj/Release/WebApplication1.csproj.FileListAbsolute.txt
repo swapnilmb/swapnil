@@ -107,3 +107,4 @@ D:\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.
 D:\WebApplication1\WebApplication1\obj\Release\WebApplication1.csprojResolveAssemblyReference.cache
 D:\WebApplication1\WebApplication1\obj\Release\WebApplication1.dll
 D:\WebApplication1\WebApplication1\obj\Release\WebApplication1.pdb
+D:\Swapnil\WebApplication1\WebApplication1\bin\WebApplication1.dll.config

@@ -104,7 +104,6 @@ D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.OAuth.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Google.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\Swapnil\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
 D:\Swapnil\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 D:\Swapnil\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
 D:\Swapnil\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
