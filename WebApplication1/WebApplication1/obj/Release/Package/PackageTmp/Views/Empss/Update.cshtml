@@ -1,0 +1,22 @@
+﻿@model WebApplication1.Models.Emp
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    
+   @Html.HiddenFor(model => model.EmpId)
+    <div>@Html.LabelFor(model => model.Empname)</div>
+    <div>@Html.EditorFor(model => model.Empname)</div>
+    <div>@Html.LabelFor(model => model.Empemail)</div>
+    <div>@Html.EditorFor(model => model.Empemail)</div>
+    <div>@Html.LabelFor(model => model.DeptId,"Department")</div>
+   <div>@Html.DropDownList("DeptId",String.Empty)</div>
+   
+   // <div> @Html.DropDownList("DeptId", null, htmlAttributes: new { @class = "form-control" })</div>
+    <div><input type="submit" value="Update"/></div>
+}

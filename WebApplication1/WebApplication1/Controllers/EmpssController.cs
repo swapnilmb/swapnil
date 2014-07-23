@@ -14,6 +14,7 @@ namespace WebApplication1.Controllers
         public ActionResult Index()
         {
             var dd = co.Emps.Include(e => e.Dept);
+            
             return View(dd.ToList());
         }
 
@@ -58,6 +59,10 @@ namespace WebApplication1.Controllers
             co.Emps.Remove(del);
             co.SaveChanges();
             return RedirectToAction("Index");
+        }
+         public ActionResult Startpage()
+        {
+            return View();
         }
     }
 }

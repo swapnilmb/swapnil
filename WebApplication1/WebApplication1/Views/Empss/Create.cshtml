@@ -10,8 +10,11 @@
     @Html.ValidationSummary(true)
     <div>@Html.LabelFor(m => m.Empname)</div>
     <div>@Html.EditorFor(m => m.Empname)</div>
+
+    <div>@Html.ValidationMessageFor(m=>m.Empname)</div>
     <div>@Html.LabelFor(m => m.Empemail)</div>
     <div>@Html.EditorFor(m => m.Empemail)</div>
+    <div>@Html.ValidationMessageFor(m => m.Empemail)</div>
     <div>@Html.LabelFor(m => m.DeptId,"Department")</div>
     <div>@Html.DropDownList("DeptId", String.Empty)</div>
     <div><input type="submit" value="Create" /></div>

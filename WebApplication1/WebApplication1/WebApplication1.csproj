@@ -180,6 +180,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\final2.pubxml" />
+    <None Include="Properties\PublishProfiles\finalwork.pubxml" />
+    <None Include="Properties\PublishProfiles\IISHostDemo.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -211,6 +214,7 @@
     <Content Include="Views\Empss\Index.cshtml" />
     <Content Include="Views\Empss\Create.cshtml" />
     <Content Include="Views\Empss\Update.cshtml" />
+    <Content Include="Views\Empss\Startpage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -238,7 +242,7 @@
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
+          <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>1938</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:1938/</IISUrl>

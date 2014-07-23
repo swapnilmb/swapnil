@@ -1,0 +1,25 @@
+﻿@model WebApplication2.Models.Item
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+
+    <p>
+        <em><strong>Iteam:</strong></em> @Model.Itemname
+    </p>
+    <p>
+        <em><strong>Price:</strong></em> @Model.Itemprice
+    </p>
+    <p>
+        <em><strong>Starting Date:</strong></em> @Model.Startdate
+    </p>
+    <p>
+        <em><strong>Ending Date:</strong></em> @Model.Enddate
+    </p>
+    <p>
+        <em><strong>Enter you Bid Amount:</strong></em>@Html.TextBox("Amount");
+    </p>
+    <p>
+        <em><strong>@Html.ActionLink("Submit","Add",new{id=Model.ItemId,price=Model.Itemprice,date=Model.Startdate,user=@ViewBag.userid})</strong></em>
+    </p>

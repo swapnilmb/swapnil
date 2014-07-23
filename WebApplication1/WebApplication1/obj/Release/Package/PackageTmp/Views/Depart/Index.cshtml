@@ -1,0 +1,32 @@
+﻿@model IEnumerable<WebApplication1.Models.Dept>
+@{
+    ViewBag.Title = "Department";
+}
+
+<h2>Index</h2>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(m => m.DeptName)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var dd in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => dd.DeptName)
+            </td>
+            <td>
+                @Html.ActionLink("Update", "Update", new { id = dd.DeptId }) |
+               
+                @Html.ActionLink("Delete", "Delete", new { id = dd.DeptId })
+            </td>
+        </tr>
+
+    }
+
+</table>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
