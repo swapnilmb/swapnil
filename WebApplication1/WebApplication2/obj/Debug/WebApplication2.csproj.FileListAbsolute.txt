@@ -53,3 +53,6 @@ D:\WebApplication1\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.
 D:\WebApplication1\WebApplication2\obj\Debug\WebApplication2.dll
 D:\WebApplication1\WebApplication2\obj\Debug\WebApplication2.pdb
 D:\WebApplication1\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache
+D:\Swapnil\WebApplication1\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache
+D:\Swapnil\WebApplication1\WebApplication2\obj\Debug\WebApplication2.dll
+D:\Swapnil\WebApplication1\WebApplication2\obj\Debug\WebApplication2.pdb

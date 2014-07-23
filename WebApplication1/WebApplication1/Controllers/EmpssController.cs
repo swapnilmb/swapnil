@@ -15,6 +15,7 @@ namespace WebApplication1.Controllers
         {
             var dd = co.Emps.Include(e => e.Dept);
             
+            
             return View(dd.ToList());
         }
 

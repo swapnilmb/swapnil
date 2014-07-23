@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 using WebApplication2.Models;
 
@@ -14,7 +15,7 @@ namespace WebApplication2.Controllers
         public ActionResult Index(int? id)
         {
             ViewBag.Register = id;
-            var c = con.Items.Include("Bid");
+            var c = con.Items;
             return View(c.ToList());
         }
 
