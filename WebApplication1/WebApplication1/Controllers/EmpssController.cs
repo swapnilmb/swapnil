@@ -13,10 +13,10 @@ namespace WebApplication1.Controllers
       Connection co=new Connection();
         public ActionResult Index()
         {
-            var dd = co.Emps.Include(e => e.Dept);
+            var dd = co.Emps.Include(e => e.Dept).ToList();
             
             
-            return View(dd.ToList());
+            return View(dd);
         }
 
         public ActionResult Create()

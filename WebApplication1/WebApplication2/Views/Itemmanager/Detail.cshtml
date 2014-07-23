@@ -1,25 +1,28 @@
-﻿@model WebApplication2.Models.Item
+﻿@model WebApplication2.Models.Bid
 @{
     ViewBag.Title = "Detail";
 }
 
 <h2>Detail</h2>
-
+@using (Html.BeginForm("Detail", "Itemmanager", new { itemid = @ViewBag.id, createon = @ViewBag.start, registerid = @ViewBag.userid }))
+{ 
     <p>
-        <em><strong>Iteam:</strong></em> @Model.Itemname
+        <em><strong>Iteam:</strong></em> @ViewBag.name
     </p>
     <p>
-        <em><strong>Price:</strong></em> @Model.Itemprice
+        <em><strong>Price:</strong></em> @ViewBag.pri
     </p>
     <p>
-        <em><strong>Starting Date:</strong></em> @Model.Startdate
+        <em><strong>Starting Date:</strong></em> @ViewBag.start
     </p>
     <p>
-        <em><strong>Ending Date:</strong></em> @Model.Enddate
+       
     </p>
     <p>
-        <em><strong>Enter you Bid Amount:</strong></em>@Html.TextBox("Amount");
+        <em><strong>Enter you Bid Amount:</strong></em>@Html.EditorFor(b => b.Amount)
     </p>
-    <p>
-        <em><strong>@Html.ActionLink("Submit","Add",new{id=Model.ItemId,price=Model.Itemprice,date=Model.Startdate,user=@ViewBag.userid})</strong></em>
-    </p>
+    
+        <input type="submit" value="Submit" />
+    
+}
+<div>@Html.ActionLink("Back to List", "Index", new { id = @ViewBag.userid })</div>

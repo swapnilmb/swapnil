@@ -43,7 +43,7 @@
             
             <td>
 
-                @Html.ActionLink("Bid Now", "Detail", new { id = items.ItemId, userid = @ViewBag.Register }) |
+                @Html.ActionLink("Bid Now", "Detail", new { id = items.ItemId, userid = @ViewBag.Register,name=items.Itemname,pri=items.Itemprice,start=items.Startdate }) |
 
                
             </td>

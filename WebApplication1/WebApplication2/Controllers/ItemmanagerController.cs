@@ -12,11 +12,11 @@ namespace WebApplication2.Controllers
     public class ItemmanagerController : Controller
     {
      Connections con=new Connections();
-        public ActionResult Index(int? id)
+        public ActionResult Index(int id)
         {
             ViewBag.Register = id;
-            var c = con.Items;
-            return View(c.ToList());
+            var c = con.Items.ToList(); 
+            return View(c);
         }
 
         public ActionResult Create()
@@ -37,26 +37,38 @@ namespace WebApplication2.Controllers
             return View(item);
         }
 
-        public ActionResult Detail(int id,int? userid)
+        public ActionResult Detail(int id,int? userid,string name,int pri,DateTime start)
         {
             ViewBag.userid = userid;
-            var select = con.Items.Find(id);
-            return View(select);
-        }
-        
-        public ActionResult Add(int id,int price,DateTime date,int user)
-        {
-            Bid bid = new Bid
-            {
-                Amount = price,
-                Createon = date,
-                ItemId = id,
-                RegisterId = user
-            };
-            con.Bids.Add(bid);
-            con.SaveChanges();
+            ViewBag.id = id;
+            ViewBag.name = name;
+            ViewBag.pri = pri;
+            ViewBag.start = start;
             
             return View();
+        }
+        [HttpPost]
+        //, int ItemId, DateTime createon, int registerid
+        public ActionResult Detail(Bid bid)
+        {
+            if (ModelState.IsValid)
+            {
+                con.Bids.Add(bid);
+                con.SaveChanges();
+                ViewBag.id = bid.RegisterId;
+                return View("Thankyou");
+            }
+            //Bid bids = new Bid
+            //{
+            //    Amount = bid.Amount,
+            //    Createon = createon,
+            //    ItemId = bid.ItemId,
+            //    RegisterId = registerid
+            //};
+            //con.Bids.Add(bid);
+            //con.SaveChanges();
+            
+            return View(bid);
         }
     }
 }
