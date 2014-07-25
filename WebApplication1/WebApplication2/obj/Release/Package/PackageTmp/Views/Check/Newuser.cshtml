@@ -1,0 +1,37 @@
+﻿@model WebApplication2.ViewModel.Newuser
+@{
+    ViewBag.Title = "Newuser";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+
+<h1></h1>
+@using (Html.BeginForm())
+{@Html.ValidationSummary(true)
+
+    <div>@Html.LabelFor(n => n.Username)</div>
+    <div>
+        @Html.EditorFor(n => n.Username)
+        @Html.ValidationMessageFor(m => m.Username)
+    </div>
+    <div>@Html.LabelFor(e => e.Emailid)</div>
+    <div>
+        @Html.EditorFor(e => e.Emailid)
+        @Html.ValidationMessageFor(m => m.Emailid)
+    </div>
+    <div>@Html.LabelFor(p => p.Password)</div>
+    <div>
+        @Html.EditorFor(p => p.Password)
+        @Html.ValidationMessageFor(m => m.Password)
+    </div>
+    @*<div> Retype Password:</div>
+        <div><input type="password" /></div>*@
+    <div>@Html.LabelFor(p => p.ConfirmPassword)</div>
+    <div>
+        @Html.EditorFor(p => p.ConfirmPassword)
+        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+    </div>
+
+    <div><input type="submit" value="Create" /></div>
+
+}

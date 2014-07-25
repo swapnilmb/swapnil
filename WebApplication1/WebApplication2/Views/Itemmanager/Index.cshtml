@@ -43,12 +43,20 @@
             
             <td>
 
-                @Html.ActionLink("Bid Now", "Detail", new { id = items.ItemId, userid = @ViewBag.Register,name=items.Itemname,pri=items.Itemprice,start=items.Startdate }) |
+                @*@Html.ActionLink("Bid Now", "Detail", new { id = items.ItemId, userid = @ViewBag.Register,name=items.Itemname,pri=items.Itemprice,start=items.Startdate }) |*@
 
+                @Ajax.ActionLink("Bid now", "Detail", new { id = items.ItemId, userid = @ViewBag.Register, name = items.Itemname, pri = items.Itemprice, start = items.Startdate }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "CustomerList" ,})
+                
                
             </td>
         </tr>
     }
     
 </table>
+
+<div id="CustomerList">hh</div>
 <div></div>
+@section scripts{
+
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+}

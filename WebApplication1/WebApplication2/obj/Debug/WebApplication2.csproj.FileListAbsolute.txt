@@ -59,6 +59,7 @@ D:\Swapnil\WebApplication1\WebApplication2\bin\WebApplication2.pdb
 D:\Swapnil\WebApplication1\WebApplication2\bin\Antlr3.Runtime.dll
 D:\Swapnil\WebApplication1\WebApplication2\bin\EntityFramework.dll
 D:\Swapnil\WebApplication1\WebApplication2\bin\EntityFramework.SqlServer.dll
+D:\Swapnil\WebApplication1\WebApplication2\bin\JQueryUIHelpers.dll
 D:\Swapnil\WebApplication1\WebApplication2\bin\Microsoft.AspNet.Identity.Core.dll
 D:\Swapnil\WebApplication1\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 D:\Swapnil\WebApplication1\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -82,6 +83,7 @@ D:\Swapnil\WebApplication1\WebApplication2\bin\System.Web.WebPages.Deployment.dl
 D:\Swapnil\WebApplication1\WebApplication2\bin\System.Web.WebPages.dll
 D:\Swapnil\WebApplication1\WebApplication2\bin\System.Web.WebPages.Razor.dll
 D:\Swapnil\WebApplication1\WebApplication2\bin\WebGrease.dll
+D:\Swapnil\WebApplication1\WebApplication2\bin\JQueryUIHelpers.xml
 D:\Swapnil\WebApplication1\WebApplication2\bin\System.Web.Helpers.xml
 D:\Swapnil\WebApplication1\WebApplication2\bin\System.Web.Mvc.xml
 D:\Swapnil\WebApplication1\WebApplication2\bin\System.Web.Optimization.xml
@@ -107,3 +109,4 @@ D:\Swapnil\WebApplication1\WebApplication2\bin\Microsoft.Owin.Security.Twitter.x
 D:\Swapnil\WebApplication1\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\Swapnil\WebApplication1\WebApplication2\obj\Debug\WebApplication2.dll
 D:\Swapnil\WebApplication1\WebApplication2\obj\Debug\WebApplication2.pdb
+D:\Swapnil\WebApplication1\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache

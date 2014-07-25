@@ -74,6 +74,11 @@ namespace WebApplication2.Controllers
         {
             return View();
         }
+
+        public JsonResult Hello()
+        {
+            return Json("Hello");
+        }
         public ActionResult Logout()
         {
 

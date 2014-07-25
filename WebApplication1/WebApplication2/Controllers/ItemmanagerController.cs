@@ -39,15 +39,17 @@ namespace WebApplication2.Controllers
             return View(item);
         }
         [Authorize]
-        public ActionResult Detail(int id,int? userid,string name,int pri,DateTime start)
+        [OutputCache(NoStore = true, Duration = 0)]
+        [HttpGet]
+        public PartialViewResult Detail(int id,int? userid,string name,int pri,DateTime start)
         {
             ViewBag.userid = userid;
             ViewBag.id = id;
             ViewBag.name = name;
             ViewBag.pri = pri;
             ViewBag.start = start;
-            
-            return View();
+            return PartialView("Detail");
+            // return View();
         }
         [HttpPost]
         [Authorize]
@@ -73,5 +75,6 @@ namespace WebApplication2.Controllers
             
             return View(bid);
         }
+
     }
 }
