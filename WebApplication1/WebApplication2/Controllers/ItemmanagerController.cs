@@ -19,24 +19,24 @@ namespace WebApplication2.Controllers
             var c = con.Items.ToList(); 
             return View(c);
         }
-        [Authorize]
+        
         public ActionResult Create()
         {
             return View();
 
         }
         [HttpPost]
-        [Authorize]
-        public ActionResult Create(Item item)
+        
+        public JsonResult Create(Item item)
         {
             if (ModelState.IsValid)
             {
                 
                 con.Items.Add(item);
                 con.SaveChanges();
-                return RedirectToAction("Index",new{id=0});
+                return Json("Iteam Created");
             }
-            return View(item);
+            return Json(item);
         }
         [Authorize]
         [OutputCache(NoStore = true, Duration = 0)]
@@ -54,14 +54,14 @@ namespace WebApplication2.Controllers
         [HttpPost]
         [Authorize]
         //, int ItemId, DateTime createon, int registerid
-        public ActionResult Detail(Bid bid)
+        public PartialViewResult Detail(Bid bid)
         {
             if (ModelState.IsValid)
             {
                 con.Bids.Add(bid);
                 con.SaveChanges();
                 ViewBag.id = bid.RegisterId;
-                return View("Thankyou");
+                return PartialView("_Bidnow");
             }
             //Bid bids = new Bid
             //{
@@ -72,8 +72,8 @@ namespace WebApplication2.Controllers
             //};
             //con.Bids.Add(bid);
             //con.SaveChanges();
-            
-            return View(bid);
+
+            return PartialView();
         }
 
     }

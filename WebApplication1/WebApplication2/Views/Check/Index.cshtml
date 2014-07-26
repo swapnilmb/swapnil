@@ -3,6 +3,52 @@
     ViewBag.Title = "Login";
 }
 
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
+
+
+        $("#btnCreate").click(function () {
+            InitializeDialog($("#departmentdialog"));
+
+            $("#departmentdialog").dialog("open");
+        });
+
+
+
+        //Method to Initialize the DialogBox
+        function InitializeDialog($element) {
+
+
+            $element.dialog({
+                autoOpen: false,
+                width: 400,
+                resizable: true,
+                draggable: true,
+                title: "Add User",
+                model: true,
+                //show: 'slide',
+                show: function() {$(this).fadeIn(300);},
+                closeText: 'x',
+                //dialogClass: 'alert',
+                closeOnEscape: true,
+               
+                open: function (event, ui) {
+                    //Load the Partial View Here using Controller and Action
+                    $element.load('/Check/Newuser');
+                },
+
+                close: function () {
+                    $(this).dialog('close');
+                }
+
+            });
+
+        }
+    });
+
+
+</script>
+
     <h2>Login</h2>
     @using (Html.BeginForm())
     {
@@ -23,5 +69,8 @@
         <div>@Html.LabelFor(m => m.RememberMe)</div>
         <div><input type="submit" value="Login" /></div>
     }
-    <div>@Html.ActionLink("Newuser", "Newuser", "Check")</div>
-
+<div id="departmentdialog" title="Add User"
+     style="overflow: hidden;
+border-bottom-width:5"></div>
+   
+<div><a href="#" id="btnCreate">Create</a> </div>

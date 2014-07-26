@@ -4,7 +4,7 @@
 }
 
 
-@using (Html.BeginForm())
+@using (Ajax.BeginForm(null, null, new AjaxOptions { HttpMethod = "post", UpdateTargetId = "Done", InsertionMode = InsertionMode.Replace, OnComplete = " $('#sucess')[0].reset()" }, new { @id = "sucess" }))
 {
     Html.ValidationSummary(true);
     <div>@Html.LabelFor(n=>n.Itemname)</div>
@@ -27,7 +27,8 @@
 
         @Html.ValidationMessageFor(s => s.Enddate)
     </div>
-    <input type="submit" value="Create"/>
+    <input type="submit" value="Create" />
 }
-<div>@Html.ActionLink("Back to List","Index",new{id=0})</div>
+
+<div id="Done"></div>
 

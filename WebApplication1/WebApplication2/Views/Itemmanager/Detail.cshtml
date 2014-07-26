@@ -4,9 +4,9 @@
     ViewBag.Title = "Detail";
 }
 
-<h2>Detail</h2>
-@using (Html.BeginForm("Detail", "Itemmanager", new { itemid = @ViewBag.id, createon = @ViewBag.start, registerid = @ViewBag.userid }))
-{
+
+@using (Ajax.BeginForm("Detail", "Itemmanager", new { itemid = @ViewBag.id, createon = @ViewBag.start, registerid = @ViewBag.userid }, new AjaxOptions { HttpMethod = "post", UpdateTargetId = "Thankyou", InsertionMode = InsertionMode.Replace, OnBegin = "$('#Thankyou').hide().fadeIn(1000)", OnComplete = "$('#frmID').hide().fadeOut(1500)" }, new { @id = "frmID" }))
+{<h2>Detail</h2>
     <p>
         <em><strong>Iteam:</strong></em> @ViewBag.name
     </p>
@@ -23,7 +23,8 @@
         <em><strong>Enter you Bid Amount:</strong></em>@Html.EditorFor(b => b.Amount)
     </p>
 
-    <input type="submit" value="Submit" />
+    <input type="submit" value="Submit" id="FadeIn1a" />
 
 }
-<div>@Html.ActionLink("Back to List", "Index", new { id = @ViewBag.userid })</div>
+@*<div>@Html.ActionLink("Back to List", "Index", new { id = @ViewBag.userid })</div>*@
+<div id="Thankyou"></div>

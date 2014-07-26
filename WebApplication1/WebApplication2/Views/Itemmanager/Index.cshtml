@@ -1,62 +1,62 @@
 ﻿@model IEnumerable<WebApplication2.Models.Item>
+ 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>List of Iteams</h2>
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
 
-        <th>
-            @Html.DisplayNameFor(n=>n.Itemname)
-        </th>
-        <th style="padding:20px">
-            @Html.DisplayNameFor(model => model.Itemprice)
-        </th>
-        <th style="padding:20px">
-            @Html.DisplayNameFor(model => model.Startdate)
-        </th>
-        <th style="padding:20px">@Html.DisplayNameFor(model => model.Enddate)</th>
-        
-    </tr>
+    <h2>List of Iteams</h2>
 
 
-    @foreach (var items in Model)
+
+    <table>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(n=>n.Itemname)
+            </th>
+            <th style="padding:20px">
+                @Html.DisplayNameFor(model => model.Itemprice)
+            </th>
+            <th style="padding:20px">
+                @Html.DisplayNameFor(model => model.Startdate)
+            </th>
+            <th style="padding:20px">@Html.DisplayNameFor(model => model.Enddate)</th>
+
+        </tr>
+
+
+        @foreach (var items in Model)
     {
         <tr>
 
-            <td>
-                @Html.DisplayFor(modelItem => items.Itemname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => items.Itemprice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => items.Startdate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => items.Enddate)
-            </td>
-            
-            <td>
+                <td>
+                    @Html.DisplayFor(modelItem => items.Itemname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => items.Itemprice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => items.Startdate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => items.Enddate)
+                </td>
 
-                @*@Html.ActionLink("Bid Now", "Detail", new { id = items.ItemId, userid = @ViewBag.Register,name=items.Itemname,pri=items.Itemprice,start=items.Startdate }) |*@
+                <td>
 
-                @Ajax.ActionLink("Bid now", "Detail", new { id = items.ItemId, userid = @ViewBag.Register, name = items.Itemname, pri = items.Itemprice, start = items.Startdate }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "CustomerList" ,})
-                
-               
-            </td>
-        </tr>
+                    @*@Html.ActionLink("Bid Now", "Detail", new { id = items.ItemId, userid = @ViewBag.Register,name=items.Itemname,pri=items.Itemprice,start=items.Startdate }) |*@
+
+                    @Ajax.ActionLink("Bid now", "Detail", new { id = items.ItemId, userid = @ViewBag.Register, name = items.Itemname, pri = items.Itemprice, start = items.Startdate }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "CustomerList", OnComplete = "$('#CustomerList').hide().fadeIn(1500)" })
+
+
+                </td>
+            </tr>
+
+
     }
+
+    </table>
+
+    <div id="CustomerList"></div>
     
-</table>
-
-<div id="CustomerList">hh</div>
-<div></div>
-@section scripts{
-
-    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
-}

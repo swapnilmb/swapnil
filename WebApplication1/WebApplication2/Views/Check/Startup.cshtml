@@ -2,13 +2,19 @@
 @{
     ViewBag.Title = "Startup";
 }
-@using (Ajax.BeginForm("Hello", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "gg" }))
+@using (Ajax.BeginForm("actionToDo", new AjaxOptions
 {
-    <input type="submit" value="Submit" />
-    <div id="gg">Startup</div>
-    
+    HttpMethod = "post",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "updatediv",
+    OnComplete = "$('#updatediv').hide().fadeIn()"
+}))
+{
+    <div style="height:20px;">
+        <div id='updatediv'>
+            text to replace
+        </div>
+    </div>
+    <input id='realsubmit' style='display:none;' type="submit" />
+    <input id='fakesubmit' type="button" value="submit" onclick="$('#updatediv').fadeOut('slow'); setTimeout(function () { $('#realsubmit').click(); }, 1000);" />
 }
-@*@section scripts{
-
-    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
-}*@
