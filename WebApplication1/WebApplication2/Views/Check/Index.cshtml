@@ -8,15 +8,15 @@
 
 
         $("#btnCreate").click(function () {
-            InitializeDialog($("#departmentdialog"));
+            Dialog($("#add"));
 
-            $("#departmentdialog").dialog("open");
+            $("#add").dialog("open");
         });
 
 
 
         //Method to Initialize the DialogBox
-        function InitializeDialog($element) {
+        function Dialog($element) {
 
 
             $element.dialog({
@@ -69,7 +69,7 @@
         <div>@Html.LabelFor(m => m.RememberMe)</div>
         <div><input type="submit" value="Login" /></div>
     }
-<div id="departmentdialog" title="Add User"
+<div id="add" title="Add User"
      style="overflow: hidden;
 border-bottom-width:5"></div>
    
