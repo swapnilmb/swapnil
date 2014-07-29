@@ -3,9 +3,28 @@
 @{
     ViewBag.Title = "Detail";
 }
+<script>
+    $(function() {
+        $("#swa").submit(function(e) {
+            e.preventDefault();
+            var url = $(this).attr('action');
+            $.ajax({
+                
+                url: url,
+                data: $("#swa").serialize(),
+                type: "POST",
+                success: function (data) {
+                    $("#swa").hide();
+                    $('#Thankyou').hide().html(data).fadeIn("slow");
+                }
+            });
 
+        });
+    }    
+    );
+</script>
 
-@using (Ajax.BeginForm("Detail", "Itemmanager", new { itemid = @ViewBag.id, createon = @ViewBag.start, registerid = @ViewBag.userid }, new AjaxOptions { HttpMethod = "post", UpdateTargetId = "Thankyou", InsertionMode = InsertionMode.Replace, OnBegin = "$('#Thankyou').hide().fadeIn(1000)", OnComplete = "$('#frmID').hide().fadeOut(1500)" }, new { @id = "frmID" }))
+@using (Html.BeginForm("Detail", "Itemmanager", new { itemid = @ViewBag.id, createon = @ViewBag.start, registerid = @ViewBag.userid },FormMethod.Post,new{id="swa"}))
 {<h2>Detail</h2>
     <p>
         <em><strong>Iteam:</strong></em> @ViewBag.name

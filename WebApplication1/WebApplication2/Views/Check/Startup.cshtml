@@ -2,6 +2,47 @@
 @{
     ViewBag.Title = "Startup";
 }
+<script>
+    $(document).ready(function () {
+
+        $("#lnkCollapse").click(function () {
+            $("#contentArea").slideToggle("slow");
+        });
+
+        $("#lnkClose").click(function () {
+            $("#contentArea").slideUp(200);
+        });
+    });
+</script>
+@*<script>
+    $(document).ready(function() {
+        $("#fadeExp1 img" ).fadeTo(0, 0.3);
+        $("#fadeExp1 img").hover(function() {
+            $(this).fadeTo("slow", 1);
+        },
+            function() { $(this).fadeTo("slow", 0.3); }
+        );
+    }
+    );
+</script>*@
+<script>
+    $(document).ready(function () {
+
+        $('#tabHeader a').click(function () {
+
+            // Set header
+            $('.selectTabHeader').removeClass('selectTabHeader');
+            $(this).addClass('selectTabHeader');
+
+            // Show Actual area
+            var v = this.id;
+
+            $('.selectedTab').removeClass('selectedTab');
+
+            $('.' + v).addClass('selectedTab');
+        });
+    });
+</script>
 @using (Ajax.BeginForm("actionToDo", new AjaxOptions
 {
     HttpMethod = "post",
@@ -18,3 +59,49 @@
     <input id='realsubmit' style='display:none;' type="submit" />
     <input id='fakesubmit' type="button" value="submit" onclick="$('#updatediv').fadeOut('slow'); setTimeout(function () { $('#realsubmit').click(); }, 1000);" />
 }
+
+<div class="box" style="width: 400px">
+    <div class="title">
+        Collapse Box (<a id="lnkCollapse"
+                         href="#" style="color: White; font-size: 12px;
+                                                                                                                                                                                                                          text-decoration: none;">Click Here</a>)
+    </div>
+    <div id="contentArea" class="content">
+        <div align="right">
+            <a id="lnkClose"
+               href="#" style="font-size: 10px;">
+                Close
+            </a>
+        </div>
+
+        Your text will be here
+
+    </div>
+</div>
+
+<div id="divSocial">
+    <a> <img src="/images/ProgressCircle.gif" style="position:relative"/></a>
+    <a> <img src="/images/ProgressCircle.gif" /></a>
+    <a><img src="/images/ProgressCircle.gif" /></a>
+</div>
+<style>
+
+    </style>
+<div id="tabArea">
+    <div id="tabHeader">
+        <a id="tab1" class="tab selectTabHeader">Tab 1 </a>
+        <a id="tab2" class="tab">Tab 2</a>
+        <a id="tab3" class="tab">tab 3 </a>
+    </div>
+    <div id="tabData">
+        <div id="tab-data" class="tab1 selectedTab">
+            tab 1 data
+        </div>
+        <div id="tab-data" class="tab2">
+            tab 2 data
+        </div>
+        <div id="tab-data" class="tab3">
+            tab 3 data
+        </div>
+    </div>
+</div>

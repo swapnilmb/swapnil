@@ -1,9 +1,9 @@
 ﻿@if (Request.IsAuthenticated)
 {
-    <div style="color:white;padding:20px; margin-top:10px;font-size:large" class="navbar-right" >WellCome:- @User.Identity.Name
-    <div class="navbar-right" style="margin-top:10px";>@Html.ActionLink("Logout", "Logout", "Check")</div></div>
+    <div style="color:white;padding:20px; font-size:large" class="navbar-right" >WellCome:- @User.Identity.Name
+        &nbsp &nbsp &nbsp <div class="navbar-right">@Html.ActionLink("Logout", "Logout", "Check")</div></div>
 }
 else
 {
-    <div class="navbar-right" style="margin-top: 10px; font-size:medium">@Html.ActionLink("LogIn", "Index", "Check")</div> 
+    <div class="navbar-right" style="margin-top: 10px; font-size:large">@Html.ActionLink("LogIn", "Index", "Check")</div> 
 }
