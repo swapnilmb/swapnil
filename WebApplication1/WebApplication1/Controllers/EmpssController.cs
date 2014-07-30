@@ -11,18 +11,19 @@ namespace WebApplication1.Controllers
     public class EmpssController : Controller
     {
       Connection co=new Connection();
-        public ActionResult Index()
+
+      public ActionResult Index()
         {
             var dd = co.Emps.Include(e => e.Dept).ToList();
-            
-            
+
+
             return View(dd);
         }
 
-        public ActionResult Create()
+        public PartialViewResult Create()
         {
             ViewBag.DeptId = new SelectList(co.Depts, "DeptId", "DeptName");
-            return View();
+            return PartialView();
         }
         [HttpPost]
         public ActionResult Create(Emp emp)
@@ -35,12 +36,13 @@ namespace WebApplication1.Controllers
             }
             return View(emp);
         }
-
-        public ActionResult Update(int? id)
+        [OutputCache(NoStore = true, Duration = 0)]
+        [HttpGet]
+        public PartialViewResult Update(int? id)
         {
             Emp emp = co.Emps.Find(id);
             ViewBag.DeptId = new SelectList(co.Depts, "DeptId", "DeptName", emp.DeptId);
-            return View(emp);
+            return PartialView(emp);
         }
         [HttpPost]
         public ActionResult Update( Emp emp)
@@ -49,6 +51,7 @@ namespace WebApplication1.Controllers
             {
                 co.Entry(emp).State = EntityState.Modified;
                 co.SaveChanges();
+                ViewBag.message = "Updated";
                 return RedirectToAction("Index");
             }
             ViewBag.edept = new SelectList(co.Depts, "DeptId", "DeptName", emp.EmpId);
@@ -62,8 +65,8 @@ namespace WebApplication1.Controllers
             return RedirectToAction("Index");
         }
          public ActionResult Startpage()
-        {
-            return View();
-        }
+         {
+             return View();
+         }
     }
 }

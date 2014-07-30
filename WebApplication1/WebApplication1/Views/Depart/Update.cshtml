@@ -6,11 +6,12 @@
 <h2>Update</h2>
 @using (Html.BeginForm())
 { @Html.ValidationSummary(true)
-    <div>@Html.HiddenFor(m=>m.DeptId)</div>
-    <div>@Html.LabelFor(m=>m.DeptName)</div>
-    <div>@Html.EditorFor(m=>m.DeptName)</div>
+    <div>@Html.HiddenFor(m => m.DeptId)</div>
+    <div>@Html.LabelFor(m => m.DeptName)</div>
+    <div>@Html.EditorFor(m => m.DeptName)</div>
     <div>
-        <input type="submit" value="Update"/>
+        <input type="submit" value="Update" />
     </div>
 }
+
 

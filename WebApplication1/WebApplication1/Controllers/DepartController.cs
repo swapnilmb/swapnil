@@ -17,10 +17,10 @@ namespace WebApplication1.Controllers
             return View(ff);
         }
 
-        public ActionResult Create()
+        public PartialViewResult Create()
         {
             ViewBag.dname = new SelectList(co.Depts, "DeptId", "DeptName");
-            return View();
+            return PartialView();
         }
         [HttpPost]
         public ActionResult Create(Dept dept)
@@ -34,10 +34,10 @@ namespace WebApplication1.Controllers
             return View(dept);
         }
 
-        public ActionResult Update(int id)
+        public PartialViewResult Update(int id)
         {
             Dept dd = co.Depts.Find(id);
-            return View(dd);
+            return PartialView(dd);
 
         }
         [HttpPost]

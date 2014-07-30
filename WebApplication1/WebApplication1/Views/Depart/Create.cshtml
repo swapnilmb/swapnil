@@ -7,8 +7,8 @@
 @using (Html.BeginForm())
 { @Html.ValidationSummary(true)
 
-    <div>@Html.LabelFor(m=>m.DeptName)</div>
-    <div>@Html.EditorFor(m=>m.DeptName)</div>
+    <div>@Html.LabelFor(m => m.DeptName)</div>
+    <div>@Html.EditorFor(m => m.DeptName)</div>
     <p>
         <input type="submit" value="Create" />
     </p>
@@ -16,3 +16,4 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+

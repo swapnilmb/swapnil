@@ -2,8 +2,25 @@
 @{
     ViewBag.Title = "Department";
 }
+<script>
+    $(function () {
+        $('.update').click(function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            $("#divProgress").show();
+            $.ajax({
+                url: url,
 
-<h2>Index</h2>
+                success: function (data) {
+
+                    $('#crt').hide().html(data).fadeIn(500);
+                    $("#divProgress").hide();
+                }
+            });
+        });
+    });
+</script>
+<h2>Departments</h2>
 <table>
     <tr>
         <th>
@@ -18,7 +35,7 @@
                 @Html.DisplayFor(modelItem => dd.DeptName)
             </td>
             <td>
-                @Html.ActionLink("Update", "Update", new { id = dd.DeptId }) |
+                @Html.ActionLink("Update", "Update", new { id = dd.DeptId },new{@class="update"}) |
                
                 @Html.ActionLink("Delete", "Delete", new { id = dd.DeptId })
             </td>
@@ -28,5 +45,9 @@
 
 </table>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create",null,new {@class="update"})
 </p>
+<div id="divProgress" style="display:none;">
+    <img src='@Url.Content("~/images/ProgressCircle.gif")' />
+</div>
+<div id="crt"></div>

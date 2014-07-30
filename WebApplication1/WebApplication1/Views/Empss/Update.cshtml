@@ -2,21 +2,41 @@
 @{
     ViewBag.Title = "Update";
 }
+<script>
+    $(function() {
+        $("#sub").submit(function(e) {
+            e.preventDefault();
+            var url = $(this).attr('action');
+            $.ajax({
 
-<h2>Update</h2>
+                url: url,
+                data: $("#sub").serialize(),
+                type: "POST",
+                success: function (data) {
+                    $("#sub").hide();
+                    alert("updated");
+                }
+            });
 
-@using (Html.BeginForm())
-{
+        });
+    }
+    );
+</script>
+
+
+@using (Html.BeginForm("Update", "Empss",null, FormMethod.Post, new { id = "sub" }))
+{<h2>Update</h2>
     @Html.ValidationSummary(true)
-    
-   @Html.HiddenFor(model => model.EmpId)
+
+    @Html.HiddenFor(model => model.EmpId)
     <div>@Html.LabelFor(model => model.Empname)</div>
     <div>@Html.EditorFor(model => model.Empname)</div>
     <div>@Html.LabelFor(model => model.Empemail)</div>
     <div>@Html.EditorFor(model => model.Empemail)</div>
-    <div>@Html.LabelFor(model => model.DeptId,"Department")</div>
-   <div>@Html.DropDownList("DeptId",String.Empty)</div>
-   
-   // <div> @Html.DropDownList("DeptId", null, htmlAttributes: new { @class = "form-control" })</div>
-    <div><input type="submit" value="Update"/></div>
+    <div>@Html.LabelFor(model => model.DeptId, "Department")</div>
+    <div>@Html.DropDownList("DeptId", String.Empty)</div>
+
+    // <div> @Html.DropDownList("DeptId", null, htmlAttributes: new { @class = "form-control" })</div>
+    <div><input type="submit" value="Update" /></div>
 }
+<div id="Thankyou">@ViewBag.message</div>
