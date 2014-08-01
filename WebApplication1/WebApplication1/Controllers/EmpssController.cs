@@ -12,29 +12,30 @@ namespace WebApplication1.Controllers
     {
       Connection co=new Connection();
 
-      public ActionResult Index()
+      public PartialViewResult Index()
         {
             var dd = co.Emps.Include(e => e.Dept).ToList();
 
 
-            return View(dd);
+            return PartialView("View1",dd);
         }
-
+        [HttpGet]
         public PartialViewResult Create()
         {
             ViewBag.DeptId = new SelectList(co.Depts, "DeptId", "DeptName");
             return PartialView();
         }
         [HttpPost]
-        public ActionResult Create(Emp emp)
+        public JsonResult Create(Emp emp)
         {
             if (ModelState.IsValid)
             {
                 co.Emps.Add(emp);
                 co.SaveChanges();
-                return RedirectToAction("Index");
+                //var x = co.Emps.ToList();
+                return Json("Employee Created");
             }
-            return View(emp);
+            return Json(emp);
         }
         [OutputCache(NoStore = true, Duration = 0)]
         [HttpGet]
@@ -45,24 +46,25 @@ namespace WebApplication1.Controllers
             return PartialView(emp);
         }
         [HttpPost]
-        public ActionResult Update( Emp emp)
+        public JsonResult Update( Emp emp)
         {
             if (ModelState.IsValid)
             {
                 co.Entry(emp).State = EntityState.Modified;
                 co.SaveChanges();
-                ViewBag.message = "Updated";
-                return RedirectToAction("Index");
+                //var x = co.Emps.ToList(); 
+                return Json("Employee Updated");
             }
             ViewBag.edept = new SelectList(co.Depts, "DeptId", "DeptName", emp.EmpId);
-            return View(emp);
+            return Json(emp);
         }
-        public ActionResult Delete(int id)
+        public PartialViewResult Delete(int id)
         {
             var del = co.Emps.Find(id);
             co.Emps.Remove(del);
             co.SaveChanges();
-            return RedirectToAction("Index");
+            var x = co.Emps.ToList(); 
+            return PartialView("View1",x);
         }
          public ActionResult Startpage()
          {

@@ -2,18 +2,51 @@
 @{
     ViewBag.Title = "Create";
 }
+<script>
+    $(function () {
+        $("#sub").click(function (e) {
+            e.preventDefault();
+            var dept = new departmentmodel();
+            //var url = $(this).attr('action');
+            $.ajax({
+                url: "/Depart/Create",
+                dataType: 'json',
+                contentType: "application/json",
+                type: "POST",
+                data: JSON.stringify(dept),
+            
+                
+                success: function (data) {
+                    $("#sub").hide();
+                    $("#sd").hide();
+                    $("#cre").show();
+                    $("#cre").text(data.result);
+                   // $("#done").text(data.result);
 
+
+                }
+            });
+
+        });
+    }
+    );
+    function departmentmodel() {
+        var self = this;
+        self.DeptName = $("#DeptName").val();
+        
+
+        //self.FavoriteBands = $.map($('#FavoriteBands option:selected'),
+        //                  function (e) { return $(e).val(); });
+    }
+</script>
 <h2>Create</h2>
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "Depart", null, FormMethod.Post))
 { @Html.ValidationSummary(true)
 
     <div>@Html.LabelFor(m => m.DeptName)</div>
     <div>@Html.EditorFor(m => m.DeptName)</div>
-    <p>
-        <input type="submit" value="Create" />
-    </p>
+   
 }
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
+<p>
+    <input type="submit" value="Create" id="sub" />
+</p>

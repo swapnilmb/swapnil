@@ -3,10 +3,44 @@
 @{
     ViewBag.Title = "Create";
 }
+<script>
+    $(function () {
+        $("#sub").click(function (e) {
+            e.preventDefault();
+       
+            var emp = new employeemodel();
+            //var url = $(this).attr('action');
+            $.ajax({
+
+                url: "/Empss/Create",
+                data:JSON.stringify(emp),
+                type: "POST",
+                dataType: 'json',
+                contentType: "application/json",
+                success: function (data) {
+                    $("#sub").hide();
+                    $("#sd").hide();
+                    $("#cre").show();
+                    $("#cre").text(data);
+
+                }
+            });
+
+        });
+    }
+    );
+
+    function employeemodel() {
+        var ss = this;
+        ss.Empname = $("#Empname").val();
+        ss.Empemail = $("#Empemail").val();
+        ss.DeptId = $("#DeptId").val();
+    }
+</script>
 
 <h2>Create</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "Empss", null, FormMethod.Post))
 {//<div>@Html.HiddenFor(m=>m.DeptId)</div>
     @Html.ValidationSummary(true)
     <div>@Html.LabelFor(m => m.Empname)</div>
@@ -18,6 +52,7 @@
     <div>@Html.ValidationMessageFor(m => m.Empemail)</div>
     <div>@Html.LabelFor(m => m.DeptId, "Department")</div>
     <div>@Html.DropDownList("DeptId", String.Empty)</div>
-    <div><input type="submit" value="Create" /></div>
+   
 }
 
+<div><input type="submit" value="Create" id="sub"></div>

@@ -2,15 +2,38 @@
 @{
     ViewBag.Title = "Update";
 }
+<script>
+    $(function() {
+        $("#sub").submit(function(e) {
+            e.preventDefault();
+            var url = $(this).attr('action');
+            $.ajax({
+
+                url: url,
+                data: $("#sub").serialize(),
+                type: "POST",
+                success: function (data) {
+                    $("#sub").hide();
+                    $("#sd").hide();
+                    $("#upd").show();
+
+                }
+            });
+
+        });
+    }
+    );
+</script>
 
 <h2>Update</h2>
-@using (Html.BeginForm())
+@using (Html.BeginForm("Update", "Depart",null, FormMethod.Post, new { id = "sub" }))
 { @Html.ValidationSummary(true)
-    <div>@Html.HiddenFor(m=>m.DeptId)</div>
-    <div>@Html.LabelFor(m=>m.DeptName)</div>
-    <div>@Html.EditorFor(m=>m.DeptName)</div>
+    <div>@Html.HiddenFor(m => m.DeptId)</div>
+    <div>@Html.LabelFor(m => m.DeptName)</div>
+    <div>@Html.EditorFor(m => m.DeptName)</div>
     <div>
-        <input type="submit" value="Update"/>
+        <input type="submit" value="Update" />
     </div>
 }
+
 

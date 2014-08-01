@@ -1,0 +1,142 @@
+﻿
+@model IEnumerable<WebApplication1.Models.Dept>
+@{
+    ViewBag.Title = "Department";
+}
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        // when the DOM has fully loaded...
+        $("#update").on("click", function () {
+            var onEventLaunchSquirrel = new postSquirrel();
+            onEventLaunchSquirrel.launchSquirrel();
+        });
+    });
+    function postSquirrel() {
+        this.launchSquirrel = function() {
+
+            // fetch values from input
+            var id = $("#update").val();
+
+            // build json object
+            var squirrel = {
+                id: id,                
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "/Deprt/Update",
+                traditional: true,
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(squirrel),
+                dataType: 'html',
+                success: function (data) {
+                   // var jsonobj = JSON.parse(data);
+                    $('#crt').hide().html(data).fadeIn(500);
+                },                
+            });
+
+        };
+    }
+
+</script>*@
+@*<script>
+    $(function () {
+        $('.update').click(function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            
+            $("#divProgress").show();
+            $.ajax({
+                url: url,
+
+                success: function (data) {
+
+                    $('#crt').hide().html(data).fadeIn(500);
+                    $("#divProgress").hide();
+                    
+                }
+            });
+        });
+    });
+</script>*@
+@*<script>
+    $("#update").click(function(id) {
+        var did = id;
+        $.ajax({            
+            url: "/Deprt/Update",
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(did),
+            dataType: 'html',
+        });
+    });
+</script>*@
+<script>
+    $(function () {
+        $('.update').click(function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            $("#divProgress").show();
+            $.ajax({
+                url: url,
+
+                success: function (data) {
+
+                    $('#crt').hide().html(data).fadeIn(500);
+                    $("#divProgress").hide();
+                }
+            });
+        });
+    });
+</script>
+<script>
+    
+    $(function () {
+        $('.delete').click(function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+
+            $.ajax({
+                url: url,
+
+                success: function (data) {
+
+                    $('#crt').hide().html(data).fadeIn(500);
+                    $("#sd").hide();
+                    $("#del").show();
+                }
+            });
+        });
+    });
+</script>
+
+<h2>Departments</h2>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(m => m.DeptName)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var dd in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => dd.DeptName)
+            </td>
+            <td>
+                @Html.ActionLink("Update", "Update", new { id = dd.DeptId }, new { @class = "update" }) |
+
+                @Html.ActionLink("Delete", "Delete", new { id = dd.DeptId },new { @class = "delete" })
+            </td>
+        </tr>
+
+    }
+
+</table>
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "update" })
+</p>
+<div id="divProgress" style="display:none;">
+    <img src='@Url.Content("~/images/ProgressCircle.gif")' />
+</div>
+<div id="crt"></div>
