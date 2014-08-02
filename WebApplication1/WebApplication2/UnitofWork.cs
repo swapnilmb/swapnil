@@ -12,13 +12,13 @@ namespace WebApplication1.Models
         public UnitofWork()
         {
             con = new Connection();
-            //EF_DeptRepository = new EF_DeptRepository(con);
+            EF_DeptRepository = new EF_DeptRepository();
 
         }
 
         public UnitofWork(IDeptRepository deptsRepo)
         {
-            //EF_DeptRepository = deptsRepo;
+            EF_DeptRepository = deptsRepo;
         }
 
         public IDeptRepository DeptRepository

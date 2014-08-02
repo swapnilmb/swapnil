@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using System.Web.Routing;
 
 using WebApplication1.Controllers;
-
+using System.Web;
 using WebApplication1.Models;
 using UnitTestProject3.Models;
-using System.Web;
+using System.Web.Mvc;
 
 using System.Security.Principal;
 namespace UnitTestProject3
@@ -14,11 +16,11 @@ namespace UnitTestProject3
     [TestClass]
     public class UnitTest1
     {
-         Dept GetContact()
+         Dept GetDept()
         {
-            return GetContact(1, "php");
+            return GetDept(1, "php");
         }
-        Dept GetContact(int id, string fName)
+        Dept GetDept(int id, string fName)
         {
             return new Dept
             {
@@ -29,9 +31,9 @@ namespace UnitTestProject3
         }
 
        
-        private static HomeController GetHomeController(IDeptRepository repository)
+        private static HoController GetHomeController(IDeptRepository repository)
         {
-            HomeController controller = new HomeController(repository);
+            HoController controller = new HoController(repository);
 
             controller.ControllerContext = new ControllerContext()
             {
@@ -58,8 +60,51 @@ namespace UnitTestProject3
             }
         }
         [TestMethod]
-        public void TestMethod1()
+        public void Index_Get_AsksForIndexView()
         {
+            // Arrange
+            var controller = GetHomeController(new MocDeptRepository());
+            // Act
+            ViewResult result = controller.Index();
+            // Assert
+            Assert.AreEqual("Index", result.ViewName);
         }
+        [TestMethod]
+        public void Index_Get_RetrievesAllDeptFromRepository()
+        {
+            // Arrange
+            Dept dept1 = GetDept(1, "Orlando");
+            Dept dept2 = GetDept(2, "Keith");
+            MocDeptRepository repository = new MocDeptRepository();
+            repository.Add(dept1);
+            repository.Add(dept2);
+            var controller = GetHomeController(repository);
+
+            // Act
+            var result = controller.Index();
+
+            // Assert
+            var model = (IEnumerable<Dept>)result.ViewData.Model;
+            CollectionAssert.Contains(model.ToList(), dept1);
+            CollectionAssert.Contains(model.ToList(), dept2);
+        }
+
+        //[TestMethod]
+        //public void Create_Post_ReturnsViewIfModelStateIsNotValid()
+        //{
+        //    // Arrange
+        //    HomeController controller = GetHomeController(new MocDeptRepository());
+        //    // Simply executing a method during a unit test does just that - executes a method, and no more. 
+        //    // The MVC pipeline doesn't run, so binding and validation don't run.
+        //    controller.ModelState.AddModelError("", "mock error message");
+        //    Dept model = GetDept(1, "");
+
+        //    // Act
+        //    var result = (ViewResult)controller.Create(model);
+
+        //    // Assert
+        //    Assert.AreEqual("Create", result.ViewName);
+        //} 
+
     }
 }

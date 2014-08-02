@@ -72,7 +72,7 @@ namespace WebApplication1.Controllers
 
         }
 
-      
+
         public ActionResult Delete(int id)
         {
             var del = co.Depts.Find(id);
@@ -83,5 +83,6 @@ namespace WebApplication1.Controllers
              
             
         }
+
     }
 }

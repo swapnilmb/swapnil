@@ -4,7 +4,12 @@
 }
 
 
-
+<p>
+    Hello @User.Identity.Name How's @CurrentUser.Email? 
+</p>
+<p>
+    <a href="@Url.Action("logout", "auth")">Log Out</a>
+</p>
 <div id="Progress" style="display:none;">
     <img src='@Url.Content("~/images/ProgressCircle.gif")' />
 </div>

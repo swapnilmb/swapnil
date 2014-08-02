@@ -7,12 +7,12 @@ namespace WebApplication1.Models
 {
     public interface IDeptRepository
     {
-        Dept GetContactByID(int id);
-        void CreateNewContact(Dept contactToCreate);
-        void DeleteContact(Dept dept);
+        Dept GetDeptbyDeptid(int id);
+        void CreateNewDept(Dept deptToCreate);
+        void DeleteDept(int id);
        
-        IEnumerable<Dept> GetAllContacts();
-        void Save();
+        IEnumerable<Dept> GetAllDepts();
+        int SaveChanges();
 
     }
 }

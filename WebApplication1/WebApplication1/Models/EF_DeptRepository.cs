@@ -7,40 +7,42 @@ namespace WebApplication1.Models
 {
     public class EF_DeptRepository: IDeptRepository
     {
-        private Connection con = null;
+         Connection con = new Connection();
 
-        public EF_DeptRepository(Connection con)
-        {
-            this.con.Depts.ToList();
-        }
-       
-        public IEnumerable<Dept> GetAllContacts()
+        //public EF_DeptRepository()
+        //{
+        //    con=new Connection();
+        //}
+
+         public IEnumerable<Dept> GetAllDepts()
         {
             return con.Depts.ToList();
         }
 
-        public void CreateNewContact(Dept contactToCreate)
+         public void CreateNewDept(Dept deptToCreate)
         {
-            con.Depts.Add(contactToCreate);
-           
-            //_db.(contactToCreate);
-            //_db.SaveChanges();
-            //   return contactToCreate;
+            con.Depts.Add(deptToCreate);
+             con.SaveChanges();
+             //_db.(contactToCreate);
+             //_db.SaveChanges();
+             //   return contactToCreate;
         }
 
-        public Dept GetContactByID(int id)
+        public Dept GetDeptbyDeptid(int id)
         {
             return con.Depts.SingleOrDefault(s => s.DeptId == id);
         }
-        public void Save()
+        public int SaveChanges()
         {
-            con.SaveChanges();
+           return con.SaveChanges();
         }
 
-        public void DeleteContact(Dept dept)
+        public void DeleteDept(int id)
         {
-            
+            var dept = GetDeptbyDeptid(id);
             con.Depts.Remove(dept);
+            con.SaveChanges();
+       
             
             
         }

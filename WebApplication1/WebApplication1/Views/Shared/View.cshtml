@@ -124,9 +124,9 @@
                 @Html.DisplayFor(modelItem => dd.DeptName)
             </td>
             <td>
-                @Html.ActionLink("Update", "Update", new { id = dd.DeptId }, new { @class = "update" }) |
+                @Html.ActionLink("Update", "UpdateDept", new { id = dd.DeptId }, new { @class = "update" }) |
 
-                @Html.ActionLink("Delete", "Delete", new { id = dd.DeptId },new { @class = "delete" })
+                @Html.ActionLink("Delete", "DeleteDept", new { id = dd.DeptId },new { @class = "delete" })
             </td>
         </tr>
 
@@ -134,7 +134,7 @@
 
 </table>
 <p>
-    @Html.ActionLink("Create New", "Create", null, new { @class = "update" })
+    @Html.ActionLink("Create New", "CreateDept", null, new { @class = "update" })
 </p>
 <div id="divProgress" style="display:none;">
     <img src='@Url.Content("~/images/ProgressCircle.gif")' />

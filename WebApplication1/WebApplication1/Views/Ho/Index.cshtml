@@ -1,0 +1,31 @@
+﻿@model IEnumerable<WebApplication1.Models.Dept>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Departments</h2>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(m => m.DeptName)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var dd in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => dd.DeptName)
+            </td>
+            <td>
+                @Html.ActionLink("Update", "Update", new { id = dd.DeptId }, new { @class = "update" }) |
+
+                @Html.ActionLink("Delete", "Delete", new { id = dd.DeptId }, new { @class = "delete" })
+            </td>
+        </tr>
+
+    }
+
+</table>
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "update" })
+</p>

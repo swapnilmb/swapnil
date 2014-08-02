@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
-namespace WebApplication2.ViewModel
+namespace WebApplication1.ViewModel
 {
     public class Userlogon
     {
@@ -18,5 +19,7 @@ namespace WebApplication2.ViewModel
         [Display(Name = "Remember me?")]
 
         public bool RememberMe { get; set; }
+        [HiddenInput]
+        public string ReturnUrl { get; set; }
     }
 }
