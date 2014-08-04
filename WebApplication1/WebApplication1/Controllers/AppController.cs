@@ -10,12 +10,12 @@ namespace WebApplication1.Controllers
     public abstract class AppController : Controller
     {
         // GET: App
-        public AppUser CurrentUser
-        {
-            get
-            {
-                return new AppUser(this.User as ClaimsPrincipal);
-            }
-        }
+        //public AppUser CurrentUser
+        //{
+        //    get
+        //    {
+        //        return new AppUser(this.User as ClaimsPrincipal);
+        //    }
+        //}
     }
 }

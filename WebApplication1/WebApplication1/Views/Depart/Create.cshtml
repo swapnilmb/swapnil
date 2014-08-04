@@ -1,4 +1,7 @@
-﻿@model WebApplication1.Models.Dept
+﻿@using System.Activities.Expressions
+@using System.Drawing.Printing
+@using System.Web.UI.WebControls
+@model WebApplication1.Models.Dept
 @{
     ViewBag.Title = "Create";
 }
@@ -39,14 +42,15 @@
         //                  function (e) { return $(e).val(); });
     }
 </script>
-<h2>Create</h2>
-@using (Html.BeginForm("Create", "Depart", null, FormMethod.Post))
-{ @Html.ValidationSummary(true)
+<div style="margin-top:auto">
+    @using (Html.BeginForm("Create", "Depart", null, FormMethod.Post))
+    { @Html.ValidationSummary(true)
+        <h2>Create</h2>
+        <div>@Html.LabelFor(m => m.DeptName)</div>
+        <div>@Html.EditorFor(m => m.DeptName)</div>
 
-    <div>@Html.LabelFor(m => m.DeptName)</div>
-    <div>@Html.EditorFor(m => m.DeptName)</div>
-   
-}
-<p>
-    <input type="submit" value="Create" id="sub" />
-</p>
+    }
+    <p>
+        <input type="submit" value="Create" id="sub" />
+    </p>
+</div>

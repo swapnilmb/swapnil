@@ -21,6 +21,7 @@
     $(function () {
         $('.df').click(function (e) {
             e.preventDefault();
+            debugger;
             var url = $(this).attr('href');
             $("#Progress").show();
             $.ajax({
@@ -38,7 +39,16 @@
         });
     });
     </script>
-
+    @*<script>
+    $.ajaxSetup({
+        global: true,
+        statusCode: {
+            401: function () {
+                alert("unauthorized");
+            }
+        }
+    });
+    </script>*@
 
 
 

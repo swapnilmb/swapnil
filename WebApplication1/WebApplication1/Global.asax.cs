@@ -18,5 +18,21 @@ namespace WebApplication1
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+        protected void Application_EndRequest()
+        {
+            if (Context.Response.StatusCode == 302 && Context.Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                Context.Response.Clear();
+                Context.Response.StatusCode = 401;
+            }
+        }
+        //protected void Application_EndRequest()
+        //{
+        //    if (Context.Response.StatusCode == 302 && Context.Request.RequestContext.HttpContext.Request.IsAjaxRequest())
+        //    {
+        //        Context.Response.Clear();
+        //        Context.Response.StatusCode = 401;
+        //    }
+        //}
     }
 }

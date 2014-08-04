@@ -41,10 +41,11 @@
         });
     });
 </script>
-<h2>Employee</h2>
-<p>
-    @Html.ActionLink("Create New", "Create", null, new { @class = "update" })
-</p>
+<div style="margin-top:80px">
+    <h2>Employee</h2>
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "update" })
+    </p>
 <table>
     <tr>
 
@@ -83,8 +84,9 @@
     }
 
 </table>
+    </div>
 
-<div id="divProgress" style="display:none;">
-    <img src='@Url.Content("~/images/ProgressCircle.gif")' />
-</div>
-<div id="crt"></div>
+    <div id="divProgress" style="display:none;">
+        <img src='@Url.Content("~/images/ProgressCircle.gif")' />
+    </div>
+    <div id="crt"></div>

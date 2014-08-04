@@ -67,6 +67,7 @@ namespace WebApplication1.Controllers
             var x = co.Emps.ToList(); 
             return PartialView("View1",x);
         }
+        [AllowAnonymous]
          public ActionResult Startpage()
          {
             // var claimsIdentity = User.Identity as ClaimsIdentity;

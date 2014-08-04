@@ -14,6 +14,7 @@ namespace WebApplication1
     public partial class Startup
     {
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
+        public static Func<UserManager<AppUser>> UserManagerFactory { get; private set; }
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context and user manager to use a single instance per request
@@ -25,7 +26,7 @@ namespace WebApplication1
             // Configure the sign in cookie
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
-                AuthenticationType = "ApplicationCookie",
+                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Auth/Login"),
                 Provider = new CookieAuthenticationProvider
                 {
@@ -34,6 +35,18 @@ namespace WebApplication1
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
             });
+            UserManagerFactory = () =>
+            {
+                var usermanager = new UserManager<AppUser>(
+                    new UserStore<AppUser>(new AppDbContext()));
+                // allow alphanumeric characters in username
+                usermanager.UserValidator = new UserValidator<AppUser>(usermanager)
+                {
+                    AllowOnlyAlphanumericUserNames = false
+                };
+                usermanager.ClaimsIdentityFactory = new AppUserClaimsIdentityFactory();
+                return usermanager;
+            };
             
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,8 @@ namespace WebApplication1.Models
     {
 
         [Required]
-        [DataType(DataType.EmailAddress)]
+        [DisplayName("Email Or UserName")]
+        //[DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         [Required]

@@ -13,8 +13,9 @@ namespace WebApplication1.ViewModel
 
         [DisplayName("UserName")]
         [Required(ErrorMessage = "Name Required")]
-        public string Username { get; set; }
+        public string Name { get; set; }
         [DisplayName("Email-Id")]
+        [System.Web.Mvc.Remote("IsUserEmailAvailable", "Auth",HttpMethod = "POST", ErrorMessage = "email already exists. Please enter a different email.")]
         [Required(ErrorMessage = "Email Required")]
         [DataType(DataType.EmailAddress)]
         public string Emailid { get; set; }
@@ -28,6 +29,8 @@ namespace WebApplication1.ViewModel
         [DataType(DataType.Password)]
         [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "Password Does not Match")]
         public string ConfirmPassword { get; set; }
+             [Required(ErrorMessage="Enter your Country")]
+        public string Country { get; set; }
     
     }
 }

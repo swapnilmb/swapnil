@@ -4,16 +4,12 @@
 }
 
 
-<p>
-    Hello @User.Identity.Name How's @CurrentUser.Email? 
-</p>
-<p>
-    <a href="@Url.Action("logout", "auth")">Log Out</a>
-</p>
-<div id="Progress" style="display:none;">
-    <img src='@Url.Content("~/images/ProgressCircle.gif")' />
+<div style="margin-top:80px">
+    <div id="Progress" style="display:none;">
+        <img src='@Url.Content("~/images/ProgressCircle.gif")' />
+    </div>
+    <div id="sd"></div>
+    <h2><div id="upd"></div></h2>
+    <div id="del" style="display:none;"><h2>Deleted</h2></div>
+    <h2><label id="cre"></label></h2>
 </div>
-<div id="sd"></div>
-<h2><div id="upd"></div></h2>
-<div id="del" style="display:none;"><h2>Deleted</h2></div>
-<h2><label id="cre"></label></h2>
