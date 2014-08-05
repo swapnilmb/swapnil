@@ -4,23 +4,24 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 
-namespace WebApplication1.Models
+namespace WebApplication1.ViewModel
 {
     public class LogInModel
     {
 
-        [Required]
+
+        [Required(ErrorMessage = "Please Enter Email or Username")]
         [DisplayName("Email Or UserName")]
         //[DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please Enter password")]
+        [DisplayName("Password")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [HiddenInput]
+        // [HiddenInput]
         public string ReturnUrl { get; set; }
     }
 }

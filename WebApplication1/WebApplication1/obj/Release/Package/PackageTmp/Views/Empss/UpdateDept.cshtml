@@ -7,11 +7,11 @@
         $("#sub").click(function(e) {
             e.preventDefault();
             // var x = $("#DeptName").val();
-            
+
             var upd = new departmentmodemodel();
             $.ajax({
 
-                url: "/Depart/Update",
+                url: "/Empss/UpdateDept",
                 dataType: 'json',
                 contentType: "application/json",
                 data: JSON.stringify(upd),
@@ -28,7 +28,7 @@
         });
     }
     );
-   
+
 </script>
 <script>
  function departmentmodemodel() {
@@ -36,53 +36,54 @@
         self.DeptId = $("#DeptId").val();
         self.DeptName = $("#DeptName").val();
  }
-    </script>
+</script>
 @*<script type="text/javascript">
-    $(document).ready(function () {
-        // when the DOM has fully loaded...
-        $("#btnSubmit").bind("click", function () {
-            var onEventLaunchSquirrel = new postSquirrel();
-            onEventLaunchSquirrel.launchSquirrel();
-        });
-    });
-    function postSquirrel() {
-        this.launchSquirrel = function () {
-
-            // fetch values from input
-            var name =@m
-            
-
-            // build json object
-            var squirrel = {
-                Name: name,
-                
-            };
-
-            $.ajax({
-                type: "POST",
-                url: "/depart/Update",
-                traditional: true,
-                contentType: 'application/json; charset=utf-8',
-                data: JSON.stringify(squirrel),
-                success: function (data) { console.log(data) },
-                error: function (data) { console.log(data) }
+        $(document).ready(function () {
+            // when the DOM has fully loaded...
+            $("#btnSubmit").bind("click", function () {
+                var onEventLaunchSquirrel = new postSquirrel();
+                onEventLaunchSquirrel.launchSquirrel();
             });
+        });
+        function postSquirrel() {
+            this.launchSquirrel = function () {
 
+                // fetch values from input
+                var name =@m
+
+
+                // build json object
+                var squirrel = {
+                    Name: name,
+
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: "/depart/Update",
+                    traditional: true,
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(squirrel),
+                    success: function (data) { console.log(data) },
+                    error: function (data) { console.log(data) }
+                });
+
+            }
         }
-    }
 
-</script>*@
+    </script>*@
 
 <h2>Update</h2>
-@using (Html.BeginForm("Update", "Depart",null, FormMethod.Post))
+@using (Html.BeginForm("Update", "Depart", null, FormMethod.Post))
 { @Html.ValidationSummary(true)
     <div>@Html.HiddenFor(m => m.DeptId)</div>
     <div>@Html.LabelFor(m => m.DeptName)</div>
     <div>@Html.EditorFor(m => m.DeptName)</div>
-    
+
 }
 <div>
     <input type="submit" value="Update" id="sub" />
 </div>
+
 
 

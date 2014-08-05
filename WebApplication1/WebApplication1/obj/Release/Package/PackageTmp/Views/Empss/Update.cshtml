@@ -3,19 +3,23 @@
     ViewBag.Title = "Update";
 }
 <script>
-    $(function() {
-        $("#sub").submit(function(e) {
+    $(function () {
+        $("#sub").click( function (e) {
             e.preventDefault();
-            var url = $(this).attr('action');
+            
+            var dd = new departmentupdate();
+           // var url = $(this).attr('action');
             $.ajax({
-
-                url: url,
-                data: $("#sub").serialize(),
+                dataType: 'json',
+                contentType: "application/json",
+                url: "/Empss/Update",
+                data: JSON.stringify(dd),
                 type: "POST",
                 success: function (data) {
                     $("#sub").hide();
                     $("#sd").hide();
                     $("#upd").show();
+                    $("#upd").text(data);
 
                 }
             });
@@ -23,10 +27,17 @@
         });
     }
     );
+    function departmentupdate() {
+        var s = this;
+        s.DeptId = $("#DeptId").val();
+        s.EmpId = $("#EmpId").val();
+        s.Empname = $("#Empname").val();
+        
+        s.Empemail = $("#Empemail").val();
+    }
 </script>
 
-
-@using (Html.BeginForm("Update", "Empss",null, FormMethod.Post, new { id = "sub" }))
+@using (Html.BeginForm("Update", "Empss",null, FormMethod.Post ))
 {<h2>Update</h2>
     @Html.ValidationSummary(true)
 
@@ -39,5 +50,6 @@
     <div>@Html.DropDownList("DeptId", String.Empty)</div>
 
     // <div> @Html.DropDownList("DeptId", null, htmlAttributes: new { @class = "form-control" })</div>
-    <div><input type="submit" value="Update" /></div>
+   
 }
+<div><input type="submit" value="Update" id="sub" /></div>

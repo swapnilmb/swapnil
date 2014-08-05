@@ -1,5 +1,20 @@
-﻿  <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Employee", "Index", "Empss",null,new{@class="df"})</li>
-        <li>@Html.ActionLink("Department", "Index", "Depart", null, new { @class= "df" })</li>
-    </ul>
+﻿@if (Request.IsAuthenticated)
+{
+   
+        <div style="color:white;padding:20px; font-size:large" class="navbar-right">
+            WellCome:- @User.Identity.Name
+            &nbsp &nbsp &nbsp <div class="navbar-right">@Html.ActionLink("Logout", "logout", "Auth")</div>
+            <div><ul class="nav navbar-nav navbar-right">
+    <li>@Html.ActionLink("Employee", "Index", "Empss", null, new { @class = "df" })</li>
+    <li>@Html.ActionLink("Department", "IndexDept", "Empss", null, new { @class = "df" })</li>
+</ul></div>
+        </div>
+
+}
+else
+{
+    <div class="navbar-right" style="margin-top: 10px; font-size:large">@Html.ActionLink("LogIn", "Login", "Auth", null, new { @class = "df" })</div>
+}
+
+
 
