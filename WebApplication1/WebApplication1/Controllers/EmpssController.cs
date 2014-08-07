@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
-{
+{[HandleError]
     public class EmpssController : Controller
     {
       Connection co=new Connection();

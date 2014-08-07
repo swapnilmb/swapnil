@@ -18,6 +18,11 @@ namespace WebApplication1
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Empss", action = "Startpage", id = UrlParameter.Optional }
             );
+        //    routes.MapRoute(
+        //"ErrorHandler",
+        //"Error/{action}/{errMsg}",
+        //new { controller = "Error", action = "Unauthorised", errMsg = UrlParameter.Optional }
+        //);
         }
     }
 }

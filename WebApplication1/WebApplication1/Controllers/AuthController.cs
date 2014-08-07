@@ -14,6 +14,7 @@ using WebApplication1.ViewModel;
 namespace WebApplication1.Controllers
 {
     [AllowAnonymous]
+    [HandleError]
     public class AuthController : Controller
     {
         private readonly UserManager<AppUser> userManager;
@@ -29,7 +30,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet]
-
+        
         public ActionResult LogIn(string returnUrl)
         {
             var model = new LogInModel
@@ -40,6 +41,7 @@ namespace WebApplication1.Controllers
             return PartialView("Login", model);
         }
         [HttpPost]
+        
         public async Task<ActionResult> LogIn(LogInModel model)
         {
             if (!ModelState.IsValid)
