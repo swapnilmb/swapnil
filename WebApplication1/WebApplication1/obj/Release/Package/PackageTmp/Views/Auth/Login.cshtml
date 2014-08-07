@@ -6,10 +6,12 @@
     $(function () {
         $('.Rgst').click(function (e) {
             e.preventDefault();
+            debugger;
             var url = $(this).attr('href');
+            window.location.hash = url;
             $("#divProgress").show();
             $.ajax({
-                url: url,
+                url: "/Auth/Register",
 
                 success: function (data) {
 

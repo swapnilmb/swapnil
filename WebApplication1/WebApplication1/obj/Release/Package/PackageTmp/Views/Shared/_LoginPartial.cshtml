@@ -13,7 +13,10 @@
 }
 else
 {
-    <div class="navbar-right" style="margin-top: 10px; font-size:large">@Html.ActionLink("LogIn", "Login", "Auth", null, new { @class = "df" })</div>
+    <div class="navbar-right" style="margin-top: 10px; font-size:large">@Html.ActionLink("LogIn","Login","Auth" ,null, new { @class = "df" })
+    
+        @*<li> <a href="#login" class="df" path="/Auth/Login">Login</a></li>*@
+    </div>
 
 }
 

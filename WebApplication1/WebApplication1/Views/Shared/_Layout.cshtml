@@ -21,8 +21,10 @@
     $(function () {
         $('.df').click(function (e) {
             e.preventDefault();
-            debugger;
+         
             var url = $(this).attr('href');
+            // href = this.href;//$(this).attr('href');
+            window.location.hash = url;
             $("#Progress").show();
             $.ajax({
                 url: url,
