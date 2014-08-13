@@ -172,10 +172,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/30/2014 11:11:16</publishTime>
     </File>
     <File Include="Views/Auth/Login.cshtml">
-      <publishTime>08/07/2014 17:51:22</publishTime>
+      <publishTime>08/08/2014 10:50:11</publishTime>
     </File>
     <File Include="Views/Auth/Register.cshtml">
-      <publishTime>04/08/2014 13:09:26</publishTime>
+      <publishTime>08/08/2014 10:50:22</publishTime>
     </File>
     <File Include="Views/Depart/Create.cshtml">
       <publishTime>04/08/2014 12:18:52</publishTime>
@@ -190,7 +190,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/08/2014 12:52:43</publishTime>
     </File>
     <File Include="Views/Empss/Startpage.cshtml">
-      <publishTime>08/07/2014 18:22:39</publishTime>
+      <publishTime>08/08/2014 10:50:32</publishTime>
     </File>
     <File Include="Views/Empss/Update.cshtml">
       <publishTime>01/08/2014 15:10:59</publishTime>
@@ -217,7 +217,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/08/2014 12:25:05</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>08/07/2014 18:01:38</publishTime>
+      <publishTime>08/08/2014 10:47:50</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>08/07/2014 18:02:40</publishTime>

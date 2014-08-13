@@ -73,7 +73,8 @@ namespace WebApplication1.Controllers
             //    return Redirect(GetRedirectUrl(model.ReturnUrl));
             //}
             ModelState.AddModelError("", "Invalid email or password");
-            return View("Login", model);
+            
+            return Redirect("http://localhost:1938/Empss/Startpage#/Auth/Login?check=1");
         }
 
         [HttpPost]
@@ -115,8 +116,8 @@ namespace WebApplication1.Controllers
         }
         [HttpGet]
         public PartialViewResult Register()
-        {
-            return PartialView();
+        {Newur ss=new Newur();
+            return PartialView("_Register",ss);
         }
 
         [HttpPost]

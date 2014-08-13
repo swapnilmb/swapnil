@@ -2,87 +2,49 @@
 @{
     ViewBag.Title = "Log In";
 }
-<script>
-    $(function () {
-        $('.Rgst').click(function (e) {
-            e.preventDefault();
-            debugger;
-            var url = $(this).attr('href');
-            window.location.hash = url;
-            $("#divProgress").show();
-            $.ajax({
-                url: "/Auth/Register",
 
-                success: function (data) {
 
-                    $('#crt').hide().html(data).fadeIn(500);
-                    $("#signin").hide();
-                    $("#divProgress").hide();
 
-                }
-            });
-        });
-    });
-</script>
-@*<script>
-    $("body").ajaxError(function (event, XMLHttpRequest, ajaxOptions, thrownError) {
-        if (XMLHttpRequest.status == 401) {
-            alert("unauthorized");
-        }
-    });
 
-    </script>*@
-@*<script>
-    $(function () {
-        $('#signin').submit(function (e) {
-            e.preventDefault();
-            var url = $(this).attr('href');
-            $("#divProgress").show();
-    $.ajax({
-        url: url,
-        type: 'POST',
-        contentType: 'application/json; charset=utf-8',
-        statusCode: {
-            200: function (data) {
-                alert('200: Authenticated');
-                // Bind the JSON data to the UI
-            },
-            401: function (data) {
-                alert('401: Unauthenticated');
-                // Handle the 401 error here.
-            }
-        }
-    });
-        });
-    });
-</script>*@
-@*<script>
-    $('#signin').bind('invalid-form.validate', function (e) {
-     e.preventDefault();
-        window.location.href = "/Auth/Login/";
-    });
 
-    </script>*@
-@using (Html.BeginForm("Login", "Auth", FormMethod.Post, new { id = "signin" }))
+
+
+
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+
+
+@using (Html.BeginForm("LogIn", "Auth", FormMethod.Post, new { id = "signin" }))
 {@Html.ValidationSummary(true)
+    
     <h2>Log In</h2>
-    @Html.HiddenFor(m=>m.ReturnUrl)
+    @Html.HiddenFor(m => m.ReturnUrl)
 
     <div> @Html.LabelFor(m => m.Email)</div>
-    <div> @Html.EditorFor(m => m.Email)
-    @Html.ValidationMessageFor(m=>m.Email)
+    <div>
+        @Html.EditorFor(m => m.Email)
+        @Html.ValidationMessageFor(m => m.Email)
     </div>
     <div> @Html.LabelFor(m => m.Password)</div>
-    <div> @Html.EditorFor(m => m.Password)
-    @Html.ValidationMessageFor(m=>m.Password)
+    <div>
+        @Html.EditorFor(m => m.Password)
+        @Html.ValidationMessageFor(m => m.Password)
     </div>
     <div>
         <input type="submit" value="Log In" />
     </div>
-    <div>@Html.ActionLink("Register", "Register", "Auth", new { @class = "Rgst" })</div>
-}
+    <div>
+        @Html.ActionLink("Register", "Register", "Auth", null, new
+    {
+        @class = "clicklink"
+    })
 
+    </div>
+}
+<div id="Wrg" style="display:none;">  <p>Email or Password Wrong</p></div>
 <div id="divProgress" style="display:none;">
     <img src='@Url.Content("~/images/ProgressCircle.gif")' />
 </div>
-<div id="crt"></div>
+<div id="crt" ></div>

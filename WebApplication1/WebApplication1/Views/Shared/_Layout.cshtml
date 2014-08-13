@@ -7,27 +7,44 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
-  
+
     @Styles.Render("~/Content/themes/base/css")
 
     @Scripts.Render("~/bundles/jqueryui")
 
 
+
+
     <script src="@Url.Content("~/Scripts/jquery.validate.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+   
+
+
+
 
     <script>
-    $(function () {
-        $('.df').click(function (e) {
-            e.preventDefault();
+        $(function () {
+            $(document).on('click', '.clicklink', function (e) {
+                e.preventDefault();
+            
+                var url = $(this).attr('href');
+                window.location.hash = url;
+                $("#Progress").show();
+                   
+            });
+        });
+
+
+
+        function getLocationhash() {
          
-            var url = $(this).attr('href');
-            // href = this.href;//$(this).attr('href');
-            window.location.hash = url;
-            $("#Progress").show();
+            return window.location.hash.substring(1);
+        }
+        function updateMyApp(value) {
+
             $.ajax({
-                url: url,
+                url: value,
 
                 success: function (data) {
 
@@ -40,21 +57,19 @@
                     $("#crt").hide();
                 }
             });
-        });
-    });
-    </script>
-    @*<script>
-    $.ajaxSetup({
-        global: true,
-        statusCode: {
-            401: function () {
-                alert("unauthorized");
-            }
+            
         }
-    });
-    </script>*@
+        $(window).on("hashchange", function () {
 
-
+            updateMyApp(getLocationhash());
+        });
+    </script>
+   
+  
+    <script>
+      
+        
+    </script>
 
 
 </head>
@@ -70,13 +85,13 @@
                 @Html.ActionLink("EmpDept", "Startpage", "Empss", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-               
+
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
     <div class="container body-content">
-      
+
         @RenderBody()
         <hr />
         <footer>

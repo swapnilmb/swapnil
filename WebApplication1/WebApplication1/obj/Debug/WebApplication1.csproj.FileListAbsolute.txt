@@ -137,13 +137,15 @@ D:\Swapnil\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.dl
 D:\Swapnil\WebApplication1\WebApplication1\bin\System.Web.WebPages.dll
 D:\Swapnil\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.dll
 D:\Swapnil\WebApplication1\WebApplication1\bin\WebGrease.dll
+D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.xml
+D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.Host.SystemWeb.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\System.Web.Helpers.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\System.Web.Mvc.xml
-D:\Swapnil\WebApplication1\WebApplication1\bin\System.Web.Optimization.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\System.Web.Razor.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\System.Web.WebPages.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.xml
+D:\Swapnil\WebApplication1\WebApplication1\bin\System.Web.Optimization.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\Antlr3.Runtime.pdb
 D:\Swapnil\WebApplication1\WebApplication1\bin\Newtonsoft.Json.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\EntityFramework.xml
@@ -151,8 +153,6 @@ D:\Swapnil\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Core.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Owin.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.xml
-D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.Host.SystemWeb.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Facebook.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Cookies.xml
@@ -162,4 +162,3 @@ D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.x
 D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\Swapnil\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 D:\Swapnil\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
-D:\Swapnil\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache

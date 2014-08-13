@@ -3,15 +3,16 @@
     ViewBag.Title = "Startpage";
 }
 
+
 <script>
-    debugger;
-    if ($(location).attr('href') == "http://10.1.81.10:8070/#/Auth/Login") {
-        // $("#sd").hide();
+    if (window.location.hash.substring(1) != "") {
+        
+        var url = window.location.hash.substring(1);
         $("#Progress").show();
         $.ajax({
-            url: "/Auth/LogIn",
-            // type: "GET",
-            //datatype: "html",
+            url: url,
+            type: "GET",
+            datatype: "html",
             success: function (data) {
                 $("#sd").html(data).fadeIn(500);
                 $("#Progress").hide();
@@ -21,67 +22,40 @@
             }
         });
     }
-</script>
-<script>
-    debugger;
-    if ($(location).attr('href') == "http://10.1.81.10:8070/#/Empss/Index") {
-        // $("#sd").hide();
-        $("#Progress").show();
-        $.ajax({
-            url: "/Empss/Index",
-            // type: "GET",
-            //datatype: "html",
-            success: function (data) {
-                $("#sd").html(data).fadeIn(500);
-                $("#Progress").hide();
-            },
-            error: function (data) {
-
-            }
-        });
-    }
-</script>
-<script>
-    debugger;
-    if ($(location).attr('href') == "http://10.1.81.10:8070/#/Empss/IndexDept") {
-        // $("#sd").hide();
-        $("#Progress").show();
-        $.ajax({
-            url: "/Empss/IndexDept",
-            // type: "GET",
-            //datatype: "html",
-            success: function (data) {
-                $("#sd").html(data).fadeIn(500);
-                $("#Progress").hide();
-            },
-            error: function (data) {
-
-            }
-        });
-    }
-</script>
-
-
-<script>
-    debugger;
-    if ($(location).attr('href') == "http://10.1.81.10:8070/#/Auth/Register?Length=4") {
-        // $("#sd").hide();
-        $("#Progress").show();
-        $.ajax({
-            url: "/Auth/Register",
-            // type: "GET",
-            //datatype: "html",
-            success: function (data) {
-                $("#sd").html(data).fadeIn(500);
-                $("#Progress").hide();
-            },
-            error: function (data) {
-
-            }
-        });
-    }
-</script>
   
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        if (window.location == "http://localhost:1938/Empss/Startpage#/Auth/Login?check=1") {
+           
+
+            $("#Progress").show();
+            $.ajax({
+                url: "/Auth/LogIn",
+
+                success: function (data) {
+                   
+                    $("#sd").html(data).fadeIn(500);
+                   
+                    //$("#wrg").val(error);
+                    $("#Progress").hide();
+                    //document.getElementById('wrg').style.display = "block";
+                    $("#Wrg").show();
+                },
+                error: function (data) {
+
+                }
+            });
+        }
+
+
+    });
+
+</script>
+
+
 
 <div style="margin-top:80px">
     
@@ -92,4 +66,15 @@
     <h2><div id="upd"></div></h2>
     <div id="del" style="display:none;"><h2>Deleted</h2></div>
     <h2><label id="cre"></label></h2>
+    
 </div>
+
+
+
+
+
+
+
+
+
+   
