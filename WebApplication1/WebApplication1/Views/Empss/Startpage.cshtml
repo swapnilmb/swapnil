@@ -2,58 +2,9 @@
 @{
     ViewBag.Title = "Startpage";
 }
+<script src="~/Scripts/refreshpage.js"></script>
+<script src="~/Scripts/loginfailerrorhandle.js"></script>
 
-
-<script>
-    if (window.location.hash.substring(1) != "") {
-        
-        var url = window.location.hash.substring(1);
-        $("#Progress").show();
-        $.ajax({
-            url: url,
-            type: "GET",
-            datatype: "html",
-            success: function (data) {
-                $("#sd").html(data).fadeIn(500);
-                $("#Progress").hide();
-            },
-            error: function (data) {
-
-            }
-        });
-    }
-  
-</script>
-
-<script>
-    $(document).ready(function () {
-
-        if (window.location == "http://localhost:1938/Empss/Startpage#/Auth/Login?check=1") {
-           
-
-            $("#Progress").show();
-            $.ajax({
-                url: "/Auth/LogIn",
-
-                success: function (data) {
-                   
-                    $("#sd").html(data).fadeIn(500);
-                   
-                    //$("#wrg").val(error);
-                    $("#Progress").hide();
-                    //document.getElementById('wrg').style.display = "block";
-                    $("#Wrg").show();
-                },
-                error: function (data) {
-
-                }
-            });
-        }
-
-
-    });
-
-</script>
 
 
 

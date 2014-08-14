@@ -72,7 +72,7 @@ namespace WebApplication1.Controllers
             //    authManager.SignIn(identity);
             //    return Redirect(GetRedirectUrl(model.ReturnUrl));
             //}
-            ModelState.AddModelError("", "Invalid email or password");
+            //ModelState.AddModelError("", "Invalid email or password");
             
             return Redirect("http://localhost:1938/Empss/Startpage#/Auth/Login?check=1");
         }

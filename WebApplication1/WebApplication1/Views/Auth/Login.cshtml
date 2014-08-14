@@ -4,21 +4,13 @@
 }
 
 
-
-
-
-
-
-
-
-
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
 
 
 @using (Html.BeginForm("LogIn", "Auth", FormMethod.Post, new { id = "signin" }))
 {@Html.ValidationSummary(true)
-    
+    <h4 id="Wrg" style="display:none;">Email or Password Wrong</h4>
     <h2>Log In</h2>
     @Html.HiddenFor(m => m.ReturnUrl)
 
@@ -43,7 +35,7 @@
 
     </div>
 }
-<div id="Wrg" style="display:none;">  <p>Email or Password Wrong</p></div>
+
 <div id="divProgress" style="display:none;">
     <img src='@Url.Content("~/images/ProgressCircle.gif")' />
 </div>
