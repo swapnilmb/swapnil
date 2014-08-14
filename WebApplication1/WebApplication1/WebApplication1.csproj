@@ -249,6 +249,7 @@
     <Content Include="Views\Error\Unauthorised.cshtml" />
     <Content Include="Views\Error\ee.cshtml" />
     <Content Include="Views\Auth\_Register.cshtml" />
+    <Content Include="Views\Auth\Confirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

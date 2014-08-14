@@ -9,6 +9,7 @@
 
 @using (Html.BeginForm())
 {@Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
     <h1>Register NewUser </h1>
     <div>@Html.LabelFor(n => n.Name)</div>
     <div>

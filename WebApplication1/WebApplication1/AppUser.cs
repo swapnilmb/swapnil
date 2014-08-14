@@ -37,6 +37,8 @@ namespace WebApplication1
         //    }
         //}
         public string Country { get; set; }
+        public string Email { get; set; }
+        public bool ConfirmedEmail { get; set; }
        // public string Email { get; set; }
     }
 }

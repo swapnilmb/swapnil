@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
+using System.Security.AccessControl;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
@@ -48,15 +50,28 @@ namespace WebApplication1.Controllers
             {
                 return View();//View("Login",model);
             }
+
             var user = await userManager.FindByNameOrEmailAsync(model.Email, model.Password);
             if (user != null)
             {
-                var identity = await userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
-                //GetAuthenticationManager().SignIn(identity);
-                var ctx = Request.GetOwinContext();
-                var authManager = ctx.Authentication;
-                authManager.SignIn(identity);
-                return Redirect(GetRedirectUrl(model.ReturnUrl));
+
+                if (user.ConfirmedEmail == true)
+                {
+                    await SignIn(user);
+                    return Redirect(GetRedirectUrl(model.ReturnUrl));
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Confirm Email Address.");
+                }
+
+
+                //var identity = await userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+                ////GetAuthenticationManager().SignIn(identity);
+                //var ctx = Request.GetOwinContext();
+                //var authManager = ctx.Authentication;
+                //authManager.SignIn(identity);
+                //return Redirect(GetRedirectUrl(model.ReturnUrl));
             }
             //if (model.Email == "bhavsar.swapnil90@gmail.com" && model.Password == "swapnil")
             //{
@@ -121,6 +136,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(Newur model)
         {
             if (!ModelState.IsValid)
@@ -134,7 +150,7 @@ namespace WebApplication1.Controllers
                 Country = model.Country,
 
                 Email = model.Emailid,
-                EmailConfirmed = true
+                ConfirmedEmail = false
                 // IsConfirmed = true
             };
 
@@ -142,8 +158,18 @@ namespace WebApplication1.Controllers
 
             if (result.Succeeded)
             {
-                await SignIn(user);
-                return RedirectToAction("Startpage", "Empss");
+                MailMessage m = new MailMessage(new MailAddress("bhavsar.swapnil90@gmail.com", "Web Registration"),
+                    new MailAddress(user.Email));
+                m.Subject = "Email Confirmation";
+                m.Body = string.Format("dear {0} <BR/> please click on link To activate Your Account<a href=\"{1}\"title=\"User Email Confirm\"> </a>", user.UserName, Url.Action("ConfirmEmail", "Auth", new { token = user.Id, Email = user.Email }, Request.Url.Scheme))
+                ;
+                m.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.Credentials = new System.Net.NetworkCredential("bhavsar.swapnil90@gmail.com", "swapnil199@");
+                smtp.EnableSsl = true;
+                smtp.Send(m);
+               
+                return RedirectToAction("Confirm", "Auth", new { Email = user.Email });
             }
 
             foreach (var error in result.Errors)
@@ -153,6 +179,31 @@ namespace WebApplication1.Controllers
 
             return View(model);
             // StatusMessage.Text = result.Errors.FirstOrDefault();
+        }
+        public ActionResult Confirm(string Email)
+        {
+            ViewBag.Email = Email; return View();
+        } 
+        public async Task<ActionResult> ConfirmEmail(string token, string Email)
+        {
+            AppUser user = this.userManager.FindById(token);
+            if (user != null)
+            {
+                if (user.Email == Email)
+                {
+                    user.ConfirmedEmail = true;
+                    await userManager.UpdateAsync(user);
+                    await SignIn(user);
+                    return RedirectToAction("Startpage", "Empss", new { ConfirmedEmail = user.Email });            }
+            else
+            {
+             return RedirectToAction("Confirm", "Auth", new { Email = user.Email });
+            }
+        }
+        else
+        {
+          return RedirectToAction("Confirm", "Auth", new { Email = "" });
+        }
         }
         private async Task SignIn(AppUser user)
         {
