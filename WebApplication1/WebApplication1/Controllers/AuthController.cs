@@ -154,14 +154,15 @@ namespace WebApplication1.Controllers
                 // IsConfirmed = true
             };
 
-            var result = await userManager.CreateAsync(user, model.Password);
+            var result = await userManager.CreateAsync(user);
 
             if (result.Succeeded)
             {
+              //  var code = await userManager.GenerateEmailConfirmationTokenAsync(user.Id);
                 MailMessage m = new MailMessage(new MailAddress("bhavsar.swapnil90@gmail.com", "Web Registration"),
                     new MailAddress(user.Email));
                 m.Subject = "Email Confirmation";
-                m.Body = string.Format("dear {0} <BR/> please click on link To activate Your Account<a href=\"{1}\"title=\"User Email Confirm\"> </a>", user.UserName, Url.Action("ConfirmEmail", "Auth", new { token = user.Id, Email = user.Email }, Request.Url.Scheme))
+                m.Body = string.Format(" {1} <BR/> <a href={1}> </a>", user.UserName, Url.Action("ConfirmEmail", "Auth", new { token = user.Id, Email = user.Email }, Request.Url.Scheme))
                 ;
                 m.IsBodyHtml = true;
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
@@ -169,7 +170,7 @@ namespace WebApplication1.Controllers
                 smtp.EnableSsl = true;
                 smtp.Send(m);
                
-                return RedirectToAction("Confirm", "Auth", new { Email = user.Email });
+               return RedirectToAction("Confirm", "Auth", new { Email = user.Email });
             }
 
             foreach (var error in result.Errors)
@@ -194,7 +195,8 @@ namespace WebApplication1.Controllers
                     user.ConfirmedEmail = true;
                     await userManager.UpdateAsync(user);
                     await SignIn(user);
-                    return RedirectToAction("Startpage", "Empss", new { ConfirmedEmail = user.Email });            }
+                    return RedirectToAction("Newpassword", "Auth", new { id = user.Id});         
+                }
             else
             {
              return RedirectToAction("Confirm", "Auth", new { Email = user.Email });
@@ -204,6 +206,51 @@ namespace WebApplication1.Controllers
         {
           return RedirectToAction("Confirm", "Auth", new { Email = "" });
         }
+        }
+        public ActionResult Newpassword(string id)
+        {
+            ViewBag.userid=id;
+            return View();
+        }
+        [HttpPost]
+        public async Task<ActionResult> Newpassword (Newur model)
+        {
+           string x= User.Identity.GetUserId();
+           string y = userManager.PasswordHasher.HashPassword( model.Password);
+
+        AppUser user = this.userManager.FindById(x);
+           
+            if(user!=null)
+            {
+                user.PasswordHash = y;
+                await userManager.UpdateAsync(user);
+               // userManager.ChangePasswordAsync(x, " ", y);
+                     return View("_Newpassword");
+            }
+            return View();
+    }
+       
+        public ActionResult Changepassword()
+        {
+            return PartialView();
+        }
+        [HttpPost]
+        public async Task<ActionResult> Changepassword(string oldpassword,Newur model)
+        {
+            var x=User.Identity.GetUserName();
+          
+            AppUser user =await  userManager.FindAsync(x,oldpassword);
+
+           
+            if(user !=null)
+            {
+                await userManager.ChangePasswordAsync(user.Id, oldpassword, model.Password);
+                await userManager.UpdateAsync(user);
+                return PartialView("Changesuccess");
+            }
+            ViewBag.wrong = "your old password didn't match";
+            return View();
+            
         }
         private async Task SignIn(AppUser user)
         {

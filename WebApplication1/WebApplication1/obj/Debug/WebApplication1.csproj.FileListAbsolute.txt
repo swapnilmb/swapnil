@@ -162,4 +162,3 @@ D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.x
 D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\Swapnil\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 D:\Swapnil\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
-D:\Swapnil\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache

@@ -21,18 +21,7 @@
         @Html.EditorFor(e => e.Emailid)
         @Html.ValidationMessageFor(m => m.Emailid)
     </div>
-    <div>@Html.LabelFor(p => p.Password)</div>
-    <div>
-        @Html.EditorFor(p => p.Password)
-        @Html.ValidationMessageFor(m => m.Password)
-    </div>
-    @*<div> Retype Password:</div>
-        <div><input type="password" /></div>*@
-    <div>@Html.LabelFor(p => p.ConfirmPassword)</div>
-    <div>
-        @Html.EditorFor(p => p.ConfirmPassword)
-        @Html.ValidationMessageFor(m => m.ConfirmPassword)
-    </div>
+   
     <div>@Html.LabelFor(p => p.Country)</div>
     <div>
         @Html.EditorFor(p => p.Country)

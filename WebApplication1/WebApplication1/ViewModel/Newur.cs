@@ -22,10 +22,10 @@ namespace WebApplication1.ViewModel
         public string Emailid { get; set; }
 
         [DisplayName("Password")]
-        [Required(ErrorMessage = "Password Required")]
+        //[Required(ErrorMessage = "Password Required")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-        [Required(ErrorMessage = "Confirm Password Required")]
+        //[Required(ErrorMessage = "Confirm Password Required")]
         [DisplayName("Confirm Password")]
         [DataType(DataType.Password)]
         [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "Password Does not Match")]

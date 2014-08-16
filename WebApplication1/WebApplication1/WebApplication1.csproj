@@ -250,6 +250,10 @@
     <Content Include="Views\Error\ee.cshtml" />
     <Content Include="Views\Auth\_Register.cshtml" />
     <Content Include="Views\Auth\Confirm.cshtml" />
+    <Content Include="Views\Auth\Newpassword.cshtml" />
+    <Content Include="Views\Auth\Changepassword.cshtml" />
+    <Content Include="Views\Shared\Changesuccess.cshtml" />
+    <Content Include="Views\Shared\_Newpassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
