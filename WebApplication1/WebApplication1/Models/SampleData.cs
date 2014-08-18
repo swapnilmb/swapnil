@@ -6,7 +6,7 @@ using System.Data.Entity;
 
 namespace WebApplication1.Models
 {
-    public class SampleData:DropCreateDatabaseIfModelChanges<Connection>
+    public class SampleData : DropCreateDatabaseIfModelChanges<Connection>
     {
 
         protected override void Seed(Connection context)
@@ -22,8 +22,14 @@ namespace WebApplication1.Models
                 new Emp{Empname="bhavsar",Empemail="bha@gmail.com",Dept = dep.Single(g=>g.DeptName=="testing")},
                 new Emp{Empname="bha",Empemail="bha@gmail.com",Dept = dep.Single(g=>g.DeptName=="testing")}
 
-            }.ForEach(a=>context.Emps.Add(a));
-            
+            }.ForEach(a => context.Emps.Add(a));
+
+           
+
+
         }
+
+
+       
     }
 }

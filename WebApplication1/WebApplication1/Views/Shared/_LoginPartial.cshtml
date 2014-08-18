@@ -5,9 +5,17 @@
             WellCome:- @User.Identity.Name
             &nbsp &nbsp <div class="navbar-right">@Html.ActionLink("Logout", "logout", "Auth")</div>
             <div><ul class="nav navbar-nav navbar-right">
-    <li>@Html.ActionLink("Employee", "Index", "Empss", null, new { @class = "clicklink" })</li>
-                     <li>@Html.ActionLink("Department", "IndexDept", "Empss", null, new { @class = "clicklink" })</li> 
+    
+                     <li>@Html.ActionLink("Edit Profile", "Editprofile", "Auth", null, new { @class = "clicklink" })</li>
                      <li>@Html.ActionLink("ChangePassword", "Changepassword", "Auth", null, new { @class = "clicklink" })</li>
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <li>@Html.ActionLink("Register", "Register", "Auth", null, new { @class = "clicklink" })</li>
+    <li>@Html.ActionLink("Department", "IndexDept", "Empss", null, new { @class = "clicklink" })</li>
+    <li>@Html.ActionLink("Employee", "Index", "Empss", null, new { @class = "clicklink" })</li>
+                    
+                }
                  </ul></div>
         </div>
 

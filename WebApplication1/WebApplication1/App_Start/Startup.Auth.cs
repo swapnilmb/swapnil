@@ -39,6 +39,8 @@ namespace WebApplication1
             {
                 var usermanager = new UserManager<AppUser>(
                     new UserStore<AppUser>(new AppDbContext()));
+                
+                
                 // allow alphanumeric characters in username
                 usermanager.UserValidator = new UserValidator<AppUser>(usermanager)
                 {
@@ -47,7 +49,8 @@ namespace WebApplication1
                 usermanager.ClaimsIdentityFactory = new AppUserClaimsIdentityFactory();
                 return usermanager;
             };
-            
+
+          
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             // Uncomment the following lines to enable logging in with third party login providers

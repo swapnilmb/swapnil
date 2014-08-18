@@ -30,7 +30,7 @@ namespace WebApplication1.ViewModel
         [DataType(DataType.Password)]
         [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "Password Does not Match")]
         public string ConfirmPassword { get; set; }
-             [Required(ErrorMessage="Enter your Country")]
+            
         public string Country { get; set; }
     
     }

@@ -22,5 +22,26 @@
         });
     }
 
+    if(window.location=="http://localhost:1938/Empss/Startpage#/Auth/Newpassword")
+    {
+   
+        $.ajax({
+            url: "/Auth/Newpassword",
+
+            success: function (data) {
+
+                $("#sd").html(data).fadeIn(500);
+
+
+                $("#Progress").hide();
+
+                $("#Wrg").show();
+            },
+            error: function (data) {
+
+            }
+        });
+    }
+
 
 });

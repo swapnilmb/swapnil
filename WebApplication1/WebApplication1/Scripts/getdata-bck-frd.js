@@ -3,8 +3,20 @@
         e.preventDefault();
 
         var url = $(this).attr('href');
-        window.location.hash = url;
-        $("#Progress").show();
+        if (url != null)
+        {
+            window.location.hash = url;
+        }
+        else
+        {
+            var url1 = $(this).attr('action');
+            window.location.hash = url1;
+        }
+       
+    
+       
+        //var value = window.location.hash.substring(1);
+        //updateMyApp(value);
 
     });
 });
@@ -34,6 +46,6 @@ function updateMyApp(value) {
 
 }
 $(window).on("hashchange", function () {
-
+    $("#Progress").show();
     updateMyApp(getLocationhash());
 });

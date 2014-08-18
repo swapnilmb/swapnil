@@ -8,6 +8,7 @@
         $("#swa").submit(function(e) {
             e.preventDefault();
             var url = $(this).attr('action');
+            window.location.hash = url;
             $.ajax({
                 
                 url: url,

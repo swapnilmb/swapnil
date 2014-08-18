@@ -52,19 +52,27 @@ namespace WebApplication1.Controllers
             }
 
             var user = await userManager.FindByNameOrEmailAsync(model.Email, model.Password);
+
+
             if (user != null)
             {
-
-                if (user.ConfirmedEmail == true)
+                if (user.UserName == "Admin")
                 {
                     await SignIn(user);
-                    return Redirect(GetRedirectUrl(model.ReturnUrl));
+                    return RedirectToAction("Startpage", "Empss");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Confirm Email Address.");
+                    if (user.ConfirmedEmail == true)
+                    {
+                        await SignIn(user);
+                        return Redirect(GetRedirectUrl(model.ReturnUrl));
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Confirm Email Address.");
+                    }
                 }
-
 
                 //var identity = await userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
                 ////GetAuthenticationManager().SignIn(identity);
@@ -130,7 +138,8 @@ namespace WebApplication1.Controllers
             base.Dispose(disposing);
         }
         [HttpGet]
-        public PartialViewResult Register()
+      
+        public ActionResult Register()
         {Newur ss=new Newur();
             return PartialView("_Register",ss);
         }
@@ -170,7 +179,7 @@ namespace WebApplication1.Controllers
                 smtp.EnableSsl = true;
                 smtp.Send(m);
                
-               return RedirectToAction("Confirm", "Auth", new { Email = user.Email });
+               return Content("Confirm email sent");
             }
 
             foreach (var error in result.Errors)
@@ -181,9 +190,9 @@ namespace WebApplication1.Controllers
             return View(model);
             // StatusMessage.Text = result.Errors.FirstOrDefault();
         }
-        public ActionResult Confirm(string Email)
+        public ActionResult Confirm()
         {
-            ViewBag.Email = Email; return View();
+            return Content("Email link is sent");
         } 
         public async Task<ActionResult> ConfirmEmail(string token, string Email)
         {
@@ -195,7 +204,7 @@ namespace WebApplication1.Controllers
                     user.ConfirmedEmail = true;
                     await userManager.UpdateAsync(user);
                     await SignIn(user);
-                    return RedirectToAction("Newpassword", "Auth", new { id = user.Id});         
+                    return Redirect("http://localhost:1938/Empss/Startpage#/Auth/Newpassword");         
                 }
             else
             {
@@ -207,10 +216,10 @@ namespace WebApplication1.Controllers
           return RedirectToAction("Confirm", "Auth", new { Email = "" });
         }
         }
-        public ActionResult Newpassword(string id)
+        public ActionResult Newpassword()
         {
-            ViewBag.userid=id;
-            return View();
+            
+            return PartialView();
         }
         [HttpPost]
         public async Task<ActionResult> Newpassword (Newur model)
@@ -225,10 +234,34 @@ namespace WebApplication1.Controllers
                 user.PasswordHash = y;
                 await userManager.UpdateAsync(user);
                // userManager.ChangePasswordAsync(x, " ", y);
-                     return View("_Newpassword");
+                return PartialView("_Newpassword");
             }
             return View();
     }
+        public ActionResult Editprofile()
+        {
+            var x = User.Identity.GetUserId();
+            AppUser user = this.userManager.FindById(x);
+            
+            return PartialView(user);
+        }
+        [HttpPost]
+        public async Task<ActionResult> Editprofile(AppUser Appuser)
+        {
+            if (ModelState.IsValid)
+            {
+               
+                var c=await userManager.UpdateAsync(Appuser);
+                if (c.Succeeded)
+                {
+                    //co.Entry(emp).State = EntityState.Modified;
+                    //co.SaveChanges();
+                    //var x = co.Emps.ToList(); 
+                    return Content("User Updated");
+                }
+            }
+            return View(Appuser);
+        }
        
         public ActionResult Changepassword()
         {

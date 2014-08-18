@@ -1,0 +1,19 @@
+﻿@model WebApplication1.AppUser
+
+@{
+    ViewBag.Title = "Editprofile";
+}
+@using (Html.BeginForm("Editprofile", "Auth", null, FormMethod.Post))
+{
+    @Html.HiddenFor(p=>p.Id)
+    @Html.HiddenFor(p=>p.PasswordHash)
+    @Html.HiddenFor(p=>p.ConfirmedEmail)
+    @Html.ValidationSummary(true)
+    <div>@Html.LabelFor(p=>p.UserName)</div>
+    <div>@Html.EditorFor(p=>p.UserName)</div>
+    <div>@Html.LabelFor(p => p.Email)</div>
+    <div>@Html.EditorFor(p => p.Email)</div>
+    <div>@Html.LabelFor(p => p.Country)</div>
+    <div>@Html.EditorFor(p => p.Country)</div>
+    <div><input type="submit" value="Update"/></div>
+}
