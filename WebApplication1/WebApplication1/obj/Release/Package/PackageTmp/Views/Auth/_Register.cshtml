@@ -1,0 +1,71 @@
+﻿@model WebApplication1.ViewModel.Newur
+@{
+    ViewBag.Title = "Newuser";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+
+<script>
+    $(function () {
+        $(".oold").submit(function (e) {
+            e.preventDefault();
+            debugger;
+            var url = $(this).attr('action');
+            $("#Progress").show();
+
+            $.ajax({
+                url: url,
+                data: $(".oold").serialize(),
+                type: "POST",
+                success: function (data) {
+
+                    $('#Newadd').html(data).fadeIn(500);
+                    $('#Newadd').html(data).fadeOut(4500);
+                    $("#Progress").hide();
+                    $("#upd").hide();
+                    $("#del").hide();
+                    $("#cre").hide();
+                    $("#signin").show();
+                    $("#crt").hide();
+
+                }
+            });
+
+
+        });
+    });
+</script>
+<div id="Newadd" style="font-size:xx-large;"></div>
+<div style="margin-top:50px;">
+    @using (Html.BeginForm("Register", "Auth", null, FormMethod.Post, new {@class = "oold" }))
+    {@Html.ValidationSummary(true)
+        @Html.AntiForgeryToken()
+        <h1>Register NewUser </h1>
+        <div>@Html.LabelFor(n => n.Name)</div>
+        <div>
+            @Html.EditorFor(n => n.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+        <div>@Html.LabelFor(e => e.Emailid)</div>
+        <div>
+            @Html.EditorFor(e => e.Emailid)
+            @Html.ValidationMessageFor(m => m.Emailid)
+        </div>
+
+        <div>@Html.LabelFor(p => p.Country)</div>
+        <div>
+            @Html.EditorFor(p => p.Country)
+            @Html.ValidationMessageFor(m => m.Country)
+        </div>
+
+        <div><input type="submit" value="Create" /></div>
+
+    }
+</div>
+
+<div id="divProgress" style="display:none;">
+    <img src='@Url.Content("~/images/ProgressCircle.gif")' />
+</div>
+
+
+

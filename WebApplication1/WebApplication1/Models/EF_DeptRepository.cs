@@ -7,7 +7,7 @@ namespace WebApplication1.Models
 {
     public class EF_DeptRepository: IDeptRepository
     {
-         Connection con = new Connection();
+         AppDbContext con = new AppDbContext();
 
         //public EF_DeptRepository()
         //{

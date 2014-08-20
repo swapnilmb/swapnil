@@ -7,52 +7,43 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
-  
-    @Styles.Render("~/Content/themes/base/css")
-
+     @Styles.Render("~/Content/themes/base/css")
     @Scripts.Render("~/bundles/jqueryui")
-
 
     <script src="@Url.Content("~/Scripts/jquery.validate.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
-    <script>history.back(); </script> 
+    <script src="~/Scripts/getdata-bck-frd.js"></script>
+
     <script>
-    $(function () {
-        $('.df').click(function (e) {
-            e.preventDefault();
-         
-            var url = $(this).attr('href');
-            // href = this.href;//$(this).attr('href');
-            window.location.hash = url;
-            $("#Progress").show();
-            $.ajax({
-                url: url,
+        $(function () {
+            $(document).on('submit', '#old', function (e) {
+                e.preventDefault();
+                
+                var url = $(this).attr('action');
+               
 
-                success: function (data) {
+                $.ajax({
+                    url: url,
+                    data: $("#old").serialize(),
+                    type: "POST",
+                    success: function (data) {
 
-                    $('#sd').hide().html(data).fadeIn(500);
-                    $("#Progress").hide();
-                    $("#upd").hide();
-                    $("#del").hide();
-                    $("#cre").hide();
-                    $("#signin").show();
-                    $("#crt").hide();
-                }
+                        $('#sd').hide().html(data).fadeIn(500);
+                        $("#Progress").hide();
+                        $("#upd").hide();
+                        $("#del").hide();
+                        $("#cre").hide();
+                        $("#signin").show();
+                        $("#crt").hide();
+                        $("#old").hide();
+                    }
+                });
+
+
             });
         });
-    });
     </script>
-    @*<script>
-    $.ajaxSetup({
-        global: true,
-        statusCode: {
-            401: function () {
-                alert("unauthorized");
-            }
-        }
-    });
-    </script>*@
 
 
 
@@ -70,13 +61,13 @@
                 @Html.ActionLink("EmpDept", "Startpage", "Empss", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-               
+
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
     <div class="container body-content">
-      
+
         @RenderBody()
         <hr />
         <footer>

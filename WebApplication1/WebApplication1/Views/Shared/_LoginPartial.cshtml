@@ -11,7 +11,7 @@
 
                 @if (User.IsInRole("Admin"))
                 {
-                    <li>@Html.ActionLink("Register", "Register", "Auth", null, new { @class = "clicklink" })</li>
+                    <li>@Html.ActionLink("Register New User", "Register", "Auth", null, new { @class = "clicklink" })</li>
     <li>@Html.ActionLink("Department", "IndexDept", "Empss", null, new { @class = "clicklink" })</li>
     <li>@Html.ActionLink("Employee", "Index", "Empss", null, new { @class = "clicklink" })</li>
                     

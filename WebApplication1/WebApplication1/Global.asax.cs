@@ -16,7 +16,7 @@ namespace WebApplication1
         protected void Application_Start()
         {
             System.Data.Entity.Database.SetInitializer(new WebApplication1.Models.SampleData());
-            System.Data.Entity.Database.SetInitializer(new WebApplication1.Models.sample2());
+            
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
@@ -24,6 +24,8 @@ namespace WebApplication1
             //if (!Request.IsAuthenticated) Response.Redirect(
             //                                "Error.cshtml"); 
         }
+
+//Remove Cache When we go Backword After Logout
         protected void Application_BeginRequest()
         {
             Response.Cache.SetCacheability(HttpCacheability.NoCache);

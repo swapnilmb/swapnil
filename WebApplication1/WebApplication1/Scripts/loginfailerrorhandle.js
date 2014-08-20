@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
 
-    if (window.location == "http://localhost:1938/Empss/Startpage#/Auth/Login?check=1") {
+    if (window.location == "http://10.1.81.37:8010/Empss/Startpage#/Auth/Login?check=1") {
 
 
         $("#Progress").show();
@@ -22,7 +22,7 @@
         });
     }
 
-    if(window.location=="http://localhost:1938/Empss/Startpage#/Auth/Newpassword")
+    if (window.location == "http://10.1.81.37:8010/Empss/Startpage#/Auth/Newpassword")
     {
    
         $.ajax({

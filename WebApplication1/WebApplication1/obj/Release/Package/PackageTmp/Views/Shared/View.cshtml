@@ -3,73 +3,11 @@
 @{
     ViewBag.Title = "Department";
 }
-@*<script type="text/javascript">
-    $(document).ready(function () {
-        // when the DOM has fully loaded...
-        $("#update").on("click", function () {
-            var onEventLaunchSquirrel = new postSquirrel();
-            onEventLaunchSquirrel.launchSquirrel();
-        });
-    });
-    function postSquirrel() {
-        this.launchSquirrel = function() {
 
-            // fetch values from input
-            var id = $("#update").val();
 
-            // build json object
-            var squirrel = {
-                id: id,                
-            };
 
-            $.ajax({
-                type: "POST",
-                url: "/Deprt/Update",
-                traditional: true,
-                contentType: 'application/json; charset=utf-8',
-                data: JSON.stringify(squirrel),
-                dataType: 'html',
-                success: function (data) {
-                   // var jsonobj = JSON.parse(data);
-                    $('#crt').hide().html(data).fadeIn(500);
-                },                
-            });
 
-        };
-    }
 
-</script>*@
-@*<script>
-    $(function () {
-        $('.update').click(function (e) {
-            e.preventDefault();
-            var url = $(this).attr('href');
-            
-            $("#divProgress").show();
-            $.ajax({
-                url: url,
-
-                success: function (data) {
-
-                    $('#crt').hide().html(data).fadeIn(500);
-                    $("#divProgress").hide();
-                    
-                }
-            });
-        });
-    });
-</script>*@
-@*<script>
-    $("#update").click(function(id) {
-        var did = id;
-        $.ajax({            
-            url: "/Deprt/Update",
-            contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify(did),
-            dataType: 'html',
-        });
-    });
-</script>*@
 <script>
     $(function () {
         $('.update').click(function (e) {

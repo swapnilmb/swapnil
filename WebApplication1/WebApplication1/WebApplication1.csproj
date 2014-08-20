@@ -162,9 +162,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
-    <Compile Include="Controllers\DepartController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmpssController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -180,11 +178,10 @@
     <Compile Include="Models\Emp.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IDeptRepository.cs" />
-    <Compile Include="Models\Register.cs" />
-    <Compile Include="Models\sample2.cs" />
     <Compile Include="Models\SampleData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\Editprofile.cs" />
     <Compile Include="ViewModel\LogInModel.cs" />
     <Compile Include="ViewModel\Newur.cs" />
   </ItemGroup>
@@ -199,12 +196,15 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\bidding.pubxml" />
+    <None Include="Properties\PublishProfiles\ED.pubxml" />
     <None Include="Properties\PublishProfiles\emp.pubxml" />
+    <None Include="Properties\PublishProfiles\empdep.pubxml" />
     <None Include="Properties\PublishProfiles\final2.pubxml" />
     <None Include="Properties\PublishProfiles\finalwork.pubxml" />
     <None Include="Properties\PublishProfiles\IISHostDemo.pubxml" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\Editprofile.js" />
     <Content Include="Scripts\getdata-bck-frd.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -219,11 +219,14 @@
     <Content Include="Scripts\loginfailerrorhandle.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\navigation.js" />
+    <Content Include="Scripts\Newpassword.js" />
     <Content Include="Scripts\refreshpage.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -234,8 +237,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Depart\Create.cshtml" />
-    <Content Include="Views\Depart\Update.cshtml" />
     <Content Include="Views\Empss\Create.cshtml" />
     <Content Include="Views\Empss\Update.cshtml" />
     <Content Include="Views\Empss\Startpage.cshtml" />
@@ -255,11 +256,10 @@
     <Content Include="Views\Shared\_Newpassword.cshtml" />
     <Content Include="Views\Auth\Newpassword.cshtml" />
     <Content Include="Views\Auth\Editprofile.cshtml" />
+    <Content Include="Views\Shared\_Editprofile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\App\" />
-    <Folder Include="Views\Department\" />
     <Folder Include="Views\test\" />
   </ItemGroup>
   <ItemGroup>

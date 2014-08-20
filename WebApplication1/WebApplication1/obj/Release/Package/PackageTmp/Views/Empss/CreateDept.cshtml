@@ -4,7 +4,7 @@
 }
 <script>
     $(function () {
-        $("#sub").click(function (e) {
+        $("#crt").submit(function (e) {
             e.preventDefault();
             var dept = new departmentmodel();
             //var url = $(this).attr('action');
@@ -17,7 +17,7 @@
 
 
                 success: function (data) {
-                    $("#sub").hide();
+                    $("#crt").hide();
                     $("#sd").hide();
                     $("#cre").show();
                     $("#cre").text(data.result);
@@ -40,14 +40,11 @@
     }
 </script>
 <h2>Create</h2>
-@using (Html.BeginForm("Create", "Depart", null, FormMethod.Post))
+@using (Html.BeginForm("Create", "Depart", null, FormMethod.Post, new { id = "crt" }))
 { @Html.ValidationSummary(true)
 
     <div>@Html.LabelFor(m => m.DeptName)</div>
     <div>@Html.EditorFor(m => m.DeptName)</div>
-
+    <input type="submit" value="Create" />
 }
-<p>
-    <input type="submit" value="Create" id="sub" />
-</p>
 

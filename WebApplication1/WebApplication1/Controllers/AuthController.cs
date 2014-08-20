@@ -19,20 +19,26 @@ namespace WebApplication1.Controllers
     [HandleError]
     public class AuthController : Controller
     {
+
+ // Declare usermanager of type AppUser
         private readonly UserManager<AppUser> userManager;
 
+
+//Invoke UsermanagerFactory
         public AuthController()
             : this(Startup.UserManagerFactory.Invoke())
         {
 
         }
+
+//Create usermanager object
         public AuthController(UserManager<AppUser> userManager)
         {
             this.userManager = userManager;
         }
 
+//Shows Login ViewModel
         [HttpGet]
-        
         public ActionResult LogIn(string returnUrl)
         {
             var model = new LogInModel
@@ -42,8 +48,9 @@ namespace WebApplication1.Controllers
 
             return PartialView("Login", model);
         }
+
+//Check if user Exists. If yes then will Login
         [HttpPost]
-        
         public async Task<ActionResult> LogIn(LogInModel model)
         {
             if (!ModelState.IsValid)
@@ -63,7 +70,7 @@ namespace WebApplication1.Controllers
                 }
                 else
                 {
-                    if (user.ConfirmedEmail == true)
+                    if (user.EmailConfirmed == true)
                     {
                         await SignIn(user);
                         return Redirect(GetRedirectUrl(model.ReturnUrl));
@@ -96,22 +103,27 @@ namespace WebApplication1.Controllers
             //    return Redirect(GetRedirectUrl(model.ReturnUrl));
             //}
             //ModelState.AddModelError("", "Invalid email or password");
-            
-            return Redirect("http://localhost:1938/Empss/Startpage#/Auth/Login?check=1");
+
+            return Redirect("http://10.1.81.37:8010/Empss/Startpage#/Auth/Login?check=1");
         }
 
+//Checks if the UserName all ready Exist or Not
         [HttpPost]
         public JsonResult IsUserNameAvailable(string Name)
         {
             var user = userManager.FindByName(Name);
             return Json(user == null);
         }
+
+//Checks if the UserEmail all ready Exist or Not
         [HttpPost]
         public JsonResult IsUserEmailAvailable(string Emailid)
         {
             var user = userManager.FindByEmail(Emailid);
             return Json(user == null);
         }
+
+//Method user to GetRedirectUrl
         private string GetRedirectUrl(string returnUrl)
         {
             if (string.IsNullOrEmpty(returnUrl) || !Url.IsLocalUrl(returnUrl))
@@ -121,6 +133,7 @@ namespace WebApplication1.Controllers
             return returnUrl;
         }
 
+//Used When User Logouts
         public ActionResult LogOut()
         {
             var ctx = Request.GetOwinContext();
@@ -129,6 +142,8 @@ namespace WebApplication1.Controllers
             return RedirectToAction("Startpage", "Empss");
 
         }
+
+//Release both Managed and Unmanaged Resources
         protected override void Dispose(bool disposing)
         {
             if (disposing && userManager != null)
@@ -137,13 +152,15 @@ namespace WebApplication1.Controllers
             }
             base.Dispose(disposing);
         }
+
+//Shows The View Of Register ViewModel
         [HttpGet]
-      
-        public ActionResult Register()
+       public ActionResult Register()
         {Newur ss=new Newur();
             return PartialView("_Register",ss);
         }
 
+//Registers the User and Sends Email For the Confirmation 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(Newur model)
@@ -159,7 +176,7 @@ namespace WebApplication1.Controllers
                 Country = model.Country,
 
                 Email = model.Emailid,
-                ConfirmedEmail = false
+                EmailConfirmed = false
                 // IsConfirmed = true
             };
 
@@ -171,8 +188,7 @@ namespace WebApplication1.Controllers
                 MailMessage m = new MailMessage(new MailAddress("bhavsar.swapnil90@gmail.com", "Web Registration"),
                     new MailAddress(user.Email));
                 m.Subject = "Email Confirmation";
-                m.Body = string.Format(" {1} <BR/> <a href={1}> </a>", user.UserName, Url.Action("ConfirmEmail", "Auth", new { token = user.Id, Email = user.Email }, Request.Url.Scheme))
-                ;
+                m.Body = string.Format(" {1} <BR/>", user.UserName, Url.Action("ConfirmEmail", "Auth", new { token = user.Id, Email = user.Email }, Request.Url.Scheme));
                 m.IsBodyHtml = true;
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
                 smtp.Credentials = new System.Net.NetworkCredential("bhavsar.swapnil90@gmail.com", "swapnil199@");
@@ -190,10 +206,14 @@ namespace WebApplication1.Controllers
             return View(model);
             // StatusMessage.Text = result.Errors.FirstOrDefault();
         }
+
+//Gives message of Email Sent
         public ActionResult Confirm()
         {
             return Content("Email link is sent");
         } 
+
+//After Email Confirmation User is Logged In
         public async Task<ActionResult> ConfirmEmail(string token, string Email)
         {
             AppUser user = this.userManager.FindById(token);
@@ -201,10 +221,10 @@ namespace WebApplication1.Controllers
             {
                 if (user.Email == Email)
                 {
-                    user.ConfirmedEmail = true;
+                    user.EmailConfirmed = true;
                     await userManager.UpdateAsync(user);
                     await SignIn(user);
-                    return Redirect("http://localhost:1938/Empss/Startpage#/Auth/Newpassword");         
+                    return Redirect("http://10.1.81.37:8010/Empss/Startpage#/Auth/Newpassword");         
                 }
             else
             {
@@ -216,11 +236,15 @@ namespace WebApplication1.Controllers
           return RedirectToAction("Confirm", "Auth", new { Email = "" });
         }
         }
+
+//Shows the View for NewPassword
         public ActionResult Newpassword()
         {
             
             return PartialView();
         }
+
+//This method Used For setting NewPassword 
         [HttpPost]
         public async Task<ActionResult> Newpassword (Newur model)
         {
@@ -233,11 +257,12 @@ namespace WebApplication1.Controllers
             {
                 user.PasswordHash = y;
                 await userManager.UpdateAsync(user);
-               // userManager.ChangePasswordAsync(x, " ", y);
                 return PartialView("_Newpassword");
             }
             return View();
     }
+
+//Shows ViewModel for EditProfile with User Data
         public ActionResult Editprofile()
         {
             var x = User.Identity.GetUserId();
@@ -245,36 +270,40 @@ namespace WebApplication1.Controllers
             
             return PartialView(user);
         }
+
+//Updates Profile of User after Editing
         [HttpPost]
-        public async Task<ActionResult> Editprofile(AppUser Appuser)
+        public async Task<ActionResult> Editprofile(Editprofile editprofile)
         {
-            if (ModelState.IsValid)
-            {
-               
-                var c=await userManager.UpdateAsync(Appuser);
+            var x = User.Identity.GetUserId();
+            AppUser user = this.userManager.FindById(x);
+            user.UserName = editprofile.UserName;
+            user.Email = editprofile.Email;
+            user.Country = editprofile.Country;
+            var c = await userManager.UpdateAsync(user);
+
                 if (c.Succeeded)
-                {
-                    //co.Entry(emp).State = EntityState.Modified;
-                    //co.SaveChanges();
-                    //var x = co.Emps.ToList(); 
-                    return Content("User Updated");
-                }
-            }
-            return View(Appuser);
+               {
+                   
+                    return PartialView("_Editprofile");
+               }
+
+                //var error = ModelState.AddModelError("", c);
+            return View(editprofile);
         }
-       
+
+//Shows View For Change Password       
         public ActionResult Changepassword()
         {
             return PartialView();
         }
+
+//Method Used for Changing Password 
         [HttpPost]
         public async Task<ActionResult> Changepassword(string oldpassword,Newur model)
         {
             var x=User.Identity.GetUserName();
-          
             AppUser user =await  userManager.FindAsync(x,oldpassword);
-
-           
             if(user !=null)
             {
                 await userManager.ChangePasswordAsync(user.Id, oldpassword, model.Password);
@@ -283,8 +312,9 @@ namespace WebApplication1.Controllers
             }
             ViewBag.wrong = "your old password didn't match";
             return View();
-            
         }
+
+//Method Used for Creating Identity of User,Adding Claims and Authentication
         private async Task SignIn(AppUser user)
         {
             var identity = await userManager.CreateIdentityAsync(

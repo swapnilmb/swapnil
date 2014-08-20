@@ -1,0 +1,34 @@
+﻿@model WebApplication1.AppUser
+
+@{
+    ViewBag.Title = "Editprofile";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+
+<script src="~/Scripts/Editprofile.js"></script>
+
+@using (Html.BeginForm("Editprofile", "Auth", null, FormMethod.Post, new { id = "editprf" }))
+    
+{<h2>Edit Profile</h2>
+    
+  
+    @Html.ValidationSummary(true)
+    <div>@Html.LabelFor(p=>p.UserName)
+   
+    </div>
+    <div>@Html.EditorFor(p=>p.UserName)
+    @Html.ValidationMessageFor(p=>p.UserName)
+    </div>
+    <div>@Html.LabelFor(p => p.Email)</div>
+    <div>@Html.EditorFor(p => p.Email)
+        @Html.ValidationMessageFor(p => p.Email)
+    </div>
+    <div>@Html.LabelFor(p => p.Country)</div>
+    <div>@Html.EditorFor(p => p.Country)
+        @Html.ValidationMessageFor(p => p.Country)
+    </div>
+    <div><input type="submit" value="Update"/></div>
+}
+<div id="edit"></div>

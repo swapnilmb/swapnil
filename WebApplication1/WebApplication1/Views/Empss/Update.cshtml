@@ -4,9 +4,9 @@
 }
 <script>
     $(function () {
-        $("#sub").click( function (e) {
+        $("#up").click( function (e) {
             e.preventDefault();
-            
+          
             var dd = new departmentupdate();
            // var url = $(this).attr('action');
             $.ajax({
@@ -16,7 +16,7 @@
                 data: JSON.stringify(dd),
                 type: "POST",
                 success: function (data) {
-                    $("#sub").hide();
+                    $("#up").hide();
                     $("#sd").hide();
                     $("#upd").show();
                     $("#upd").text(data);
@@ -52,4 +52,4 @@
     // <div> @Html.DropDownList("DeptId", null, htmlAttributes: new { @class = "form-control" })</div>
    
 }
-<div><input type="submit" value="Update" id="sub" /></div>
+<div><input type="submit" value="Update" id="up" /></div>
