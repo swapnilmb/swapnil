@@ -16,7 +16,7 @@ namespace WebApplication1
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Empss", action = "Startpage", id = UrlParameter.Optional }
+                defaults: new { controller = "Employee", action = "Startpage", id = UrlParameter.Optional }
             );
         //    routes.MapRoute(
         //"ErrorHandler",

@@ -1,0 +1,55 @@
+﻿@model WebApplication1.Models.Employee
+@{
+    ViewBag.Title = "Update";
+}
+<script>
+    $(function () {
+        $("#updateemployee").click(function (e) {
+            e.preventDefault();
+          
+            var dd = new departmentupdate();
+           // var url = $(this).attr('action');
+            $.ajax({
+                dataType: 'json',
+                contentType: "application/json",
+                url: "/Employee/Update",
+                data: JSON.stringify(dd),
+                type: "POST",
+                success: function (data) {
+                    $("#updateemployee").hide();
+                    $("#render").hide();
+                    $("#updatemessage").show();
+                    $("#updatemessage").text(data);
+
+                }
+            });
+
+        });
+    }
+    );
+    function departmentupdate() {
+        var s = this;
+        s.DepartmentId = $("#DepartmentId").val();
+        s.EmployeeId = $("#EmployeeId").val();
+        s.Empname = $("#Empname").val();
+        
+        s.Empemail = $("#Empemail").val();
+    }
+</script>
+
+@using (Html.BeginForm("Update", "Employee", null, FormMethod.Post))
+{<h2>Update</h2>
+    @Html.ValidationSummary(true)
+
+    @Html.HiddenFor(model => model.EmployeeId)
+    <div>@Html.LabelFor(model => model.Empname)</div>
+    <div>@Html.EditorFor(model => model.Empname, new { htmlAttributes = new { @class = "form-control" }, })</div>
+    <div>@Html.LabelFor(model => model.Empemail)</div>
+    <div>@Html.EditorFor(model => model.Empemail, new { htmlAttributes = new { @class = "form-control" }, })</div>
+    <div>@Html.LabelFor(model => model.DepartmentId, "Department")</div>
+    //<div>@Html.DropDownList("DeptId", String.Empty)</div>
+
+     <div> @Html.DropDownList("DepartmentId", null, htmlAttributes: new { @class = "form-control" })</div>
+
+}
+<div><input type="submit" value="Update" id="updateemployee" class="btn btn-primary" style="margin-top:10px;font-weight:bold" /></div>

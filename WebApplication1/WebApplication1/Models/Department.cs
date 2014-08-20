@@ -7,9 +7,9 @@ using System.Web;
 
 namespace WebApplication1.Models
 {
-    public class Dept
+    public class Department
     {
-        public int DeptId { get; set; }
+        public int DepartmentId { get; set; }
         [DisplayName("Department")]
         [Required(ErrorMessage = "Department name required")]
         public string DeptName { get; set; }

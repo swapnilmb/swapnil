@@ -164,7 +164,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
-    <Compile Include="Controllers\EmpssController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HoController.cs" />
     <Compile Include="Global.asax.cs">
@@ -173,9 +173,9 @@
     <Compile Include="IdentityExtensions.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\Connection.cs" />
-    <Compile Include="Models\Dept.cs" />
+    <Compile Include="Models\Department.cs" />
     <Compile Include="Models\EF_DeptRepository.cs" />
-    <Compile Include="Models\Emp.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IDeptRepository.cs" />
     <Compile Include="Models\SampleData.cs" />
@@ -199,6 +199,7 @@
     <None Include="Properties\PublishProfiles\ED.pubxml" />
     <None Include="Properties\PublishProfiles\emp.pubxml" />
     <None Include="Properties\PublishProfiles\empdep.pubxml" />
+    <None Include="Properties\PublishProfiles\employee.pubxml" />
     <None Include="Properties\PublishProfiles\final2.pubxml" />
     <None Include="Properties\PublishProfiles\finalwork.pubxml" />
     <None Include="Properties\PublishProfiles\IISHostDemo.pubxml" />
@@ -237,14 +238,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Empss\Create.cshtml" />
-    <Content Include="Views\Empss\Update.cshtml" />
-    <Content Include="Views\Empss\Startpage.cshtml" />
-    <Content Include="Views\Shared\View.cshtml" />
-    <Content Include="Views\Shared\View1.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
+    <Content Include="Views\Employee\Update.cshtml" />
+    <Content Include="Views\Employee\Startpage.cshtml" />
+    <Content Include="Views\Shared\_Department.cshtml" />
     <Content Include="Views\Ho\Index.cshtml" />
-    <Content Include="Views\Empss\CreateDept.cshtml" />
-    <Content Include="Views\Empss\UpdateDept.cshtml" />
+    <Content Include="Views\Employee\CreateDept.cshtml" />
+    <Content Include="Views\Employee\UpdateDept.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Error\Unauthorised.cshtml" />
@@ -257,6 +257,7 @@
     <Content Include="Views\Auth\Newpassword.cshtml" />
     <Content Include="Views\Auth\Editprofile.cshtml" />
     <Content Include="Views\Shared\_Editprofile.cshtml" />
+    <Content Include="Views\Shared\_Employee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

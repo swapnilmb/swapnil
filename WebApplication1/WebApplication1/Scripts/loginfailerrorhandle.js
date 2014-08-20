@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
 
-    if (window.location == "http://10.1.81.37:8010/Empss/Startpage#/Auth/Login?check=1") {
+    if (window.location == "http://10.1.81.37:8040/Employee/Startpage#/Auth/Login?check=1") {
 
 
         $("#Progress").show();
@@ -9,12 +9,12 @@
 
             success: function (data) {
 
-                $("#sd").html(data).fadeIn(500);
+                $("#render").html(data).fadeIn(500);
 
 
                 $("#Progress").hide();
-
                 $("#Wrg").show();
+               
             },
             error: function (data) {
 
@@ -22,7 +22,7 @@
         });
     }
 
-    if (window.location == "http://10.1.81.37:8010/Empss/Startpage#/Auth/Newpassword")
+    if (window.location == "http://10.1.81.37:8040/Employee/Startpage#/Auth/Newpassword")
     {
    
         $.ajax({
@@ -30,7 +30,7 @@
 
             success: function (data) {
 
-                $("#sd").html(data).fadeIn(500);
+                $("#render").html(data).fadeIn(500);
 
 
                 $("#Progress").hide();

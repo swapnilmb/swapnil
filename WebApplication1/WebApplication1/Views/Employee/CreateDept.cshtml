@@ -1,15 +1,15 @@
-﻿@model WebApplication1.Models.Dept
+﻿@model WebApplication1.Models.Department
 @{
     ViewBag.Title = "Create";
 }
 <script>
     $(function () {
-        $("#crt").submit(function (e) {
+        $("#createdepartment").submit(function (e) {
             e.preventDefault();
             var dept = new departmentmodel();
             //var url = $(this).attr('action');
             $.ajax({
-                url: "/Empss/CreateDept",
+                url: "/Employee/CreateDept",
                 dataType: 'json',
                 contentType: "application/json",
                 type: "POST",
@@ -17,10 +17,10 @@
 
 
                 success: function (data) {
-                    $("#crt").hide();
-                    $("#sd").hide();
-                    $("#cre").show();
-                    $("#cre").text(data.result);
+                    $("#createdepartment").hide();
+                    $("#render").hide();
+                    $("#createmessage").show();
+                    $("#createmessage").text(data.result);
                    // $("#done").text(data.result);
 
 
@@ -40,11 +40,11 @@
     }
 </script>
 <h2>Create</h2>
-@using (Html.BeginForm("Create", "Depart", null, FormMethod.Post, new { id = "crt" }))
+@using (Html.BeginForm("Create", "Depart", null, FormMethod.Post, new { id = "createdepartment" }))
 { @Html.ValidationSummary(true)
 
     <div>@Html.LabelFor(m => m.DeptName)</div>
-    <div>@Html.EditorFor(m => m.DeptName)</div>
-    <input type="submit" value="Create" />
+    <div>@Html.EditorFor(m => m.DeptName, new { htmlAttributes = new { @class = "form-control" }, })</div>
+    <input type="submit" value="Create" class="btn btn-primary" style="margin-top:10px;font-weight:bold" />
 }
 

@@ -14,23 +14,23 @@ namespace WebApplication1.Models
         //    con=new Connection();
         //}
 
-         public IEnumerable<Dept> GetAllDepts()
+         public IEnumerable<Department> GetAllDepts()
         {
-            return con.Depts.ToList();
+            return con.Departments.ToList();
         }
 
-         public void CreateNewDept(Dept deptToCreate)
+         public void CreateNewDept(Department deptToCreate)
         {
-            con.Depts.Add(deptToCreate);
+            con.Departments.Add(deptToCreate);
              con.SaveChanges();
              //_db.(contactToCreate);
              //_db.SaveChanges();
              //   return contactToCreate;
         }
 
-        public Dept GetDeptbyDeptid(int id)
+        public Department GetDeptbyDeptid(int id)
         {
-            return con.Depts.SingleOrDefault(s => s.DeptId == id);
+            return con.Departments.SingleOrDefault(s => s.DepartmentId == id);
         }
         public int SaveChanges()
         {
@@ -40,7 +40,7 @@ namespace WebApplication1.Models
         public void DeleteDept(int id)
         {
             var dept = GetDeptbyDeptid(id);
-            con.Depts.Remove(dept);
+            con.Departments.Remove(dept);
             con.SaveChanges();
        
             

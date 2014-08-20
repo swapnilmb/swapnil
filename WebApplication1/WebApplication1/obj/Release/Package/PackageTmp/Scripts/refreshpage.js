@@ -7,7 +7,7 @@
             type: "GET",
             datatype: "html",
             success: function (data) {
-                $("#sd").html(data).fadeIn(500);
+                $("#render").html(data).fadeIn(500);
                 $("#Progress").hide();
             },
             error: function (data) {

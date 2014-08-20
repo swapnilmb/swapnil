@@ -66,7 +66,7 @@ namespace WebApplication1.Controllers
                 if (user.UserName == "Admin")
                 {
                     await SignIn(user);
-                    return RedirectToAction("Startpage", "Empss");
+                    return RedirectToAction("Startpage", "Employee");
                 }
                 else
                 {
@@ -104,7 +104,7 @@ namespace WebApplication1.Controllers
             //}
             //ModelState.AddModelError("", "Invalid email or password");
 
-            return Redirect("http://10.1.81.37:8010/Empss/Startpage#/Auth/Login?check=1");
+            return Redirect("http://10.1.81.37:8040/Employee/Startpage#/Auth/Login?check=1");
         }
 
 //Checks if the UserName all ready Exist or Not
@@ -128,7 +128,7 @@ namespace WebApplication1.Controllers
         {
             if (string.IsNullOrEmpty(returnUrl) || !Url.IsLocalUrl(returnUrl))
             {
-                return Url.Action("Startpage", "Empss");
+                return Url.Action("Startpage", "Employee");
             }
             return returnUrl;
         }
@@ -139,7 +139,7 @@ namespace WebApplication1.Controllers
             var ctx = Request.GetOwinContext();
             var authmanager = ctx.Authentication;
             authmanager.SignOut("ApplicationCookie");
-            return RedirectToAction("Startpage", "Empss");
+            return RedirectToAction("Startpage", "Employee");
 
         }
 
@@ -224,7 +224,7 @@ namespace WebApplication1.Controllers
                     user.EmailConfirmed = true;
                     await userManager.UpdateAsync(user);
                     await SignIn(user);
-                    return Redirect("http://10.1.81.37:8010/Empss/Startpage#/Auth/Newpassword");         
+                    return Redirect("http://10.1.81.37:8040/Employee/Startpage#/Auth/Newpassword");         
                 }
             else
             {

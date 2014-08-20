@@ -12,7 +12,7 @@ namespace WebApplication1.ViewModel
 
 
         [Required(ErrorMessage = "Please Enter Email or Username")]
-        [DisplayName("Email Or UserName")]
+        [DisplayName("Email-Id Or UserName")]
         //[DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 

@@ -13,18 +13,18 @@ namespace WebApplication1.Models
 
         protected override void Seed(AppDbContext context)
         {
-            var dep = new List<Dept>
+            var dep = new List<Department>
             {
-                new Dept {DeptName = "HR"},
-                new Dept {DeptName = "testing"},
+                new Department {DeptName = "HR"},
+                new Department {DeptName = "testing"},
             };
-            new List<Emp>
+            new List<Employee>
             {
-                new Emp{Empname="swapnil",Empemail="bha@gmail.com",Dept = dep.Single(g=>g.DeptName=="HR")},
-                new Emp{Empname="bhavsar",Empemail="bha@gmail.com",Dept = dep.Single(g=>g.DeptName=="testing")},
-                new Emp{Empname="bha",Empemail="bha@gmail.com",Dept = dep.Single(g=>g.DeptName=="testing")}
+                new Employee{Empname="swapnil",Empemail="bha@gmail.com",Department = dep.Single(g=>g.DeptName=="HR")},
+                new Employee{Empname="bhavsar",Empemail="bha@gmail.com",Department = dep.Single(g=>g.DeptName=="testing")},
+                new Employee{Empname="bha",Empemail="bha@gmail.com",Department = dep.Single(g=>g.DeptName=="testing")}
 
-            }.ForEach(a => context.Emps.Add(a));
+            }.ForEach(a => context.Employees.Add(a));
 
             var usermanager = new UserManager<AppUser>(
                   new UserStore<AppUser>(context));

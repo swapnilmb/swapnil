@@ -11,14 +11,14 @@ namespace UnitTestProject3.Models
     class MocDeptRepository: IDeptRepository
 
     {
-        private List<Dept> con=new List<Dept>();
+        private List<Department> con=new List<Department>();
         public Exception ExceptionToThrow { get; set; }
 
-        public void SaveChanges(Dept deptToUpdate)
+        public void SaveChanges(Department deptToUpdate)
         {
-            foreach (Dept dept in con)
+            foreach (Department dept in con)
             {
-                if (dept.DeptId == deptToUpdate.DeptId)
+                if (dept.DepartmentId == deptToUpdate.DepartmentId)
                 {
                     con.Remove(dept);
                     con.Add(deptToUpdate);
@@ -26,15 +26,15 @@ namespace UnitTestProject3.Models
                 }
             }
         }
-        public void Add(Dept dept)
+        public void Add(Department dept)
     {
         con.Add(dept);
     }
-        public Dept GetDeptbyDeptid(int id)
+        public Department GetDeptbyDeptid(int id)
         {
-            return con.FirstOrDefault(d => d.DeptId == id);
+            return con.FirstOrDefault(d => d.DepartmentId == id);
         }
-        public void CreateNewDept(Dept deptToCreate)
+        public void CreateNewDept(Department deptToCreate)
         {
             
             con.Add(deptToCreate);
@@ -45,7 +45,7 @@ namespace UnitTestProject3.Models
             return 1;
         }
 
-        public IEnumerable<Dept> GetAllDepts()
+        public IEnumerable<Department> GetAllDepts()
         {
             return con.ToList();
         }

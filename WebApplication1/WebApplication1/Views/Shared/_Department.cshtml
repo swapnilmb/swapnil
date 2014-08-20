@@ -1,0 +1,82 @@
+﻿
+@model IEnumerable<WebApplication1.Models.Department>
+@{
+    ViewBag.Title = "Department";
+}
+
+
+
+
+
+<script>
+    $(function () {
+        $('.update').click(function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            $("#divProgress").show();
+            $.ajax({
+                url: url,
+
+                success: function (data) {
+
+                    $('#renderindepartment').hide().html(data).fadeIn(500);
+                    $("#divProgress").hide();
+                }
+            });
+        });
+    });
+</script>
+<script>
+    
+    $(function () {
+        $('.delete').click(function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+
+            $.ajax({
+                url: url,
+
+                success: function (data) {
+
+                    $('#renderindepartment').hide().html(data).fadeIn(500);
+                    $("#render").hide();
+                    $("#deletemessage").show();
+                }
+            });
+        });
+    });
+</script>
+<div style="margin-top:80px">
+    <h2>Departments</h2>
+    <p>
+        @Html.ActionLink("Create New", "CreateDept", null, new { @class = "update" })
+    </p>
+    <table class="table-condensed table-bordered">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.DeptName)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var dd in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => dd.DeptName)
+                </td>
+                <td>
+                    @Html.ActionLink("Update", "UpdateDept", new { id = dd.DepartmentId }, new { @class = "update" }) |
+
+                    @Html.ActionLink("Delete", "DeleteDept", new { id = dd.DepartmentId }, new { @class = "delete" })
+                </td>
+            </tr>
+
+        }
+
+    </table>
+    </div>
+    
+    <div id="divProgress" style="display:none;">
+        <img src='@Url.Content("~/images/ProgressCircle.gif")' />
+    </div>
+    <div id="renderindepartment"></div>

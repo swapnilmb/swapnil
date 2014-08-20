@@ -12,12 +12,12 @@ namespace WebApplication1.ViewModel
 
 
         [DisplayName("UserName")]
-        [Required(ErrorMessage = "Name Required")]
+        [Required(ErrorMessage = "UserName Required")]
         [System.Web.Mvc.Remote("IsUserNameAvailable","Auth",HttpMethod = "POST",ErrorMessage="UserName Is been taken")]
         public string Name { get; set; }
         [DisplayName("Email-Id")]
-        [System.Web.Mvc.Remote("IsUserEmailAvailable", "Auth",HttpMethod = "POST", ErrorMessage = "Email already exists. Please enter a different Email.")]
-        [Required(ErrorMessage = "Email Required")]
+        [System.Web.Mvc.Remote("IsUserEmailAvailable", "Auth",HttpMethod = "POST", ErrorMessage = "Email-Id already exists. Please enter a different Email-Id.")]
+        [Required(ErrorMessage = "Email-Id Required")]
         [DataType(DataType.EmailAddress)]
         public string Emailid { get; set; }
 

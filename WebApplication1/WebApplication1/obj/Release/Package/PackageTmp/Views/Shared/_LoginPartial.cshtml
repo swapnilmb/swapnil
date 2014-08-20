@@ -2,21 +2,22 @@
 {
    
         <div style="color:white;padding:10px; font-size:large" class="navbar-right">
-            WellCome:- @User.Identity.Name
+            WelCome:- @User.Identity.Name
             &nbsp &nbsp <div class="navbar-right">@Html.ActionLink("Logout", "logout", "Auth")</div>
             <div><ul class="nav navbar-nav navbar-right">
     
                      <li>@Html.ActionLink("Edit Profile", "Editprofile", "Auth", null, new { @class = "clicklink" })</li>
-                     <li>@Html.ActionLink("ChangePassword", "Changepassword", "Auth", null, new { @class = "clicklink" })</li>
+                     <li>@Html.ActionLink("Change Password", "Changepassword", "Auth", null, new { @class = "clicklink" })</li>
 
                 @if (User.IsInRole("Admin"))
                 {
-                    <li>@Html.ActionLink("Register New User", "Register", "Auth", null, new { @class = "clicklink" })</li>
-    <li>@Html.ActionLink("Department", "IndexDept", "Empss", null, new { @class = "clicklink" })</li>
-    <li>@Html.ActionLink("Employee", "Index", "Empss", null, new { @class = "clicklink" })</li>
+                    <li>@Html.ActionLink("Register NewUser", "Register", "Auth", null, new { @class = "clicklink" })</li>
+                    <li>@Html.ActionLink("Department", "IndexDept", "Employee", null, new { @class = "clicklink" })</li>
+                    <li>@Html.ActionLink("Employee", "Index", "Employee", null, new { @class = "clicklink" })</li>
                     
                 }
-                 </ul></div>
+                 </ul>
+            </div>
         </div>
 
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title </title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
@@ -17,7 +17,7 @@
 
     <script>
         $(function () {
-            $(document).on('submit', '#old', function (e) {
+            $(document).on('submit', '#changepassword', function (e) {
                 e.preventDefault();
                 
                 var url = $(this).attr('action');
@@ -25,18 +25,18 @@
 
                 $.ajax({
                     url: url,
-                    data: $("#old").serialize(),
+                    data: $("#changepassword").serialize(),
                     type: "POST",
                     success: function (data) {
 
-                        $('#sd').hide().html(data).fadeIn(500);
+                        $('#render').hide().html(data).fadeIn(500);
                         $("#Progress").hide();
-                        $("#upd").hide();
-                        $("#del").hide();
-                        $("#cre").hide();
-                        $("#signin").show();
+                        $("#updatemessage").hide();
+                        $("#deletemessage").hide();
+                        $("#createmessage").hide();
+                       
                         $("#crt").hide();
-                        $("#old").hide();
+                        $("#changepassword").hide();
                     }
                 });
 
@@ -58,7 +58,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("EmpDept", "Startpage", "Empss", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("EMPLOYEE--DEPARTMENT", "Startpage", "Employee", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
 
@@ -71,7 +71,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year -Employee--Department </p>
         </footer>
     </div>
 

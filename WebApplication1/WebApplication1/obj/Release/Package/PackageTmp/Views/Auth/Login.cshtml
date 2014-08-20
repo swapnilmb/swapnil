@@ -11,21 +11,21 @@
 @using (Html.BeginForm("LogIn", "Auth", FormMethod.Post, new { id = "signin" }))
 {@Html.ValidationSummary(true)
     <h4 id="Wrg" style="display:none;">Email or Password Wrong</h4>
-    <h2>Log In</h2>
+    <h2>LogIn</h2>
     @Html.HiddenFor(m => m.ReturnUrl)
 
     <div> @Html.LabelFor(m => m.Email)</div>
     <div>
-        @Html.EditorFor(m => m.Email)
-        @Html.ValidationMessageFor(m => m.Email)
+        @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control" }, })
+        @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
     </div>
     <div> @Html.LabelFor(m => m.Password)</div>
     <div>
-        @Html.EditorFor(m => m.Password)
-        @Html.ValidationMessageFor(m => m.Password)
+        @Html.EditorFor(m => m.Password, new { htmlAttributes = new { @class = "form-control" }, })
+        @Html.ValidationMessageFor(m => m.Password, null, new { @class = "text-danger" })
     </div>
     <div>
-        <input type="submit" value="Log In" />
+        <input type="submit" value="Log In" class="btn btn-primary" style="margin-top:10px;font-weight:bold" />
     </div>
   
 }

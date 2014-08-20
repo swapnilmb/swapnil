@@ -9,7 +9,7 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {[HandleError]
-    public class EmpssController : Controller
+    public class EmployeeController : Controller
     {
 
     //Database Connection
@@ -19,8 +19,8 @@ namespace WebApplication1.Controllers
     //Shows the list of Employees
         public PartialViewResult Index()
         {
-            var employeeList = appdbcontext.Emps.Include(e => e.Dept).ToList();
-            return PartialView("View1", employeeList);
+            var employeeList = appdbcontext.Employees.Include(e => e.Department).ToList();
+            return PartialView("_Employee", employeeList);
         }
 
 
@@ -28,17 +28,17 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public PartialViewResult Create()
         {
-            ViewBag.DeptId = new SelectList(appdbcontext.Depts, "DeptId", "DeptName");
+            ViewBag.DepartmentId = new SelectList(appdbcontext.Departments, "DepartmentId", "DeptName");
             return PartialView();
         }
 
     //Create Employee and return message 
         [HttpPost]
-        public JsonResult Create(Emp emp)
+        public JsonResult Create(Employee emp)
         {
             if (ModelState.IsValid)
             {
-                appdbcontext.Emps.Add(emp);
+                appdbcontext.Employees.Add(emp);
                 appdbcontext.SaveChanges();
                 return Json("Employee Created");
             }
@@ -50,14 +50,14 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public PartialViewResult Update(int? id)
         {
-            Emp emp = appdbcontext.Emps.Find(id);
-            ViewBag.DeptId = new SelectList(appdbcontext.Depts, "DeptId", "DeptName", emp.DeptId);
+            Employee emp = appdbcontext.Employees.Find(id);
+            ViewBag.DepartmentId = new SelectList(appdbcontext.Departments, "DepartmentId", "DeptName", emp.DepartmentId);
             return PartialView(emp);
         }
 
     //Updates Employee after modification and return message
         [HttpPost]
-        public JsonResult Update( Emp emp)
+        public JsonResult Update( Employee emp)
         {
             if (ModelState.IsValid)
             {
@@ -66,18 +66,18 @@ namespace WebApplication1.Controllers
                 //var x = appdbcontext.Emps.ToList(); 
                 return Json("Employee Updated");
             }
-            ViewBag.edept = new SelectList(appdbcontext.Depts, "DeptId", "DeptName", emp.EmpId);
+            ViewBag.DepartmentId = new SelectList(appdbcontext.Departments, "DepartmentId", "DeptName", emp.EmployeeId);
             return Json(emp);
         }
 
     //Delete the Employee
         public PartialViewResult Delete(int id)
         {
-            var del = appdbcontext.Emps.Find(id);
-            appdbcontext.Emps.Remove(del);
+            var del = appdbcontext.Employees.Find(id);
+            appdbcontext.Employees.Remove(del);
             appdbcontext.SaveChanges();
-            var x = appdbcontext.Emps.ToList(); 
-            return PartialView("View1",x);
+            var x = appdbcontext.Employees.ToList(); 
+            return PartialView("_Employee",x);
         }
 
     //Index Page Which will run first
@@ -91,25 +91,25 @@ namespace WebApplication1.Controllers
     //Shows the list of Departments
          public PartialViewResult IndexDept()
          {
-             var department = appdbcontext.Depts.ToList();
-             return PartialView("View", department);
+             var department = appdbcontext.Departments.ToList();
+             return PartialView("_Department", department);
              
          }
 
     //create Department View
          public PartialViewResult CreateDept()
          {
-             ViewBag.dname = new SelectList(appdbcontext.Depts, "DeptId", "DeptName");
+             ViewBag.dname = new SelectList(appdbcontext.Departments, "DepartmentId", "DeptName");
              return PartialView();
          }
 
     //Creates Departments and return message
          [HttpPost]
-         public JsonResult CreateDept(Dept dept)
+         public JsonResult CreateDept(Department dept)
          {
              if (ModelState.IsValid)
              {
-                 appdbcontext.Depts.Add(dept);
+                 appdbcontext.Departments.Add(dept);
                  appdbcontext.SaveChanges();
                  return Json(new { result = "Department Created" }, JsonRequestBehavior.AllowGet);
 
@@ -121,13 +121,13 @@ namespace WebApplication1.Controllers
     //Update Department View
          public PartialViewResult UpdateDept(int id)
          {
-             Dept dd = appdbcontext.Depts.Find(id);
-             return PartialView(dd);
+             Department dept = appdbcontext.Departments.Find(id);
+             return PartialView(dept);
          }
 
     //Updates Department and Retun message
          [HttpPost]
-         public JsonResult UpdateDept(Dept dept)
+         public JsonResult UpdateDept(Department dept)
          {
              if (ModelState.IsValid)
              {
@@ -143,11 +143,11 @@ namespace WebApplication1.Controllers
     //Delete Department
          public ActionResult DeleteDept(int id)
          {
-             var del = appdbcontext.Depts.Find(id);
-             appdbcontext.Depts.Remove(del);
+             var del = appdbcontext.Departments.Find(id);
+             appdbcontext.Departments.Remove(del);
              appdbcontext.SaveChanges();
-             var x = appdbcontext.Depts.ToList();
-             return PartialView("View", x);
+             var x = appdbcontext.Departments.ToList();
+             return PartialView("_Department", x);
 
 
          }

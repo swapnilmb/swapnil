@@ -1,26 +1,26 @@
-﻿@model WebApplication1.Models.Dept
+﻿@model WebApplication1.Models.Department
 @{
     ViewBag.Title = "Update";
 }
 <script>
     $(function() {
-        $("#up").click(function(e) {
+        $("#updatedepartment").click(function (e) {
             e.preventDefault();
             // var x = $("#DeptName").val();
 
             var upd = new departmentmodemodel();
             $.ajax({
 
-                url: "/Empss/UpdateDept",
+                url: "/Employee/UpdateDept",
                 dataType: 'json',
                 contentType: "application/json",
                 data: JSON.stringify(upd),
                 type: "POST",
                 success: function (data) {
-                    $("#up").hide();
-                    $("#sd").hide();
-                    $("#upd").show();
-                    $("#upd").text(data.result);
+                    $("#updatedepartment").hide();
+                    $("#render").hide();
+                    $("#updatemessage").show();
+                    $("#updatemessage").text(data.result);
 
                 }
             });
@@ -33,7 +33,7 @@
 <script>
  function departmentmodemodel() {
         var self = this;
-        self.DeptId = $("#DeptId").val();
+        self.DepartmentId = $("#DepartmentId").val();
         self.DeptName = $("#DeptName").val();
  }
 </script>
@@ -42,13 +42,13 @@
 <h2>Update</h2>
 @using (Html.BeginForm("Update", "Depart", null, FormMethod.Post))
 { @Html.ValidationSummary(true)
-    <div>@Html.HiddenFor(m => m.DeptId)</div>
+    <div>@Html.HiddenFor(m => m.DepartmentId)</div>
     <div>@Html.LabelFor(m => m.DeptName)</div>
-    <div>@Html.EditorFor(m => m.DeptName)</div>
+    <div>@Html.EditorFor(m => m.DeptName, new { htmlAttributes = new { @class = "form-control" }, })</div>
 
 }
 <div>
-    <input type="submit" value="Update" id="up" />
+    <input type="submit" value="Update" id="updatedepartment" class="btn btn-primary" style="margin-top:10px;font-weight:bold" />
 </div>
 
 

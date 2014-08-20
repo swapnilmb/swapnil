@@ -34,13 +34,13 @@ function updateMyApp(value) {
 
         success: function (data) {
 
-            $('#sd').hide().html(data).fadeIn(500);
+            $('#render').hide().html(data).fadeIn(500);
             $("#Progress").hide();
-            $("#upd").hide();
-            $("#del").hide();
-            $("#cre").hide();
-            $("#signin").show();
-            $("#crt").hide();
+            $("#updatemessage").hide();
+            $("#deletemessage").hide();
+            $("#createmessage").hide();
+           // $("#signin").show();
+            //$("#crt").hide();
         }
     });
 

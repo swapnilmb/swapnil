@@ -1,5 +1,5 @@
 ﻿$(function () {
-    $("#new").submit(function (e) {
+    $("#newpassword").submit(function (e) {
         e.preventDefault();
 
         var url = $(this).attr('action');
@@ -7,18 +7,18 @@
 
         $.ajax({
             url: url,
-            data: $("#new").serialize(),
+            data: $("#newpassword").serialize(),
             type: "POST",
             success: function (data) {
 
-                $('#sd').hide().html(data).fadeIn(500);
+                $('#render').hide().html(data).fadeIn(500);
                 $("#Progress").hide();
-                $("#upd").hide();
-                $("#del").hide();
-                $("#cre").hide();
-                $("#signin").show();
+                $("#updatemessage").hide();
+                $("#deletemessage").hide();
+                $("#createmessage").hide();
+                
                 $("#crt").hide();
-                $("#old").hide();
+                $("#oldpassword").hide();
             }
         });
 

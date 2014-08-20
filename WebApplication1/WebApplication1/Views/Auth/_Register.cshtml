@@ -7,7 +7,7 @@
 
 <script>
     $(function () {
-        $(".oold").submit(function (e) {
+        $(".register").submit(function (e) {
             e.preventDefault();
             debugger;
             var url = $(this).attr('action');
@@ -15,17 +15,17 @@
 
             $.ajax({
                 url: url,
-                data: $(".oold").serialize(),
+                data: $(".register").serialize(),
                 type: "POST",
                 success: function (data) {
 
                     $('#Newadd').html(data).fadeIn(500);
                     $('#Newadd').html(data).fadeOut(4500);
                     $("#Progress").hide();
-                    $("#upd").hide();
-                    $("#del").hide();
-                    $("#cre").hide();
-                    $("#signin").show();
+                    $("#updatemessage").hide();
+                    $("#deletemessage").hide();
+                    $("#createmessage").hide();
+                    
                     $("#crt").hide();
 
                 }
@@ -37,28 +37,28 @@
 </script>
 <div id="Newadd" style="font-size:xx-large;"></div>
 <div style="margin-top:50px;">
-    @using (Html.BeginForm("Register", "Auth", null, FormMethod.Post, new {@class = "oold" }))
+    @using (Html.BeginForm("Register", "Auth", null, FormMethod.Post, new {@class = "register" }))
     {@Html.ValidationSummary(true)
         @Html.AntiForgeryToken()
         <h1>Register NewUser </h1>
         <div>@Html.LabelFor(n => n.Name)</div>
         <div>
-            @Html.EditorFor(n => n.Name)
-            @Html.ValidationMessageFor(m => m.Name)
+            @Html.EditorFor(n => n.Name, new { htmlAttributes = new { @class = "form-control" }, })
+            @Html.ValidationMessageFor(m => m.Name, null, new { @class = "text-danger" })
         </div>
         <div>@Html.LabelFor(e => e.Emailid)</div>
         <div>
-            @Html.EditorFor(e => e.Emailid)
-            @Html.ValidationMessageFor(m => m.Emailid)
+            @Html.EditorFor(e => e.Emailid, new { htmlAttributes = new { @class = "form-control" }, })
+            @Html.ValidationMessageFor(m => m.Emailid, null, new { @class = "text-danger" })
         </div>
 
         <div>@Html.LabelFor(p => p.Country)</div>
         <div>
-            @Html.EditorFor(p => p.Country)
-            @Html.ValidationMessageFor(m => m.Country)
+            @Html.EditorFor(p => p.Country, new { htmlAttributes = new { @class = "form-control" }, })
+            @Html.ValidationMessageFor(m => m.Country, null, new { @class = "text-danger" })
         </div>
 
-        <div><input type="submit" value="Create" /></div>
+        <div><input type="submit" value="Create" class="btn btn-primary" style="margin-top:10px;font-weight:bold" /></div>
 
     }
 </div>

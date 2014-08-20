@@ -16,15 +16,15 @@ namespace UnitTestProject3
     [TestClass]
     public class UnitTest1
     {
-         Dept GetDept()
+         Department GetDept()
         {
             return GetDept(1, "php");
         }
-        Dept GetDept(int id, string fName)
+        Department GetDept(int id, string fName)
         {
-            return new Dept
+            return new Department
             {
-                DeptId=id,
+                DepartmentId=id,
                 DeptName=fName
             
             };
@@ -73,8 +73,8 @@ namespace UnitTestProject3
         public void Index_Get_RetrievesAllDeptFromRepository()
         {
             // Arrange
-            Dept dept1 = GetDept(1, "Orlando");
-            Dept dept2 = GetDept(2, "Keith");
+            Department dept1 = GetDept(1, "Orlando");
+            Department dept2 = GetDept(2, "Keith");
             MocDeptRepository repository = new MocDeptRepository();
             repository.Add(dept1);
             repository.Add(dept2);
@@ -84,7 +84,7 @@ namespace UnitTestProject3
             var result = controller.Index();
 
             // Assert
-            var model = (IEnumerable<Dept>)result.ViewData.Model;
+            var model = (IEnumerable<Department>)result.ViewData.Model;
             CollectionAssert.Contains(model.ToList(), dept1);
             CollectionAssert.Contains(model.ToList(), dept2);
         }

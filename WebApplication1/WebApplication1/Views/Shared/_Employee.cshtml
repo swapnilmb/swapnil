@@ -1,0 +1,94 @@
+﻿@model IEnumerable<WebApplication1.Models.Employee>
+
+
+@{
+    ViewBag.Title = "Employee";
+}
+<script>
+    $(function () {
+        $('.update').click(function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            $("#divProgress").show();
+            $.ajax({
+                url: url,
+
+                success: function (data) {
+
+                    $('#renderinemployee').hide().html(data).fadeIn(500);
+                    $("#divProgress").hide();
+
+                }
+            });
+        });
+    });
+</script>
+<script>
+    $(function () {
+        $('.delete').click(function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+
+            $.ajax({
+                url: url,
+                cache: false,
+                success: function (data) {
+
+                    $('#renderinemployee').hide().html(data).fadeIn(500);
+                    $("#render").hide();
+                    $("#deletemessage").show();
+                }
+            });
+        });
+    });
+</script>
+<div style="margin-top:80px">
+    <h2>Employees</h2>
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "update" })
+    </p>
+    <table class="table table-bordered table-striped">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Empname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empemail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department.DeptName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var items in Model)
+    {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => items.Empname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => items.Empemail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => items.Department.DeptName)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Update", "Update", new { id = items.EmployeeId }, new { @class = "update" }) |
+
+                    @Html.ActionLink("Delete", "Delete", new { id = items.EmployeeId }, new { @class = "delete" })
+                </td>
+            </tr>
+    }
+
+    </table>
+</div>
+
+<div id="divProgress" style="display:none;">
+    <img src='@Url.Content("~/images/ProgressCircle.gif")' />
+</div>
+<div id="renderinemployee"></div>
+
