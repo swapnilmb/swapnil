@@ -42,3 +42,9 @@ D:\Swapnil\WebApplication1\UnitTestProject3\bin\Debug\System.Web.Helpers.dll
 D:\Swapnil\WebApplication1\UnitTestProject3\bin\Debug\System.Web.Helpers.xml
 D:\Swapnil\WebApplication1\UnitTestProject3\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
 D:\Swapnil\WebApplication1\UnitTestProject3\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+D:\Swapnil\WebApplication1\UnitTestProject3\bin\Debug\nunit.framework.dll
+D:\Swapnil\WebApplication1\UnitTestProject3\bin\Debug\nunit.framework.xml
+D:\Swapnil\WebApplication1\UnitTestProject3\bin\Debug\Autofac.dll
+D:\Swapnil\WebApplication1\UnitTestProject3\bin\Debug\Moq.dll
+D:\Swapnil\WebApplication1\UnitTestProject3\bin\Debug\Autofac.xml
+D:\Swapnil\WebApplication1\UnitTestProject3\bin\Debug\Moq.xml

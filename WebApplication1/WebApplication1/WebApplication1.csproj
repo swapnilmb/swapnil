@@ -175,9 +175,12 @@
     <Compile Include="Models\Connection.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\EF_DeptRepository.cs" />
+    <Compile Include="Models\EmployeeRepository.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IDeptRepository.cs" />
+    <Compile Include="Models\IEmployeeRepository.cs" />
+    <Compile Include="Models\MockDbContext.cs" />
     <Compile Include="Models\SampleData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

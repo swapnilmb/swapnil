@@ -13,22 +13,31 @@ namespace WebApplication1.Controllers
     {
 
     //Database Connection
-         AppDbContext appdbcontext = new AppDbContext();
+         //AppDbContext appdbcontext = new AppDbContext();
+    private IEmployeeRepository repository;
+    public EmployeeController()
+        : this(new EmployeeRepository())
+    {
 
-
+    }
+    public EmployeeController(IEmployeeRepository repo)
+    {
+        repository = repo;
+    }
     //Shows the list of Employees
         public PartialViewResult Index()
+
         {
-            var employeeList = appdbcontext.Employees.Include(e => e.Department).ToList();
-            return PartialView("_Employee", employeeList);
+            return PartialView("_Employee",  repository.GetallEmployee());
         }
+
 
 
     //Create Employee view
         [HttpGet]
         public PartialViewResult Create()
         {
-            ViewBag.DepartmentId = new SelectList(appdbcontext.Departments, "DepartmentId", "DeptName");
+            ViewBag.DepartmentId = new SelectList(repository.CreateDepartmentDropDown(), "DepartmentId", "DeptName");
             return PartialView();
         }
 
@@ -38,8 +47,7 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
-                appdbcontext.Employees.Add(emp);
-                appdbcontext.SaveChanges();
+                repository.CreateEmployee(emp);
                 return Json("Employee Created");
             }
             return Json(emp);
@@ -48,11 +56,11 @@ namespace WebApplication1.Controllers
     //Update Employee View
         [OutputCache(NoStore = true, Duration = 0)]
         [HttpGet]
-        public PartialViewResult Update(int? id)
+        public PartialViewResult Update(int id)
         {
-            Employee emp = appdbcontext.Employees.Find(id);
-            ViewBag.DepartmentId = new SelectList(appdbcontext.Departments, "DepartmentId", "DeptName", emp.DepartmentId);
-            return PartialView(emp);
+            var empy = repository.GetEmployeebyId(id);
+            ViewBag.DepartmentId = new SelectList(repository.CreateDepartmentDropDown(), "DepartmentId", "DeptName", empy.DepartmentId);
+            return PartialView(empy);
         }
 
     //Updates Employee after modification and return message
@@ -61,23 +69,20 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
-                appdbcontext.Entry(emp).State = EntityState.Modified;
-                appdbcontext.SaveChanges();
-                //var x = appdbcontext.Emps.ToList(); 
+                repository.EmployeeUpdate(emp);
                 return Json("Employee Updated");
             }
-            ViewBag.DepartmentId = new SelectList(appdbcontext.Departments, "DepartmentId", "DeptName", emp.EmployeeId);
+            ViewBag.DepartmentId = new SelectList(repository.CreateDepartmentDropDown(), "DepartmentId", "DeptName", emp.EmployeeId);
             return Json(emp);
         }
 
     //Delete the Employee
         public PartialViewResult Delete(int id)
         {
-            var del = appdbcontext.Employees.Find(id);
-            appdbcontext.Employees.Remove(del);
-            appdbcontext.SaveChanges();
-            var x = appdbcontext.Employees.ToList(); 
-            return PartialView("_Employee",x);
+            repository.EmployeeDelete(id);
+            //var x = appdbcontext.Employees.ToList(); 
+            var employee = repository.GetallEmployee();
+            return PartialView("_Employee",employee);
         }
 
     //Index Page Which will run first
@@ -91,15 +96,15 @@ namespace WebApplication1.Controllers
     //Shows the list of Departments
          public PartialViewResult IndexDept()
          {
-             var department = appdbcontext.Departments.ToList();
-             return PartialView("_Department", department);
+             
+             return PartialView("_Department", repository.GetallDepartment());
              
          }
 
     //create Department View
          public PartialViewResult CreateDept()
          {
-             ViewBag.dname = new SelectList(appdbcontext.Departments, "DepartmentId", "DeptName");
+             //ViewBag.dname = new SelectList(appdbcontext.Departments, "DepartmentId", "DeptName");
              return PartialView();
          }
 
@@ -109,8 +114,7 @@ namespace WebApplication1.Controllers
          {
              if (ModelState.IsValid)
              {
-                 appdbcontext.Departments.Add(dept);
-                 appdbcontext.SaveChanges();
+                 repository.CreateDepartment(dept);
                  return Json(new { result = "Department Created" }, JsonRequestBehavior.AllowGet);
 
              }
@@ -121,7 +125,7 @@ namespace WebApplication1.Controllers
     //Update Department View
          public PartialViewResult UpdateDept(int id)
          {
-             Department dept = appdbcontext.Departments.Find(id);
+             var dept = repository.GetDepartmentbyId(id);
              return PartialView(dept);
          }
 
@@ -131,8 +135,7 @@ namespace WebApplication1.Controllers
          {
              if (ModelState.IsValid)
              {
-                 appdbcontext.Entry(dept).State = EntityState.Modified;
-                 appdbcontext.SaveChanges();
+                 repository.DepartmentUpdate(dept);
                  //var x = appdbcontext.Depts.ToList();
                  return Json(new { result = "Department Updated" }, JsonRequestBehavior.AllowGet);
              }
@@ -143,13 +146,9 @@ namespace WebApplication1.Controllers
     //Delete Department
          public ActionResult DeleteDept(int id)
          {
-             var del = appdbcontext.Departments.Find(id);
-             appdbcontext.Departments.Remove(del);
-             appdbcontext.SaveChanges();
-             var x = appdbcontext.Departments.ToList();
-             return PartialView("_Department", x);
-
-
+             repository.DepartmentDelete(id);
+             var department = repository.GetallDepartment();
+             return PartialView("_Department",department);
          }
     }
 }
