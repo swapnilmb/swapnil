@@ -41,8 +41,15 @@ namespace UnitTestProject3.Models
 
          public void EmployeeUpdate(Employee employee)
          {
-             var index = _employee.IndexOf(employee);
-             _employee[index] = index;
+             foreach (Employee employees in _employee)
+             {
+                 if(employees.EmployeeId==employee.EmployeeId)
+                 {
+                     _employee.Remove(employees);
+                     _employee.Add(employee);
+                     break;
+                 }
+             }
          }
 
          public void EmployeeDelete(int id)
@@ -69,8 +76,16 @@ namespace UnitTestProject3.Models
          }
          public void DepartmentUpdate(Department department)
          {
-             var index = _department.IndexOf(department);
-             _department[index] = index;
+             foreach (Department departments in _department)
+             {
+                 if (departments.DepartmentId == department.DepartmentId)
+                 {
+                     _department.Remove(departments);
+                     _department.Add(department);
+                     
+                 }
+                 break;
+             }
          }
          public void DepartmentDelete(int id)
          {

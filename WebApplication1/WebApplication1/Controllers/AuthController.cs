@@ -19,18 +19,19 @@ namespace WebApplication1.Controllers
     [HandleError]
     public class AuthController : Controller
     {
-
+        private IAuthRepository repository;
  // Declare usermanager of type AppUser
         private readonly UserManager<AppUser> userManager;
 
-
+        
 //Invoke UsermanagerFactory
         public AuthController()
             : this(Startup.UserManagerFactory.Invoke())
         {
-
+            
         }
 
+       
 //Create usermanager object
         public AuthController(UserManager<AppUser> userManager)
         {
@@ -55,7 +56,7 @@ namespace WebApplication1.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View();//View("Login",model);
+                return View();
             }
 
             var user = await userManager.FindByNameOrEmailAsync(model.Email, model.Password);
@@ -156,7 +157,8 @@ namespace WebApplication1.Controllers
 //Shows The View Of Register ViewModel
         [HttpGet]
        public ActionResult Register()
-        {Newur ss=new Newur();
+        {
+            Newur ss=new Newur();
             return PartialView("_Register",ss);
         }
 
@@ -184,7 +186,7 @@ namespace WebApplication1.Controllers
 
             if (result.Succeeded)
             {
-              //  var code = await userManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                var code = await userManager.GenerateEmailConfirmationTokenAsync(user.Id);
                 MailMessage m = new MailMessage(new MailAddress("bhavsar.swapnil90@gmail.com", "Web Registration"),
                     new MailAddress(user.Email));
                 m.Subject = "Email Confirmation";
@@ -194,7 +196,7 @@ namespace WebApplication1.Controllers
                 smtp.Credentials = new System.Net.NetworkCredential("bhavsar.swapnil90@gmail.com", "swapnil199@");
                 smtp.EnableSsl = true;
                 smtp.Send(m);
-               
+              // repository.SendEmail(user);
                return Content("Confirm email sent");
             }
 

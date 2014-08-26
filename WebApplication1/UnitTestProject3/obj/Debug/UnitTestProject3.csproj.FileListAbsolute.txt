@@ -48,3 +48,8 @@ D:\Swapnil\WebApplication1\UnitTestProject3\bin\Debug\Autofac.dll
 D:\Swapnil\WebApplication1\UnitTestProject3\bin\Debug\Moq.dll
 D:\Swapnil\WebApplication1\UnitTestProject3\bin\Debug\Autofac.xml
 D:\Swapnil\WebApplication1\UnitTestProject3\bin\Debug\Moq.xml
+D:\Swapnil\WebApplication1\UnitTestProject3\bin\Debug\RestSharp.dll
+D:\Swapnil\WebApplication1\UnitTestProject3\bin\Debug\Twilio.Api.dll
+D:\Swapnil\WebApplication1\UnitTestProject3\bin\Debug\RestSharp.xml
+D:\Swapnil\WebApplication1\UnitTestProject3\bin\Debug\Twilio.Api.pdb
+D:\Swapnil\WebApplication1\UnitTestProject3\bin\Debug\Twilio.Api.xml

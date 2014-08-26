@@ -163,24 +163,17 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AuthController.cs" />
-    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
-    <Compile Include="Controllers\ErrorController.cs" />
-    <Compile Include="Controllers\HoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="IdentityExtensions.cs" />
     <Compile Include="Models\AppDbContext.cs" />
-    <Compile Include="Models\Connection.cs" />
     <Compile Include="Models\Department.cs" />
-    <Compile Include="Models\EF_DeptRepository.cs" />
     <Compile Include="Models\EmployeeRepository.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\IDeptRepository.cs" />
     <Compile Include="Models\IEmployeeRepository.cs" />
-    <Compile Include="Models\MockDbContext.cs" />
     <Compile Include="Models\SampleData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -245,13 +238,10 @@
     <Content Include="Views\Employee\Update.cshtml" />
     <Content Include="Views\Employee\Startpage.cshtml" />
     <Content Include="Views\Shared\_Department.cshtml" />
-    <Content Include="Views\Ho\Index.cshtml" />
     <Content Include="Views\Employee\CreateDept.cshtml" />
     <Content Include="Views\Employee\UpdateDept.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Error\Unauthorised.cshtml" />
-    <Content Include="Views\Error\ee.cshtml" />
     <Content Include="Views\Auth\_Register.cshtml" />
     <Content Include="Views\Auth\Confirm.cshtml" />
     <Content Include="Views\Auth\Changepassword.cshtml" />
@@ -264,7 +254,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

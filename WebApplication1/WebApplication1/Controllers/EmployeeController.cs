@@ -115,7 +115,7 @@ namespace WebApplication1.Controllers
              if (ModelState.IsValid)
              {
                  repository.CreateDepartment(dept);
-                 return Json(new { result = "Department Created" }, JsonRequestBehavior.AllowGet);
+                 return Json("Department Created",  JsonRequestBehavior.AllowGet);
 
              }
              return Json(dept);
@@ -137,14 +137,15 @@ namespace WebApplication1.Controllers
              {
                  repository.DepartmentUpdate(dept);
                  //var x = appdbcontext.Depts.ToList();
-                 return Json(new { result = "Department Updated" }, JsonRequestBehavior.AllowGet);
+                 //return Json(new { result = "Department Updated" }, JsonRequestBehavior.AllowGet);
+                 return Json("Department Updated", JsonRequestBehavior.AllowGet);
              }
              return Json(dept);
 
          }
 
     //Delete Department
-         public ActionResult DeleteDept(int id)
+         public PartialViewResult DeleteDept(int id)
          {
              repository.DepartmentDelete(id);
              var department = repository.GetallDepartment();
