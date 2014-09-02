@@ -19,7 +19,7 @@ namespace WebApplication1.Controllers
     [HandleError]
     public class AuthController : Controller
     {
-        private IAuthRepository repository;
+        
  // Declare usermanager of type AppUser
         private readonly UserManager<AppUser> userManager;
 

@@ -94,10 +94,11 @@ namespace WebApplication1.Controllers
 
    
     //Shows the list of Departments
-         public PartialViewResult IndexDept()
+         public JsonResult IndexDept()
          {
-             
-             return PartialView("_Department", repository.GetallDepartment());
+            
+             return Json(repository.GetallDepartment(),JsonRequestBehavior.AllowGet);
+             //return PartialView("_Department", repository.GetallDepartment());
              
          }
 

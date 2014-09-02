@@ -23,8 +23,6 @@ namespace UnitTestProject3
         public void InitializeTest()
         {
             TestDatabase.InitializeDatabase();
-
-            
         }
         
         public static EmployeeController GetEmployeeController(IEmployeeRepository repository)
@@ -34,166 +32,159 @@ namespace UnitTestProject3
         }
 
         [Test]
-        public void Get_partialview_name_of_Employee()
+        public void GetpartialviewnameofEmployeeTest()
         {
-            
             var controller = GetEmployeeController(new MocEmployeeRepository());
+
             PartialViewResult viewresult = controller.Index();
             Assert.IsNotNull(viewresult);
             Assert.AreEqual("_Employee", viewresult.ViewName);
             
         }
         [Test]
-        public void Get_All_Employee()
+        public void GetAllEmployeeTest()
         {
             var controller = GetEmployeeController(new MocEmployeeRepository());
-            //VewResult viewresult = controller.;
-           PartialViewResult viewresult = controller.Index();
-           // ViewResult result = viewresult as ViewResult;
+            PartialViewResult viewresult = controller.Index();
             IList<Employee> list=viewresult.Model as IList<Employee>;
-            //var count = _employeerepository.GetallDepartment();
             Assert.AreEqual(list.Count,1);
         }
         [Test]
-        public void Dropdown_List_of_Department()
+        public void DropdownListofDepartmentTest()
         {
             var controller = GetEmployeeController(new MocEmployeeRepository());
+
             PartialViewResult viewresult = controller.Create();
             ViewDataDictionary viewdata = viewresult.ViewData;
-            var c=viewdata.Values;
-            //Department d from c;
-            
-            //Department list = c as Department;
-            Assert.AreEqual(1, c.Count);
+            var result=viewdata.Values;
+            Assert.AreEqual(1, result.Count);
             Assert.AreEqual("", viewresult.ViewName);
         }
         [Test]
-        public void Create_Employee()
+        public void CreateEmployeeTest()
         {
             var controller = GetEmployeeController(new MocEmployeeRepository());
-            Employee emp = new Employee
+
+            Employee employee = new Employee
             {
                 EmployeeId = 2,
                 DepartmentId=1,
                 Empname = "sheetal",
                 Empemail = "sheetal@gmail.com"
             };
-          
-            //JsonResult viewresult=controller.Create(emp);
-            JsonResult viewresult = controller.Create(emp);
+            JsonResult viewresult = controller.Create(employee);
+            Assert.NotNull(viewresult);
             Assert.AreEqual("Employee Created", viewresult.Data);
-            Assert.NotNull(viewresult);
+            
         }
         [Test]
-        public void Get_Employee_To_Be_Updated()
+        public void GetEmployeeToBeUpdatedTest()
         {
             var controller = GetEmployeeController(new MocEmployeeRepository());
 
-            Employee emp = new MocEmployeeRepository().GetEmployeebyId(1);
+            Employee employee = new MocEmployeeRepository().GetEmployeebyId(1);
             PartialViewResult viewresult = controller.Update(1);
-            //ViewDataDictionary viewdata = viewresult.ViewData;
-            Employee emp1 =viewresult.Model as Employee;
+            Employee employee1 =viewresult.Model as Employee;
             Assert.NotNull(viewresult);
-            Assert.AreEqual(emp, emp1);
-           
-
+            Assert.AreEqual(employee, employee1);
         }
 
         [Test]
-        public void Employee_Updated()
+        public void EmployeeUpdatedTest()
         {
             var controller = GetEmployeeController(new MocEmployeeRepository());
-            Employee emp = new Employee
+
+            Employee employee = new Employee
             {
                 EmployeeId = 1,
                 DepartmentId = 1,
                 Empname = "sheetal",
                 Empemail = "sheetal@gmail.com"
             };
-            JsonResult viewresult = controller.Update(emp);
-            //Employee emp1 = viewresult.Model as Employee;
+            JsonResult viewresult = controller.Update(employee);
             Assert.AreEqual("Employee Updated", viewresult.Data);
         }
         [Test]
-        public void Delete_Employee()
+        public void DeleteEmployeeTest()
         {
             var controller = GetEmployeeController(new MocEmployeeRepository());
-            Employee emp = new MocEmployeeRepository().GetEmployeebyId(1);
+
+            Employee employee = new MocEmployeeRepository().GetEmployeebyId(1);
             PartialViewResult viewresult = controller.Delete(1);
-            Employee emp1 = viewresult.Model as Employee;
-            Assert.AreNotEqual(emp, emp1);
+            Employee employee1 = viewresult.Model as Employee;
+            Assert.AreNotEqual(employee, employee1);
         }
         [Test]
-        public void Get_partialview_name_of_Department()
+        public void GetpartialviewnameofDepartmentTest()
         {
 
             var controller = GetEmployeeController(new MocEmployeeRepository());
+
             PartialViewResult viewresult = controller.IndexDept();
             Assert.IsNotNull(viewresult);
             Assert.AreEqual("_Department", viewresult.ViewName);
 
         }
         [Test]
-        public void Get_All_Department()
+        public void GetAllDepartmentTest()
         {
             var controller = GetEmployeeController(new MocEmployeeRepository());
+
             PartialViewResult viewresult = controller.IndexDept();
             IList<Department> list = viewresult.Model as IList<Department>;
             Assert.AreEqual(list.Count, 1);
         }
     
         [Test]
-        public void Create_Department()
+        public void CreateDepartmentTest()
         {
             var controller = GetEmployeeController(new MocEmployeeRepository());
-            Department dept = new Department
+
+            Department department = new Department
             {
-               
-                DepartmentId = 2,
+               DepartmentId = 2,
                 DeptName="Testing"
             };
-                JsonResult viewresult = controller.CreateDept(dept);
-                Assert.AreEqual("Department Created",viewresult.Data);
+                JsonResult viewresult = controller.CreateDept(department);
                 Assert.NotNull(viewresult);
-            
+                Assert.AreEqual("Department Created",viewresult.Data);
         }
         [Test]
-        public void Get_Department_To_Be_Updated()
+        public void GetDepartmentToBeUpdatedTest()
         {
             var controller = GetEmployeeController(new MocEmployeeRepository());
 
-            Department dept = new MocEmployeeRepository().GetDepartmentbyId(1);
+            Department department = new MocEmployeeRepository().GetDepartmentbyId(1);
+
             PartialViewResult viewresult = controller.UpdateDept(1);
-            //ViewDataDictionary viewdata = viewresult.ViewData;
-            Department dept1 = viewresult.Model as Department;
+            Department department1 = viewresult.Model as Department;
             Assert.NotNull(viewresult);
-            Assert.AreEqual(dept, dept1);
-
+            Assert.AreEqual(department, department1);
 
         }
 
         [Test]
-        public void Department_Updated()
+        public void DepartmentUpdatedTest()
         {
             var controller = GetEmployeeController(new MocEmployeeRepository());
-            Department dept = new Department
-            {
 
+            Department department = new Department
+            {
                 DepartmentId = 1,
                 DeptName="Windows 8"
             };
-            JsonResult viewresult = controller.UpdateDept(dept);
-         
+            JsonResult viewresult = controller.UpdateDept(department);
             Assert.AreEqual("Department Updated", viewresult.Data);
         }
         [Test]
-        public void Delete_Department()
+        public void DeleteDepartmentTest()
         {
             var controller = GetEmployeeController(new MocEmployeeRepository());
-            Department dept = new MocEmployeeRepository().GetDepartmentbyId(1);
+
+            Department department = new MocEmployeeRepository().GetDepartmentbyId(1);
             PartialViewResult viewresult = controller.DeleteDept(1);
-            Department dept1 = viewresult.Model as Department;
-            Assert.AreNotEqual(dept, dept1);
+            Department department1 = viewresult.Model as Department;
+            Assert.AreNotEqual(department, department1);
         }
 
  
