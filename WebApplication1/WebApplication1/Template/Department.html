@@ -1,0 +1,31 @@
+﻿<div ng-init="getAllDepartment()">
+    <div>
+        <h2>Departments</h2>
+        <p>
+            <a href="#CreateDepartment">CreateDepartment</a>
+        </p>
+        <table class="table-condensed table-bordered">
+            <tr>
+                <th>
+                    Department Name
+                </th>
+                <th></th>
+            </tr>
+
+            <tr ng-repeat="departments in data">
+                <td>
+                    {{departments.DeptName}}
+                </td>
+                <td>
+                    <a href="#UpdateDepartment" id={{departments.DepartmentId}}>Update</a>
+
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    <div id="divProgress" style="display:none;">
+        <img src='@Url.Content("~/images/ProgressCircle.gif")' />
+    </div>
+    <div id="renderindepartment"></div>
+<div/>
