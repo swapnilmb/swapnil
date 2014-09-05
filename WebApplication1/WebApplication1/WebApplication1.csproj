@@ -547,6 +547,8 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Template\CreateDepartment.html" />
     <Content Include="Template\Department.html" />
+    <Content Include="Template\Employee.html" />
+    <Content Include="Template\UpdateDepartment.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

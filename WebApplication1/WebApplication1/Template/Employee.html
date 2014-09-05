@@ -1,0 +1,51 @@
+﻿<div ng-init="getAllEmployee()">
+    <div>
+        <div style="color:red;">{{delete.message}}</div>
+        <h2>Departments</h2>
+        <p>
+            <a href="#CreateEmployee">CreateEmployee</a>
+        </p>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>
+                    Employee Name
+                </th>
+
+                <th>
+                    Email-Id
+                </th>
+
+                <th>
+                    Department
+                </th>
+
+                <th>
+                    Update
+                </th>
+                <th>
+                    Delete
+                </th>
+            </tr>
+
+            <tr ng-repeat="employees in All">
+                <td>
+                    {{employees.Empname}}
+                </td>
+                <td>
+                    {{employees.Empemail}}
+                </td>
+                <td>
+                    {{employees.Department.DeptName}}
+                </td>
+                <td>
+                    <a href="" ng-click="getemployee(employees.EmployeeId)">Update</a>
+                </td>
+                <td>
+                    <a href="" ng-click="deleteemployee(employees.EmployeeId)">Delete</a>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    </div>
+    

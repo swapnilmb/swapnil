@@ -1,5 +1,6 @@
 ﻿<div ng-init="getAllDepartment()">
     <div>
+        <div style="color:red;">{{delete.message}}</div>
         <h2>Departments</h2>
         <p>
             <a href="#CreateDepartment">CreateDepartment</a>
@@ -9,23 +10,29 @@
                 <th>
                     Department Name
                 </th>
-                <th></th>
+               
+                <th>
+                    Update
+                </th>
+                <th>
+                    Delete
+                </th>
             </tr>
 
             <tr ng-repeat="departments in data">
                 <td>
                     {{departments.DeptName}}
                 </td>
+                
                 <td>
-                    <a href="#UpdateDepartment" id={{departments.DepartmentId}}>Update</a>
-
+                    <a href="" ng-click="getdepartment(departments.DepartmentId)">Update</a>
+                </td>
+                <td>
+                    <a href="" ng-click="deletedepartment(departments.DepartmentId)">Delete</a>
                 </td>
             </tr>
 
         </table>
     </div>
-    <div id="divProgress" style="display:none;">
-        <img src='@Url.Content("~/images/ProgressCircle.gif")' />
     </div>
-    <div id="renderindepartment"></div>
-<div/>
+ 

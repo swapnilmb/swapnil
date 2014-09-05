@@ -108,7 +108,6 @@ D:\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.
 D:\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 D:\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
 D:\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
-D:\Swapnil\WebApplication1\WebApplication1\bin\Newtonsoft.Json.xml
 C:\Users\swapnil\Desktop\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
 C:\Users\swapnil\Desktop\WebApplication1\WebApplication1\bin\WebApplication1.dll
 C:\Users\swapnil\Desktop\WebApplication1\WebApplication1\bin\WebApplication1.pdb
@@ -209,6 +208,7 @@ D:\Swapnil\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.xm
 D:\Swapnil\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\System.Web.Optimization.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\Antlr3.Runtime.pdb
+D:\Swapnil\WebApplication1\WebApplication1\bin\Newtonsoft.Json.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\EntityFramework.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Core.xml

@@ -12,7 +12,7 @@ namespace WebApplication1.Controllers
     public class DepartmentApiController : ApiController
     {
         IEmployeeRepository repository = new EmployeeRepository();
-        // GET api/<controller>
+        
         [HttpGet]
         public IEnumerable<Department> AllDepartment()
         {
@@ -34,25 +34,42 @@ namespace WebApplication1.Controllers
             return Ok(dept);
         }
 
-        // GET api/<controller>/5
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+         public Department GetDepartmentbyid(int Id)
+        {
+             var dept = repository.GetDepartmentbyId(Id); 
+             return dept;
 
-        //// POST api/<controller>
-        //public void Post([FromBody]string value)
-        //{
-        //}
+        }
 
-        //// PUT api/<controller>/5
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
+        [HttpPost]
+      
+        public IHttpActionResult UpdateDepartment(Department dept)
+        {
+            if (ModelState.IsValid)
+            {
+                repository.DepartmentUpdate(dept);
+                Message msg = new Message();
+                msg.message = "Department Updated";
 
-        //// DELETE api/<controller>/5
-        //public void Delete(int id)
-        //{
-        //}
+                return Ok(msg);
+            }
+          
+            return Ok(dept);
+
+        }
+        [HttpGet]
+        public IHttpActionResult DeleteDepartment(int id)
+        {
+            repository.DepartmentDelete(id);
+            Message msg = new Message();
+            msg.message = "Department Deleted";
+            return Ok(msg);
+        }
+
+        [HttpGet]
+        public IEnumerable<Employee> AllEmployee()
+        {
+            return repository.GetallEmployee();
+        }
     }
 }

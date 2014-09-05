@@ -14,10 +14,8 @@ namespace WebApplication1
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapHttpRoute("API Default", "api/{controller}/{id}",
-                new { id = RouteParameter.Optional }
-                );
-
+            
+          routes.MapHttpRoute("Api Action", "api/{controller}/{action}/{id}", new {action="Get", id = RouteParameter.Optional });
 
             routes.MapRoute(
                 name: "Default",

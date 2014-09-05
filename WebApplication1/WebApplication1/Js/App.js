@@ -7,5 +7,15 @@ var EmployeeDepartment = angular.module('EmployeeDepartment', ['ngRoute','ngReso
     }).when('/CreateDepartment', {
         templateUrl: 'Template/CreateDepartment.html',
         controller: 'EmployeeDepartmentController'
+    }).when('/UpdateDepartment/:id', {
+        controller: 'EmployeeDepartmentController',
+        templateUrl: 'Template/UpdateDepartment.html'
+        
+    }).when('/Employee/', {
+        controller: 'EmployeeDepartmentController',
+        templateUrl: 'Template/Employee.html'
+
     })
 });
+
+///UpdateDepartment/:param
