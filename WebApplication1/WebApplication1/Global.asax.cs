@@ -8,8 +8,12 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Microsoft.Owin.Logging;
 using WebApplication1.Controllers;
+using Autofac;
+using WebApplication1.Models;
 
-namespace WebApplication1
+
+
+using Autofac.Integration.Mvc;namespace WebApplication1
 {
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -23,6 +27,12 @@ namespace WebApplication1
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             //if (!Request.IsAuthenticated) Response.Redirect(
             //                                "Error.cshtml"); 
+
+            var builder = new ContainerBuilder();
+            builder.RegisterControllers(typeof(EmployeeController).Assembly);
+            builder.RegisterType<EmployeeRepository>().As<IEmployeeRepository>();
+            var container = builder.Build();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
 
 //Remove Cache When we go Backword After Logout

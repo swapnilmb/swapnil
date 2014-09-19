@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2", "WebAppli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1Test", "UnitTestProject3\WebApplication1Test.csproj", "{809B03BC-3695-4E5A-9E36-593754801BB8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingSignalR", "UsingSignalR\UsingSignalR.csproj", "{3829A3F4-C94F-4C4D-BAB6-383CFCA64456}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{809B03BC-3695-4E5A-9E36-593754801BB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{809B03BC-3695-4E5A-9E36-593754801BB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{809B03BC-3695-4E5A-9E36-593754801BB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3829A3F4-C94F-4C4D-BAB6-383CFCA64456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3829A3F4-C94F-4C4D-BAB6-383CFCA64456}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3829A3F4-C94F-4C4D-BAB6-383CFCA64456}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3829A3F4-C94F-4C4D-BAB6-383CFCA64456}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

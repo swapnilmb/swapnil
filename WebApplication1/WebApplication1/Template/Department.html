@@ -1,4 +1,4 @@
-﻿<div ng-init="getAllDepartment()">
+﻿<div ng-init="getAllDept()">
     <div>
         <div style="color:red;">{{delete.message}}</div>
         <h2>Departments</h2>
@@ -10,7 +10,7 @@
                 <th>
                     Department Name
                 </th>
-               
+
                 <th>
                     Update
                 </th>
@@ -19,20 +19,20 @@
                 </th>
             </tr>
 
-            <tr ng-repeat="departments in data">
+            <tr ng-repeat="departmentss in departmentsss">
                 <td>
-                    {{departments.DeptName}}
+                    {{departmentss.DeptName}}
                 </td>
-                
+
                 <td>
-                    <a href="" ng-click="getdepartment(departments.DepartmentId)">Update</a>
+                    <a href="" ng-click="getAllDept(departments.DepartmentId)">Update</a>
                 </td>
                 <td>
-                    <a href="" ng-click="deletedepartment(departments.DepartmentId)">Delete</a>
+                    <a href="" ng-click="deleteDept(departments.DepartmentId)">Delete</a>
                 </td>
             </tr>
 
         </table>
     </div>
-    </div>
+</div>
  

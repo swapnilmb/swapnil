@@ -167,11 +167,15 @@ D:\Swapnil\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
 D:\Swapnil\WebApplication1\WebApplication1\bin\WebApplication1.dll
 D:\Swapnil\WebApplication1\WebApplication1\bin\WebApplication1.pdb
 D:\Swapnil\WebApplication1\WebApplication1\bin\Antlr3.Runtime.dll
+D:\Swapnil\WebApplication1\WebApplication1\bin\Autofac.dll
+D:\Swapnil\WebApplication1\WebApplication1\bin\Autofac.Integration.Mvc.dll
 D:\Swapnil\WebApplication1\WebApplication1\bin\EntityFramework.dll
 D:\Swapnil\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.dll
 D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Core.dll
 D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
 D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.dll
 D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.Host.SystemWeb.dll
 D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Cookies.dll
@@ -195,6 +199,10 @@ D:\Swapnil\WebApplication1\WebApplication1\bin\System.Web.WebPages.Deployment.dl
 D:\Swapnil\WebApplication1\WebApplication1\bin\System.Web.WebPages.dll
 D:\Swapnil\WebApplication1\WebApplication1\bin\System.Web.WebPages.Razor.dll
 D:\Swapnil\WebApplication1\WebApplication1\bin\WebGrease.dll
+D:\Swapnil\WebApplication1\WebApplication1\bin\Autofac.xml
+D:\Swapnil\WebApplication1\WebApplication1\bin\Autofac.Integration.Mvc.xml
+D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.Host.SystemWeb.xml
 D:\Swapnil\WebApplication1\WebApplication1\bin\System.Net.Http.Formatting.xml
@@ -223,3 +231,4 @@ D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.Twitter.x
 D:\Swapnil\WebApplication1\WebApplication1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\Swapnil\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 D:\Swapnil\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+D:\Swapnil\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache

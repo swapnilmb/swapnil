@@ -20,8 +20,10 @@ namespace WebApplication1
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Employee", action = "Startpage", id = UrlParameter.Optional }
-            );
+               defaults: new { controller = "Employee", action = "Startpage", id = UrlParameter.Optional }
+              // defaults: new { controller = "Jasmine", action = "Run", id = UrlParameter.Optional }
+
+              );
         //    routes.MapRoute(
         //"ErrorHandler",
         //"Error/{action}/{errMsg}",

@@ -15,11 +15,11 @@ namespace WebApplication1.Controllers
     //Database Connection
          //AppDbContext appdbcontext = new AppDbContext();
     private IEmployeeRepository repository;
-    public EmployeeController()
-        : this(new EmployeeRepository())
-    {
+    //public EmployeeController()
+    //    : this(new EmployeeRepository())
+    //{
 
-    }
+    //}
     public EmployeeController(IEmployeeRepository repo)
     {
         repository = repo;
