@@ -220,6 +220,36 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\ProgressCircle.gif" />
+    <Content Include="Js\Directives\demo1.js" />
+    <Content Include="rec.svg" />
+    <Content Include="Scripts\drag.js" />
+    <Content Include="Scripts\svg-pan-zoom.js" />
+    <Content Include="svg-edit\browser.js" />
+    <Content Include="svg-edit\config-sample.js" />
+    <Content Include="svg-edit\config.js" />
+    <Content Include="svg-edit\contextmenu.js" />
+    <Content Include="svg-edit\coords.js" />
+    <Content Include="svg-edit\draw.js" />
+    <Content Include="svg-edit\embedapi.js" />
+    <Content Include="svg-edit\history.js" />
+    <Content Include="svg-edit\jquery-svg.js" />
+    <Content Include="svg-edit\jquery.js" />
+    <Content Include="svg-edit\math.js" />
+    <Content Include="svg-edit\path.js" />
+    <Content Include="svg-edit\recalculate.js" />
+    <Content Include="svg-edit\sanitize.js" />
+    <Content Include="svg-edit\select.js" />
+    <Content Include="svg-edit\svg-editor - Copy.js" />
+    <Content Include="svg-edit\svg-editor-copy-ok.js" />
+    <Content Include="svg-edit\svg-editor.js" />
+    <Content Include="svg-edit\svgcanvas.js" />
+    <Content Include="svg-edit\svgedit.compiled.js" />
+    <Content Include="svg-edit\svgedit.js" />
+    <Content Include="svg-edit\svgtransformlist.js" />
+    <Content Include="svg-edit\svgutils.js" />
+    <Content Include="svg-edit\touch.js" />
+    <Content Include="svg-edit\units.js" />
+    <Content Include="tiger.svg" />
     <Content Include="Waste\App.js" />
     <Content Include="Waste\EmployeeDepartmentController.js" />
     <Content Include="Waste\Department.js" />
@@ -622,7 +652,7 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Js\app1.ts" />
+    <TypeScriptCompile Include="Js\Application.ts" />
     <TypeScriptCompile Include="Js\Controllers\EmployeeDepartment.ts" />
     <TypeScriptCompile Include="Js\Services\Departments.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />

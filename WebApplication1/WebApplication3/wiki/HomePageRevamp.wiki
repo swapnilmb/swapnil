@@ -1,0 +1,110 @@
+= Introduction =
+
+SVG-edit is a fast, web-based, !JavaScript-driven SVG drawing editor that works in any modern browser.
+
+= Recent news =
+ * 2013-11-07 [CommunityConferenceCall5 community conference call] (join us!)
+ * 2013-10-10 [CommunityConferenceCall4 community conference call] (You can listen to the recording)
+ * 2013-04-09 [CommunityConferenceCall3 community conference call] (You can listen to the recording)
+ * 2013-02-12 [CommunityConferenceCall2 community conference call] (You can listen to the recording)
+ * 2013-01-15: [https://code.google.com/p/svg-edit/downloads/detail?name=svg-edit-2.6.zip&can=2&q= SVG-edit 2.6] was released
+
+= Demos =
+Try out <b>[http://svg-edit.googlecode.com/svn/branches/2.6/editor/svg-editor.html SVG-edit 2.6 demo]</b>, the latest stable release.
+
+For the adventurous ones, please do try out the [http://svg-edit.googlecode.com/svn/trunk/editor/svg-editor.html trunk build demo] (This is the development code of the next version).
+
+= Videos / Screencasts =
+  * [http://www.youtube.com/watch?v=zpC7b1ZJvvM SVG-edit 2.4 Part 1]
+  * [http://www.youtube.com/watch?v=mDzZEoGUDe8 SVG-edit 2.4 Part 2]
+  * [http://www.youtube.com/watch?v=RVIcIy5fXOc SVG-edit 2.3 Features]
+  * [http://www.youtube.com/watch?v=ZJKmEI06YiY Introduction to SVG-edit] (Version 2.2)
+
+
+= Features =
+SVG-edit is an online vector graphics editor that uses only !JavaScript, HTML5, CSS and SVG (i.e. no server-side functionality).  SVG-edit has the following features:
+
+<table><tr><td>
+  * Free-hand drawing
+  * Lines, Polylines
+  * Rects/Squares
+  * Ellipses/Circles
+  * Polygons/Curved Paths
+  * Stylable Text
+  * Raster Images
+  * Select/move/resize/rotate
+  * Undo/Redo
+  * Color/Gradient picker
+  * Group/ungroup
+  * Align
+  * Zoom
+  * Layers
+</td>
+<td>
+  * Convert Shapes to Path
+  * Wireframe Mode
+  * Save drawing to SVG
+  * Linear Gradient Picking
+  * View and Edit SVG Source
+  * UI Localization
+  * Resizable Canvas
+  * Change Background
+  * Draggable Dialogs
+  * Resizable UI (SVG icons)
+  * Open Local Files
+  * Import SVG into Drawing
+  * Connector lines and Arrows
+</td>
+<td>
+  * [http://code.google.com/p/svg-edit/wiki/ExtensionDocs Plugin Architecture]
+  * Smoother freehand paths
+  * Editing outside the canvas
+  * Increased support for SVG elements
+  * Add/edit Sub-paths
+  * Multiple path segment selection
+  * Support for foreign markup (MathML)
+  * Radial Gradients
+  * [http://code.google.com/p/svg-edit/wiki/ConfigOptions Configurable Options]
+  * Eye-dropper tool
+  * Stroke linejoin and linecap
+  * Export to PNG
+</td></tr></table>
+
+ * New in 2.6:
+  * Support for Internet Explorer 9
+  * In-group editing
+  * Image library
+  * Shape library
+  * Context menu
+  * Cut/Copy/Paste
+  * Gridlines, snap to grid 
+  * Merge layers
+  * Duplicate layer
+  * [http://code.google.com/p/svg-edit/issues/list?can=1&q=NeededFor%3D2.6&colspec=ID+Type+Status+Priority+NeededFor+Browser+Owner+Summary&cells=tiles many more] 
+
+SVG-edit works directly in the browser.  There have been several side projects:  A Firefox Add-on, an Opera Widget, a Google Wave Gadget (no longer maintained).
+
+In browsers that support the W3C File API, this editor allows you to open local files.  The set of browsers in which this supported is: Firefox 3.6+, Chrome 6+, Safari 5+, and Opera 11.10+ (builds from 2011-04-05 onwards).
+
+= Supported browsers =
+ * Firefox 1.5+
+ * Opera 9.50+
+ * Safari 4+
+ * Chrome 1+
+ * IE 6+ (with the [http://code.google.com/chrome/chromeframe/ Chrome Frame plugin], native IE9 support in 2.6)
+
+= Support the project =
+If you use SVG-edit, add to your Ohloh.net stacks:
+<wiki:gadget url="http://www.ohloh.net/p/325148/widgets/project_users.xml" height="100" border="0"/>
+
+= Further Reading =
+  * [ProjectsThatUseSvgEdit Projects that use SVG-edit]
+  * [Reviews]
+  * [HowToParticipate How to participate]
+  * [FrequentlyAskedQuestions Frequently Asked Questions]
+  * [TipsAndTricks Tips and Tricks]
+  * [Roadmap]
+  * [Governance]
+  * [CodeRefactoring Code Refactoring]
+  * [VersionHistory Version History (release notes)]
+  * This editor depends on many other open-source projects.  See [Acknowledgements] for details.

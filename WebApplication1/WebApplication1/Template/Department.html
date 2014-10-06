@@ -1,6 +1,6 @@
 ﻿<div ng-init="getAllDept()">
     <div>
-        <div style="color:red;">{{delete.message}}</div>
+        <div my-sample>hellooooooooooooooooo</div>
         <h2>Departments</h2>
         <p>
             <a href="#CreateDepartment">CreateDepartment</a>
@@ -25,10 +25,10 @@
                 </td>
 
                 <td>
-                    <a href="" ng-click="getAllDept(departments.DepartmentId)">Update</a>
+                    <a href="" ng-click="getAllDept(departmentss.DepartmentId)">Update</a>
                 </td>
                 <td>
-                    <a href="" ng-click="deleteDept(departments.DepartmentId)">Delete</a>
+                    <a href="" ng-click="deleteDept(departmentss.DepartmentId)">Delete</a>
                 </td>
             </tr>
 
@@ -36,3 +36,55 @@
     </div>
 </div>
  
+<script src="../scripts/jquery-1.9.0.min.js"></script>
+<script src="../Scripts/svg-pan-zoom.js"></script>
+
+<h2>Custom Directive</h2>
+<!--<div my-Sample>
+
+</div>-->
+<!--<my-sample></my-sample>-->
+<!--<zoom-in></zoom-in>-->
+<!--<div id="abc" zoom-in></div>-->
+
+<!--<svg id="pqr" width ="700px" height="700px" style=" border:1px solid black; ">
+    <g class="viewport">-->
+        
+        <!--<rect width="100px" height="100px" style="fill:red;stroke:black;stroke-width:1;" />
+
+        <circle id="cc" cx="100" cy="100" r="20"></circle>-->
+
+      <object style="width: 500px; height: 500px; border:1px solid black; "  data="tiger.svg" type="image/svg+xml" class="abc">Your browser does not support SVG</object>
+<object style="width:500px;height:500px; border:1px solid blue; " data="rec.svg" type="image/svg+xml" class="abcd">Your browser does not support SVG</object>
+
+
+
+
+
+    <!--</g>
+</svg>-->
+
+<!--<div class="my-Sample"></div>
+<div class="my-Sample"></div>
+<div class="my-Sample"></div>
+<div class="my-Sample"></div>-->
+<br />
+<br />
+
+<script>
+
+    $(function (){
+        
+        var panZoom = svgPanZoom( '.abc', {
+            zoomEnabled: true,
+            panEnabled: true
+        });
+
+        var panrec = svgPanZoom('.abcd', {
+            zoomEnabled: false,
+            panEnabled: true
+        });
+
+       
+    })
+</script>

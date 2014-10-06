@@ -1,9 +1,11 @@
 ﻿
-/// <reference path="../app1.ts" />
+
+
 /// <reference path="../../scripts/typings/angularjs/angular-route.d.ts" />
 /// <reference path="../../scripts/typings/angularjs/angular-resource.d.ts" />
 /// <reference path="../../scripts/typings/angularjs/angular.d.ts" />
 /// <reference path="../services/departments.ts" />
+/// <reference path="../application.ts" />
 
 // Update the reference to app1.ts to be that of your module file.
 // Install the angularjs.TypeScript.DefinitelyTyped NuGet package to resolve the .d.ts reference paths,
@@ -18,22 +20,22 @@ interface IEmployeeDepartmentScope extends ng.IScope {
 }
 
 interface IEmployeeDepartment {
-    
+
 }
 
 class EmployeeDepartment implements IEmployeeDepartment {
     static controllerId: string = "EmployeeDepartment";
-    
+
     constructor(private $scope: IEmployeeDepartmentScope, private $http: ng.IHttpService, private $resource: ng.resource.IResourceService, private Departments: Departments) {
         $scope.save = (dept) => this.save(dept);
         $scope.getAllDept = () => this.getAllDept();
-        $scope.deleteDept = (id) => this.deleteDept(id); 
+        $scope.deleteDept = (id) => this.deleteDept(id);
     }
 
     private save(dept) {
 
         this.Departments.saveDept(dept).then((result) => {
-            this.$scope.departmentsss.push(result);
+            this.$scope.departmentsss = result;
         });
     }
 
@@ -54,6 +56,6 @@ class EmployeeDepartment implements IEmployeeDepartment {
 }
 
 // Update the app1 variable name to be that of your module variable
-app1.controller(EmployeeDepartment.controllerId, ['$scope', '$http', '$resource', 'Departments', ($scope, $http, $resource, Departments) =>
+Application.controller(EmployeeDepartment.controllerId, ['$scope', '$http', '$resource', 'Departments', ($scope, $http, $resource, Departments) =>
     new EmployeeDepartment($scope, $http, $resource, Departments)
 ]);

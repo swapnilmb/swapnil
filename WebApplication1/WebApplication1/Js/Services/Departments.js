@@ -1,7 +1,7 @@
-﻿/// <reference path="../app1.ts" />
-/// <reference path="../../scripts/typings/angularjs/angular.d.ts" />
+﻿/// <reference path="../../scripts/typings/angularjs/angular.d.ts" />
 /// <reference path="../../scripts/typings/angularjs/angular-resource.d.ts" />
 /// <reference path="../controllers/employeedepartment.ts" />
+/// <reference path="../application.ts" />
 
 var Departments = (function () {
     function Departments($http, $resource) {
@@ -25,7 +25,7 @@ var Departments = (function () {
 })();
 
 // Update the app1 variable name to be that of your module variable
-app1.factory(Departments.serviceId, [
+Application.factory(Departments.serviceId, [
     '$http', '$resource', function ($http, $resource) {
         return new Departments($http, $resource);
     }

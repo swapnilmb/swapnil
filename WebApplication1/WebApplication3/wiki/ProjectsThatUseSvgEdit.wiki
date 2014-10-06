@@ -1,0 +1,66 @@
+#summary A list of projects that use SVG-edit
+
+  * *Integrate as-is* means that it uses some or all of the functionality of SVG-edit but it doesn't extend them. Think "SVG-edit as a finished product"
+  * * Heavy modification* means SVG-edit was used as a base, but application has important changes. Think "SVG-edit as a platform/framework/starting point"
+
+= FOSS Web apps =
+Free and Open Source Web applications that you can download and install on your own server
+
+== Integrate as-is ==
+  * [http://doc.tiki.org/Draw Tiki Wiki CMS Groupware] (aka Tiki Draw)
+  * [http://www.mediawiki.org/wiki/Extension:SVGEdit Experimental MediaWiki extension]
+  * [http://www.dokuwiki.org/plugin:svgedit Dokuwiki] (plugin)
+  * [http://moinmo.in/ReimarBauer/SvgEditor MoinMoin Extension] and a [https://bitbucket.org/ReimarBauer/xstatic-svg-edit-moin/src/tip/xstatic/pkg/svgedit_moin/data/editor/extensions/ext-server_moinsave.js?at=default save extension] for the [http://moinmo.in/MoinMoin2.0 MoinMoin Wiki Software project] and packaged as [http://pypi.python.org/pypi/XStatic-svg-edit-moin XStatic package] for PyPI
+  * [http://www.chamilo.org/ Chamilo LMS]
+  * [http://golem.ph.utexas.edu/~distler/blog/archives/002168.html Instiki]
+  * [http://www.autohotkey.com/forum/topic52732.html Integrating SVG-edit with TiddlyWiki]
+  * [http://extensions.xwiki.org/xwiki/bin/view/Extension/SVG+Macro XWiki] (via macro)
+  * [http://eduvid.techfandu.org/ Project Eduvid]
+  * [http://trac.yanel-contribution.3k3.org/wiki/svg-edit Yanel CMS] (as a 3rd-party resource)
+  * [http://wise4.telscenter.org/webapp/index.html WISE 4.0 Learning environment] (drawing component)
+  * [http://sourceforge.net/projects/ocsvg/ ownCloud]
+  * [https://drupal.org/sandbox/josegaert/1511596 Drupal]
+  * [https://github.com/brettz9/webappfind WebAppFind] - Allows desktop invocation of web apps (currently Windows only); contains a demo SVG type handler using SVG-edit
+
+== Extension ==
+  * [http://asyazwan.github.com/ext-sozi/ ext-sozi] SVG-edit extension to use Sozi in your SVGs. Create Sozi SVGs in your browser, 100% client-side. See also [http://asyazwan.github.com/ext-sozi/ext-sozi-guide.png illustrated guide]
+  * [https://github.com/josegaert/ext-mathjax ext-mathjax] SVG-edit extension to use the [http://www.mathjax.com/ MathJax] javaScript library to transform LaTeX math into nicely typeset SVG figures.
+
+
+== Heavy modification ==
+  * [http://adityab.github.com/Awwation/ Awwation]
+  * [https://code.google.com/p/cwm-drawtool/ CWM Draw Tool]
+  * [https://github.com/duopixel/Method-Draw Method Draw]
+  * [https://www.liveyearbook.com LIVEyearbook Inc.] NOTE: svg-edit is not accessible to public
+
+
+= Online services =
+Directly available online, via a web browser. No need or way to download or install anything.
+
+== Use as-is ==
+  * [http://framavectoriel.org/ Framavectoriel] (in French)
+  * [http://projectsesame.appspot.com/ Project Sesame] (2.4)
+  * [http://www.ezadspro.com/]
+
+== Heavy modification ==
+  * [http://www.flamingtext.com/imagebot/ ImageBot]
+  * [http://www.clker.com/ Clker.com] (clip art site)
+  * [http://editor.cloud-canvas.com CloudCanvas]
+  * [http://instanttee.co.nr/ InstantTee]
+  * [http://www.vector-paint.com/ Vector Paint]
+  * [http://dev.chromics.com/master/editor/svg-editor.html Chromics]
+
+= Installable application =
+Integrating SVG-edit in a desktop application, which you download and use on your computer. 
+
+== Integrate as-is ==
+  * [https://chrome.google.com/webstore/detail/hnbpdiengicdefcjecjbnjnoifekhgdo Online Paint] (Chrome Web App)
+
+== Heavy modification ==
+  * [http://bluegriffon.org/ BlueGriffon Web Editor]
+
+
+= Others =
+  * [https://faustedition.uni-wuerzburg.de/public/text-image-links.jpg A text/image tool]
+  * [http://code.google.com/p/svg-edit/issues/detail?id=252 SVG-edit on tablets and devices]
+  * And many [https://github.com/search?q=%22svg-edit%22&repo=&p=1&type=Repositories&l= forks on Github]

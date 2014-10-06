@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html ng-app="EmployeeDepartment">
+<html ng-app="Application">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
     <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>*@
     <script src="~/Scripts/getdata-bck-frd.js"></script>
-
+  
     <script>
         $(function () {
             $(document).on('submit', '#changepassword', function (e) {
@@ -66,8 +66,7 @@
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
-    </div>
-    <div class="container body-content">
+    </div>    <div class="container body-content">
 
         @RenderBody()
         <hr />
@@ -75,14 +74,20 @@
             <p>&copy; @DateTime.Now.Year -Employee--Department </p>
         </footer>
     </div>
-    <script src="~/Scripts/angular.min.js"></script>
+    
+    <script src="~/Scripts/angular.js"></script>
     <script src="~/Scripts/angular-route.min.js"></script>
-    <script src="~/Scripts/angular-resource.js"></script>
-    <script src="~/Js/app1.js"></script>
-
-    <script src="~/Js/Controllers/EmployeeDepartment.js"></script>
+    <script src="~/Scripts/angular-resource.js"></script>    
+    
+    <script src="~/Js/Application.js"></script>
     <script src="~/Js/Services/Departments.js"></script>
-    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/drag.js"></script>
+    <script src="~/Js/Directives/demo1.js"></script>
+  
+    <script src="~/Js/Controllers/EmployeeDepartment.js"></script>
+    
+    
+    
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

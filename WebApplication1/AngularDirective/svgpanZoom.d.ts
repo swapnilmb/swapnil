@@ -1,0 +1,1 @@
+﻿declare function svgPanZoom(element:any,property:any):any;

@@ -1,8 +1,9 @@
 ﻿
-/// <reference path="../app1.ts" />
+
 /// <reference path="../../scripts/typings/angularjs/angular.d.ts" />
 /// <reference path="../../scripts/typings/angularjs/angular-resource.d.ts" />
 /// <reference path="../controllers/employeedepartment.ts" />
+/// <reference path="../application.ts" />
 
 
 // Update the reference to app1.ts to be that of your module file.
@@ -42,6 +43,6 @@ class Departments implements IDepartments {
 }
 
 // Update the app1 variable name to be that of your module variable
-app1.factory(Departments.serviceId, ['$http', '$resource', ($http, $resource) =>
+Application.factory(Departments.serviceId, ['$http', '$resource', ($http, $resource) =>
     new Departments($http, $resource)
 ]);

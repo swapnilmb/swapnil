@@ -1,8 +1,8 @@
-﻿/// <reference path="../app1.ts" />
-/// <reference path="../../scripts/typings/angularjs/angular-route.d.ts" />
+﻿/// <reference path="../../scripts/typings/angularjs/angular-route.d.ts" />
 /// <reference path="../../scripts/typings/angularjs/angular-resource.d.ts" />
 /// <reference path="../../scripts/typings/angularjs/angular.d.ts" />
 /// <reference path="../services/departments.ts" />
+/// <reference path="../application.ts" />
 
 var EmployeeDepartment = (function () {
     function EmployeeDepartment($scope, $http, $resource, Departments) {
@@ -24,7 +24,7 @@ var EmployeeDepartment = (function () {
     EmployeeDepartment.prototype.save = function (dept) {
         var _this = this;
         this.Departments.saveDept(dept).then(function (result) {
-            _this.$scope.departmentsss.push(result);
+            _this.$scope.departmentsss = result;
         });
     };
 
@@ -48,7 +48,7 @@ var EmployeeDepartment = (function () {
 })();
 
 // Update the app1 variable name to be that of your module variable
-app1.controller(EmployeeDepartment.controllerId, [
+Application.controller(EmployeeDepartment.controllerId, [
     '$scope', '$http', '$resource', 'Departments', function ($scope, $http, $resource, Departments) {
         return new EmployeeDepartment($scope, $http, $resource, Departments);
     }
