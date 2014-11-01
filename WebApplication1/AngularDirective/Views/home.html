@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html ng-app="Application">
+<head>
+    <title></title>
+
+
+</head>
+<body>
+    
+   <!--pan-zoom is directive which handles panning and zooming on svg and we can also pass attibutes with directive-->
+    <button id="zoomIn" ng-click="zoomIn()">ZoomIn</button>
+    <button id="zoomOut" ng-click="zoomOut()">ZoomOut</button>
+    <button ng-disabled="panBtnVisible==false" id="PanEnabled" ng-click="panEnable()">Pan</button>
+    <svg height="650" width="1300" pan-zoom   id="elem">
+        <g class="viewport">
+            <rect height="200" width="200" style="fill:white;stroke:red;stroke-width:1;" />
+
+            <!--<circle id="cc" cx="25" cy="25" r="25" style="fill:yellow"></circle>-->
+        </g>
+
+    </svg>
+
+    <br />
+
+    <script src="../Scripts/jquery-2.1.1.js"></script>
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular-route.min.js"></script>
+    <script src="../Scripts/angular-resource.min.js"></script>
+    <script src="../svg-pan-zoom.js"></script>
+    <script src="../directives/PanZoom.js"></script>
+</body>
+</html>
